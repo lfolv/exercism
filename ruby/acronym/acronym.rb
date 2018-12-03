@@ -1,10 +1,10 @@
 module Acronym
-  BORDERLINES = /\W+/
+  BORDERLINES = /\b\w/
 
   def self.abbreviate(sentence)
     sentence
-      .split(BORDERLINES)
-      .map { |word| word[0].upcase }
+      .scan(BORDERLINES)
+      .map { |word| word.upcase }
       .join('')
   end
 end
