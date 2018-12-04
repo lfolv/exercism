@@ -4,7 +4,7 @@ module Acronym
   def self.abbreviate(sentence)
     sentence
       .scan(BORDERLINES)
-      .map { |word| word.upcase }
-      .join('')
+      .join
+      .upcase
   end
 end
