@@ -9,7 +9,7 @@ export const toRna = dna =>
   dna
     .split("")
     .map(nucleotide => {
-      if (transcription[nucleotide]) {
+      if (transcription.hasOwnProperty(nucleotide)) {
         return transcription[nucleotide];
       }
       throw new Error("Invalid input DNA.");
