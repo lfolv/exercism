@@ -1,3 +1,9 @@
+export const toRna = dna =>
+  dna
+    .split("")
+    .map(nucleotide => transcription[nucleotide] || throwInvalidInputDNAError())
+    .join("");
+
 const transcription = {
   C: "G",
   G: "C",
@@ -5,13 +11,6 @@ const transcription = {
   T: "A"
 };
 
-export const toRna = dna =>
-  dna
-    .split("")
-    .map(nucleotide => {
-      if (transcription.hasOwnProperty(nucleotide)) {
-        return transcription[nucleotide];
-      }
-      throw new Error("Invalid input DNA.");
-    })
-    .join("");
+const throwInvalidInputDNAError = () => {
+  throw new Error("Invalid input DNA.");
+};
