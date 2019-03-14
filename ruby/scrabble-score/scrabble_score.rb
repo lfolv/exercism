@@ -37,7 +37,7 @@ class Scrabble
   end
 
   def score
-    letters.sum { |chr| POINTS[chr.upcase.to_sym] }
+    letters.sum { |chr| POINTS[chr] }
   end
 
   private
@@ -45,6 +45,6 @@ class Scrabble
   attr_reader :word
 
   def letters
-    word.scan(/[a-z]/i)
+    word.upcase.scan(/[A-Z]/).map(&:to_sym)
   end
 end
