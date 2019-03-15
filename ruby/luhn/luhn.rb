@@ -4,26 +4,32 @@ class Luhn
   end
 
   def initialize(digits)
-    @digits = digits
+    @digits = digits.gsub(' ', '')
   end
 
   def valid?
-    digits = @digits.gsub(' ', '')
     return false if digits.length <= 1 
     return false if digits =~ /[^0-9\s]/
+    sum_digits % 10 == 0
+  end
 
-    total = 0
+  private
 
-    digits.reverse.each_char.with_index do |chr, index|
-      unless index % 2 == 0
-        d = chr.to_i * 2
-        d -= 9 if d > 9
-        total += d
-      else
-        total += chr.to_i
-      end
+  attr_reader :digits
+
+  def sum_digits
+    digits.reverse.each_char.with_index.sum do |digit, index|
+      double_second_digits(digit, index)
     end
+  end
 
-    total % 10 == 0
+  def double_second_digits(digit, index)
+    unless index % 2 == 0
+      d = digit.to_i * 2
+      d -= 9 if d > 9
+      d
+    else
+      digit.to_i
+    end
   end
 end
