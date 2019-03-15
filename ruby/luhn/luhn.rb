@@ -1,6 +1,14 @@
 class Luhn
   def self.valid?(digits)
-    digits = digits.gsub(' ', '')
+    Luhn.new(digits).valid?
+  end
+
+  def initialize(digits)
+    @digits = digits
+  end
+
+  def valid?
+    digits = @digits.gsub(' ', '')
     return false if digits.length <= 1 
     return false if digits =~ /[^0-9\s]/
 
