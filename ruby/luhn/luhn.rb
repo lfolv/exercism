@@ -21,13 +21,13 @@ class Luhn
   attr_reader :digits
 
   def checksum
-    digits.reverse.each_char.with_index.sum do |digit, index|
-      if index % 2 != 0
-        value = digit.to_i * 2
-        value > 9 ? value - 9 : value
-      else
-        digit.to_i
-      end
+    digits.reverse.each_char.each_slice(2).sum(0) do |digits|
+      digits[0].to_i + double(digits[1])
     end
+  end
+
+  def double(digit)
+    value = digit.to_i * 2
+    value > 9 ? value - 9 : value
   end
 end
