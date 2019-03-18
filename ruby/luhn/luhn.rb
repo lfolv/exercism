@@ -13,7 +13,7 @@ class Luhn
     return false if digits.size <= 1 
     return false if digits =~ INVALID_CHARACTERS
 
-    checksum % 10 == 0
+    (checksum % 10).zero?
   end
 
   private
