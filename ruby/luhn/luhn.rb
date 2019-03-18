@@ -6,7 +6,7 @@ class Luhn
   end
 
   def initialize(digits)
-    @digits = digits.gsub(' ', '')
+    @digits = digits.delete(' ')
   end
 
   def valid?
