@@ -21,7 +21,7 @@ class Luhn
   attr_reader :digits
 
   def checksum
-    digits.reverse.each_char.each_slice(2).sum(0) do |digits|
+    digits.reverse.each_char.each_slice(2).sum do |digits|
       digits[0].to_i + double(digits[1])
     end
   end
