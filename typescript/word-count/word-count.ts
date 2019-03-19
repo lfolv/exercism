@@ -1,8 +1,15 @@
+const WORD_PATTERN = /(\w+)/g;
+
 class Words {
-  count(word: string): Map<string, number> {
-    const words = new Map();
-    words.set(word, 1);
-    return words;
+  count(sentence: string): Map<string, number> {
+    const count = new Map();
+    const words = sentence.match(WORD_PATTERN) || [];
+
+    for (let word of words) {
+      count.set(word, 1);
+    }
+
+    return count;
   }
 }
 
