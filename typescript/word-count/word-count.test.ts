@@ -65,7 +65,7 @@ describe("words()", () => {
     expect(words.count("hello\tworld")).toEqual(expectedCounts);
   });
 
-  xit("counts multiple spaces as one", () => {
+  it("counts multiple spaces as one", () => {
     const expectedCounts = new Map(Object.entries({ hello: 1, world: 1 }));
     expect(words.count("hello  world")).toEqual(expectedCounts);
   });
