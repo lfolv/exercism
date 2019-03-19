@@ -38,12 +38,12 @@ describe("words()", () => {
     );
   });
 
-  xit("includes numbers", () => {
+  it("includes numbers", () => {
     const expectedCounts = new Map(Object.entries({ testing: 2, 1: 1, 2: 1 }));
     expect(words.count("1 2 testing testing")).toEqual(expectedCounts);
   });
 
-  xit("normalizes to lower case", () => {
+  it("normalizes to lower case", () => {
     const expectedCounts = new Map(Object.entries({ go: 3 }));
     expect(words.count("go Go GO")).toEqual(expectedCounts);
   });

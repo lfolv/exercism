@@ -1,17 +1,20 @@
-const WORD_PATTERN = /([\w:!&@$%^]+)/g;
-
 class Words {
   count(sentence: string): Map<string, number> {
     const count: Map<string, number> = new Map();
-    const words: string[] = sentence.match(WORD_PATTERN) || [];
 
-    for (let word of words) {
+    for (let word of eachWord(sentence)) {
       let current: number = count.get(word) || 0;
       count.set(word, ++current);
     }
 
     return count;
   }
+}
+
+function eachWord(sentence: string): string[] {
+  const pattern = /([\w:!&@$%^]+)/g;
+  const words: string[] = sentence.match(pattern) || [];
+  return words.map(word => word.toLowerCase());
 }
 
 export default Words;
