@@ -13,7 +13,7 @@ describe("words()", () => {
     expect(words.count("one of each")).toEqual(expectedCounts);
   });
 
-  xit("counts multiple occurrences", () => {
+  it("counts multiple occurrences", () => {
     const expectedCounts = new Map(
       Object.entries({ one: 1, fish: 4, two: 1, red: 1, blue: 1 })
     );
