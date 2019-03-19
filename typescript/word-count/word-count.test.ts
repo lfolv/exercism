@@ -79,7 +79,7 @@ describe("words()", () => {
     );
   });
 
-  xit("handles properties that exist on Object’s prototype", () => {
+  it("handles properties that exist on Object’s prototype", () => {
     const expectedCounts = new Map(
       Object.entries({
         reserved: 1,
