@@ -55,7 +55,7 @@ describe("words()", () => {
     expect(words.count("¡Hola! ¿Qué tal? Привет!")).toEqual(expectedCounts);
   });
 
-  xit("counts multiline", () => {
+  it("counts multiline", () => {
     const expectedCounts = new Map(Object.entries({ hello: 1, world: 1 }));
     expect(words.count("hello\nworld")).toEqual(expectedCounts);
   });
