@@ -60,7 +60,7 @@ describe("words()", () => {
     expect(words.count("hello\nworld")).toEqual(expectedCounts);
   });
 
-  xit("counts tabs", () => {
+  it("counts tabs", () => {
     const expectedCounts = new Map(Object.entries({ hello: 1, world: 1 }));
     expect(words.count("hello\tworld")).toEqual(expectedCounts);
   });
