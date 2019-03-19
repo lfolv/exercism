@@ -1,4 +1,4 @@
-const WORD_PATTERN = /(\w+)/g;
+const WORD_PATTERN = /([\w:!&@$%^]+)/g;
 
 class Words {
   count(sentence: string): Map<string, number> {

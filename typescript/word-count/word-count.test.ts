@@ -22,7 +22,7 @@ describe("words()", () => {
     );
   });
 
-  xit("includes punctuation", () => {
+  it("includes punctuation", () => {
     const expectedCounts = new Map(
       Object.entries({
         car: 1,
