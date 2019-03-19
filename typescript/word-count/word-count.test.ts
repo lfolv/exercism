@@ -70,7 +70,7 @@ describe("words()", () => {
     expect(words.count("hello  world")).toEqual(expectedCounts);
   });
 
-  xit("does not count leading or trailing whitespace", () => {
+  it("does not count leading or trailing whitespace", () => {
     const expectedCounts = new Map(
       Object.entries({ introductory: 1, course: 1 })
     );
