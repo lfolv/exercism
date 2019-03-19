@@ -12,7 +12,7 @@ class Words {
 }
 
 function eachWord(sentence: string): string[] {
-  const pattern = /([\w:!&@$%^]+)/g;
+  const pattern = /(\S+)/g;
   const words: string[] = sentence.match(pattern) || [];
   return words.map(word => word.toLowerCase());
 }
