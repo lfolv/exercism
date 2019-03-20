@@ -15,6 +15,10 @@ class Clock
     Clock.new(hour: hour + other.hour, minute: minute + other.minute)
   end
 
+  def -(other)
+    Clock.new(hour: hour - other.hour, minute: minute - other.minute)
+  end
+
   protected
 
   attr_reader :hour, :minute
