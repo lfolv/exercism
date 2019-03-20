@@ -11,7 +11,11 @@ class Clock
     "#{stringfy_hour}:#{stringfy_minute}"
   end
 
-  private
+  def +(other)
+    Clock.new(hour: hour + other.hour, minute: minute + other.minute)
+  end
+
+  protected
 
   attr_reader :hour, :minute
 end
