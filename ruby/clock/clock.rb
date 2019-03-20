@@ -1,7 +1,8 @@
 class Clock
   def initialize(hour: 0, minute: 0)
-    @hour = hour % 24
-    @minute = minute
+    @minute = minute % 60
+    extra_minutes = minute / 60
+    @hour = (hour + extra_minutes) % 24 
   end
 
   def to_s
