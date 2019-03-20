@@ -1,13 +1,18 @@
 class Clock
+  BASE_HOUR = 24
+  BASE_MINUTE = 60
+  DISPLAY_SIZE = 2
+  DISPLAY_COMPLEMENT = '0'
+
   def initialize(hour: 0, minute: 0)
-    @minute = minute % 60
-    extra_minutes = minute / 60
-    @hour = (hour + extra_minutes) % 24 
+    @minute = minute % BASE_MINUTE
+    extra_minutes = minute / BASE_MINUTE
+    @hour = (hour + extra_minutes) % BASE_HOUR 
   end
 
   def to_s
-    stringfy_hour = hour.to_s.rjust(2, '0')
-    stringfy_minute = minute.to_s.rjust(2, '0')
+    stringfy_hour = hour.to_s.rjust(DISPLAY_SIZE, DISPLAY_COMPLEMENT)
+    stringfy_minute = minute.to_s.rjust(DISPLAY_SIZE, DISPLAY_COMPLEMENT)
     "#{stringfy_hour}:#{stringfy_minute}"
   end
 
