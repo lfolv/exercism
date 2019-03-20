@@ -6,17 +6,12 @@ class Clock
   end
 
   def to_s
+    stringfy_hour = hour.to_s.rjust(2, '0')
+    stringfy_minute = minute.to_s.rjust(2, '0')
     "#{stringfy_hour}:#{stringfy_minute}"
   end
+
   private
 
   attr_reader :hour, :minute
-
-  def stringfy_hour
-    hour.to_s.rjust(2, '0') 
-  end
-
-  def stringfy_minute
-    minute.to_s.rjust(2, '0')
-  end
 end
