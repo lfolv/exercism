@@ -1,13 +1,13 @@
 class Clock
-  BASE_MINUTE = 60
+  MINUTES_IN_A_HOUR = 60
   MINUTES_IN_A_DAY = 1440
 
   def initialize(hour: 0, minute: 0)
-    @minutes = (minute + (hour * BASE_MINUTE)) % MINUTES_IN_A_DAY
+    @minutes = (minute + (hour * MINUTES_IN_A_HOUR)) % MINUTES_IN_A_DAY
   end
 
   def to_s
-    "%02d:%02d" % minutes.divmod(BASE_MINUTE)
+    "%02d:%02d" % minutes.divmod(MINUTES_IN_A_HOUR)
   end
 
   def +(other)
