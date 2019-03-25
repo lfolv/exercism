@@ -12,4 +12,4 @@ class HighScores(object):
         return self.__rank()[:3]
 
     def __rank(self):
-        return sorted(self.scores)[::-1]
+        return sorted(self.scores, reverse=True)
