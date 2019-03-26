@@ -1,19 +1,6 @@
 class TwelveDays
   NUMBER_OF_SENTENCES = 11
-  NUMBERS = [
-    'On the first day of Christmas my true love gave to me:',
-    'On the second day of Christmas my true love gave to me:',
-    'On the third day of Christmas my true love gave to me:',
-    'On the fourth day of Christmas my true love gave to me:',
-    'On the fifth day of Christmas my true love gave to me:',
-    'On the sixth day of Christmas my true love gave to me:',
-    'On the seventh day of Christmas my true love gave to me:',
-    'On the eighth day of Christmas my true love gave to me:',
-    'On the ninth day of Christmas my true love gave to me:',
-    'On the tenth day of Christmas my true love gave to me:',
-    'On the eleventh day of Christmas my true love gave to me:',
-    'On the twelfth day of Christmas my true love gave to me:'
-  ]
+  NUMBERS = %w{first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth}
   SENTENCES = [
     'a Partridge in a Pear Tree.',
     'two Turtle Doves, and a Partridge in a Pear Tree.',
@@ -32,7 +19,7 @@ class TwelveDays
   def self.song
     ''.tap do |result|
       (0..NUMBER_OF_SENTENCES).each do |n|
-        result << "#{NUMBERS[n]} #{SENTENCES[n]}\n"
+        result << "On the #{NUMBERS[n]} day of Christmas my true love gave to me: #{SENTENCES[n]}\n"
         result << "\n" unless n == NUMBER_OF_SENTENCES
       end
     end
