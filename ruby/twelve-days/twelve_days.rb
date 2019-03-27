@@ -1,3 +1,10 @@
+class Array
+  def to_sentence
+    return self[0] if self.size == 1
+    "#{self[0...-1].join(', ')}, and #{self[-1]}"
+  end
+end
+
 class TwelveDays
   NUMBER_OF_SENTENCES = 11
   NUMBERS = %w{first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth}
@@ -19,10 +26,8 @@ class TwelveDays
   def self.song
     ''.tap do |result|
       (0..NUMBER_OF_SENTENCES).each do |n|
-        result << "On the #{NUMBERS[n]} day of Christmas my true love gave to me: "
-        result << SENTENCES[1..n].reverse.join(', ')
-        result << (n.zero? ? SENTENCES[0] : ", and #{SENTENCES[0]}")
-        result << ".\n"
+        sentence = SENTENCES[0..n].reverse.to_sentence
+        result << "On the #{NUMBERS[n]} day of Christmas my true love gave to me: #{sentence}.\n"
         result << "\n" unless n == NUMBER_OF_SENTENCES
       end
     end
