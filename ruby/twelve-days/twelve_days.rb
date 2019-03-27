@@ -24,12 +24,9 @@ class TwelveDays
   ]
 
   def self.song
-    ''.tap do |result|
-      (0..NUMBER_OF_SENTENCES).each do |n|
-        sentence = SENTENCES[0..n].reverse.to_sentence
-        result << "On the #{NUMBERS[n]} day of Christmas my true love gave to me: #{sentence}.\n"
-        result << "\n" unless n == NUMBER_OF_SENTENCES
-      end
-    end
+    (0..NUMBER_OF_SENTENCES).map do |n|
+      sentence = SENTENCES[0..n].reverse.to_sentence
+      "On the #{NUMBERS[n]} day of Christmas my true love gave to me: #{sentence}.\n"
+    end.join("\n")
   end
 end
