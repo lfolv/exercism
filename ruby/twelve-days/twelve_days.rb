@@ -6,7 +6,6 @@ class Array
 end
 
 class TwelveDays
-  NUMBER_OF_SENTENCES = 11
   NUMBERS = %w{first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth}
   GIFTS = [
     'a Partridge in a Pear Tree',
@@ -24,7 +23,7 @@ class TwelveDays
   ]
 
   def self.song
-    (0..NUMBER_OF_SENTENCES).map do |n|
+    (0...GIFTS.length).map do |n|
       gifts = GIFTS[0..n].reverse.to_sentence
       "On the #{NUMBERS[n]} day of Christmas my true love gave to me: #{gifts}.\n"
     end.join("\n")
