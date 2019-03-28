@@ -1,11 +1,15 @@
-class Array
-  def to_sentence
-    return self[0] if self.size == 1
-    "#{self[0...-1].join(', ')}, and #{self[-1]}"
+module Support
+  refine Array do
+    def to_sentence
+      return self[0] if self.size == 1
+      "#{self[0...-1].join(', ')}, and #{self[-1]}"
+    end
   end
 end
 
 class TwelveDays
+  using Support
+
   NUMBERS = %w{first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth}
   GIFTS = [
     'a Partridge in a Pear Tree',
@@ -21,6 +25,7 @@ class TwelveDays
     'eleven Pipers Piping',
     'twelve Drummers Drumming'
   ]
+
 
   def self.song
     (0...GIFTS.length).map do |n|
