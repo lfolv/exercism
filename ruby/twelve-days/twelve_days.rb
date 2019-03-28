@@ -1,8 +1,9 @@
 module Support
   refine Array do
     def to_sentence
-      return self[0] if self.size == 1
-      "#{self[0...-1].join(', ')}, and #{self[-1]}"
+      first, *middle, last = self
+      return first if self.size == 1
+      "#{[first, *middle].join(', ')}, and #{last}"
     end
   end
 end
