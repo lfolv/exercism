@@ -30,8 +30,11 @@ class TwelveDays
 
   def self.song
     (0...GIFTS.length).map do |n|
-      gifts = GIFTS[0..n].reverse.to_sentence
-      "On the #{NUMBERS[n]} day of Christmas my true love gave to me: #{gifts}.\n"
+      "On the #{NUMBERS[n]} day of Christmas my true love gave to me: #{verse(n)}.\n"
     end.join("\n")
+  end
+
+  def self.verse(n)
+    GIFTS[0..n].reverse.to_sentence
   end
 end
