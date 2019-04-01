@@ -9,6 +9,29 @@ class Tournament
 
   def tally
     t = build_tally_line('Team', 'MP', 'W', 'D', 'L', 'P')
+    team_tallies.each do |key, team_tally|
+      t << build_tally_line(key, *team_tally.values)
+    end
+    t
+  end
+
+  private
+
+  attr_reader :input
+
+  def matchers
+    input.split("\n")
+  end
+
+  def parse_match(match)
+    match.split(";")
+  end
+
+  def build_tally_line(*values)
+    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % values
+  end
+
+  def team_tallies
     tournament = Hash.new { |hash, key| hash[key] = {
         mp: 0,
         w: 0,
@@ -42,26 +65,5 @@ class Tournament
     tournament = tournament.sort_by do |key, values|
       [-values[:p], key]
     end
-
-    tournament.each do |key, team_tally|
-      t << build_tally_line(key, *team_tally.values)
-    end
-    t
-  end
-
-  private
-
-  attr_reader :input
-
-  def matchers
-    input.split("\n")
-  end
-
-  def parse_match(match)
-    match.split(";")
-  end
-
-  def build_tally_line(*values)
-    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % values
   end
 end
