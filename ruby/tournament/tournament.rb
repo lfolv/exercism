@@ -17,7 +17,7 @@ class Tournament
         p: 0
     }}
 
-    input.split("\n").each do |line|
+    matchers.each do |line|
       team1, team2, match_result = line.split(";")
       tournament[team1][:mp] += 1
       tournament[team2][:mp] += 1
@@ -52,4 +52,8 @@ class Tournament
   private
 
   attr_reader :input
+
+  def matchers
+    input.split("\n")
+  end
 end
