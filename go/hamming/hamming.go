@@ -1,3 +1,4 @@
+// Package hamming provides handy method for handle with Hamming difference
 package hamming
 
 import "errors"
