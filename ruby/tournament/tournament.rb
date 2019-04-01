@@ -1,4 +1,5 @@
 class Tournament
+  INITIAL_VALUES =
   def self.tally(input)
     Tournament.new(input).tally
   end
@@ -8,11 +9,12 @@ class Tournament
   end
 
   def tally
-    t = build_tally_line('Team', 'MP', 'W', 'D', 'L', 'P')
-    team_tallies.each do |key, team_tally|
-      t << build_tally_line(key, *team_tally.values)
+    ''.tap do |result|
+      result << build_tally_line('Team', 'MP', 'W', 'D', 'L', 'P')
+      team_tallies.each do |key, team_tally|
+        result << build_tally_line(key, *team_tally.values)
+      end
     end
-    t
   end
 
   private
