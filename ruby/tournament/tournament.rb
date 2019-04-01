@@ -11,26 +11,28 @@ class Tournament
 
     input.split("\n").each do |line|
       team1, team2, match_result = line.split(";")
-      if match_result == 'win'
-        tournament[team1][:mp] += 1
+      tournament[team1][:mp] += 1
+      tournament[team2][:mp] += 1
+
+      case match_result
+      when 'win'
         tournament[team1][:w] += 1
         tournament[team1][:p] += 3
-
-
-        tournament[team2][:mp] += 1
         tournament[team2][:l] += 1
-      elsif match_result == 'loss'
-        tournament[team1][:mp] += 1
+      when 'loss'
         tournament[team1][:l] += 1
-
-        tournament[team2][:mp] += 1
         tournament[team2][:w] += 1
         tournament[team2][:p] += 3
+      when 'draw'
+        tournament[team1][:d] += 1
+        tournament[team1][:p] += 1
+        tournament[team2][:d] += 1
+        tournament[team2][:p] += 1
       end
     end
 
     tournament = tournament.sort_by do |key, values|
-      -values[:p]
+      [-values[:p], key]
     end
 
     tournament.each do |key, values|
