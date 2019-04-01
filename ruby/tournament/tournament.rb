@@ -21,14 +21,6 @@ class Tournament
 
   attr_reader :input
 
-  def matchers
-    input.split("\n")
-  end
-
-  def parse_match(match)
-    match.split(";")
-  end
-
   def build_tally_line(*values)
     "%-31s|%3s |%3s |%3s |%3s |%3s\n" % values
   end
@@ -67,5 +59,13 @@ class Tournament
     tournament = tournament.sort_by do |key, values|
       [-values[:p], key]
     end
+  end
+
+  def matchers
+    input.split("\n")
+  end
+
+  def parse_match(match)
+    match.split(";")
   end
 end
