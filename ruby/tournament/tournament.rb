@@ -1,5 +1,4 @@
 class Tournament
-  INITIAL_VALUES =
   def self.tally(input)
     Tournament.new(input).tally
   end
