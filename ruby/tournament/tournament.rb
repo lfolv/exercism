@@ -36,7 +36,7 @@ class Tournament
     end
 
     tournament.each do |key, values|
-      t << "#{key}             |  %d |  %d |  %d |  %d |  %d\n" % [values[:mp], values[:w], values[:d], values[:l], values[:p]]
+      t << "%-31s|%3d |%3d |%3d |%3d | %d\n" % [key, values[:mp], values[:w], values[:d], values[:l], values[:p]]
     end
     t
   end
