@@ -8,7 +8,7 @@ class Tournament
   end
 
   def tally
-    t = "Team                           | MP |  W |  D |  L |  P\n"
+    t = build_tally_line('Team', 'MP', 'W', 'D', 'L', 'P')
     tournament = Hash.new { |hash, key| hash[key] = {
         mp: 0,
         w: 0,
@@ -43,8 +43,8 @@ class Tournament
       [-values[:p], key]
     end
 
-    tournament.each do |key, values|
-      t << "%-31s|%3d |%3d |%3d |%3d |%3d\n" % [key, values[:mp], values[:w], values[:d], values[:l], values[:p]]
+    tournament.each do |key, team_tally|
+      t << build_tally_line(key, *team_tally.values)
     end
     t
   end
@@ -59,5 +59,9 @@ class Tournament
 
   def parse_match(match)
     match.split(";")
+  end
+
+  def build_tally_line(*values)
+    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % values
   end
 end
