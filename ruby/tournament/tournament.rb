@@ -18,7 +18,7 @@ class Tournament
     }}
 
     matchers.each do |line|
-      team1, team2, match_result = line.split(";")
+      team1, team2, match_result = parse_match line
       tournament[team1][:mp] += 1
       tournament[team2][:mp] += 1
 
@@ -55,5 +55,9 @@ class Tournament
 
   def matchers
     input.split("\n")
+  end
+
+  def parse_match(match)
+    match.split(";")
   end
 end
