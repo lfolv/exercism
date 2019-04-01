@@ -1,5 +1,13 @@
 class Tournament
   def self.tally(input)
+    Tournament.new(input).tally
+  end
+
+  def initialize(input)
+    @input = input
+  end
+
+  def tally
     t = "Team                           | MP |  W |  D |  L |  P\n"
     tournament = Hash.new { |hash, key| hash[key] = {
         mp: 0,
@@ -40,4 +48,8 @@ class Tournament
     end
     t
   end
+
+  private
+
+  attr_reader :input
 end
