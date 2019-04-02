@@ -11,8 +11,8 @@ class Tournament
     ''.tap do |result|
       result << build_line('Team', 'MP', 'W', 'D', 'L', 'P')
       result << teams
-        .sort_by { |name, result| [-result[:p], name] }
-        .map { |name, result| build_line(name, *result.values)}
+        .sort_by { |name, results| [-results[:p], name] }
+        .map { |name, results| build_line(name, *results.values)}
         .join
     end
   end
@@ -26,7 +26,7 @@ class Tournament
   end
 
   def teams
-    parsed_teams = Hash.new { |hash, key| hash[key] = {
+    initial = Hash.new { |hash, key| hash[key] = {
         mp: 0,
         w: 0,
         d: 0,
@@ -34,29 +34,27 @@ class Tournament
         p: 0
     }}
 
-    games.each do |line|
+    games.each_with_object(initial) do |line, hsh|
       team1, team2, match_result = parse_game line
-      parsed_teams[team1][:mp] += 1
-      parsed_teams[team2][:mp] += 1
+      hsh[team1][:mp] += 1
+      hsh[team2][:mp] += 1
 
       case match_result
       when 'win'
-        parsed_teams[team1][:w] += 1
-        parsed_teams[team1][:p] += 3
-        parsed_teams[team2][:l] += 1
+        hsh[team1][:w] += 1
+        hsh[team1][:p] += 3
+        hsh[team2][:l] += 1
       when 'loss'
-        parsed_teams[team1][:l] += 1
-        parsed_teams[team2][:w] += 1
-        parsed_teams[team2][:p] += 3
+        hsh[team1][:l] += 1
+        hsh[team2][:w] += 1
+        hsh[team2][:p] += 3
       when 'draw'
-        parsed_teams[team1][:d] += 1
-        parsed_teams[team1][:p] += 1
-        parsed_teams[team2][:d] += 1
-        parsed_teams[team2][:p] += 1
+        hsh[team1][:d] += 1
+        hsh[team1][:p] += 1
+        hsh[team2][:d] += 1
+        hsh[team2][:p] += 1
       end
     end
-
-    parsed_teams
   end
 
   def games
