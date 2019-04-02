@@ -10,9 +10,10 @@ class Tournament
   def tally
     ''.tap do |result|
       result << build_line('Team', 'MP', 'W', 'D', 'L', 'P')
-      teams.each do |key, team|
-        result << build_line(key, *team.values)
-      end
+      result << teams
+        .sort_by { |name, result| [-result[:p], name] }
+        .map { |name, result| build_line(name, *result.values)}
+        .join
     end
   end
 
@@ -20,8 +21,8 @@ class Tournament
 
   attr_reader :input
 
-  def build_line(*values)
-    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % values
+  def build_line(name, mp, w, d, l, p)
+    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % [name, mp, w, d, l, p]
   end
 
   def teams
@@ -56,7 +57,6 @@ class Tournament
     end
 
     parsed_teams
-      .sort_by { |name, team| [-team[:p], name] }
   end
 
   def games
