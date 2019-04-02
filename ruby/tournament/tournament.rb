@@ -9,9 +9,9 @@ class Tournament
 
   def tally
     ''.tap do |result|
-      result << build_tally_line('Team', 'MP', 'W', 'D', 'L', 'P')
-      team_tallies.each do |key, team_tally|
-        result << build_tally_line(key, *team_tally.values)
+      result << build_line('Team', 'MP', 'W', 'D', 'L', 'P')
+      teams.each do |key, team|
+        result << build_line(key, *team.values)
       end
     end
   end
@@ -20,12 +20,12 @@ class Tournament
 
   attr_reader :input
 
-  def build_tally_line(*values)
+  def build_line(*values)
     "%-31s|%3s |%3s |%3s |%3s |%3s\n" % values
   end
 
-  def team_tallies
-    tournament = Hash.new { |hash, key| hash[key] = {
+  def teams
+    parsed_teams = Hash.new { |hash, key| hash[key] = {
         mp: 0,
         w: 0,
         d: 0,
@@ -33,38 +33,37 @@ class Tournament
         p: 0
     }}
 
-    matchers.each do |line|
-      team1, team2, match_result = parse_match line
-      tournament[team1][:mp] += 1
-      tournament[team2][:mp] += 1
+    games.each do |line|
+      team1, team2, match_result = parse_game line
+      parsed_teams[team1][:mp] += 1
+      parsed_teams[team2][:mp] += 1
 
       case match_result
       when 'win'
-        tournament[team1][:w] += 1
-        tournament[team1][:p] += 3
-        tournament[team2][:l] += 1
+        parsed_teams[team1][:w] += 1
+        parsed_teams[team1][:p] += 3
+        parsed_teams[team2][:l] += 1
       when 'loss'
-        tournament[team1][:l] += 1
-        tournament[team2][:w] += 1
-        tournament[team2][:p] += 3
+        parsed_teams[team1][:l] += 1
+        parsed_teams[team2][:w] += 1
+        parsed_teams[team2][:p] += 3
       when 'draw'
-        tournament[team1][:d] += 1
-        tournament[team1][:p] += 1
-        tournament[team2][:d] += 1
-        tournament[team2][:p] += 1
+        parsed_teams[team1][:d] += 1
+        parsed_teams[team1][:p] += 1
+        parsed_teams[team2][:d] += 1
+        parsed_teams[team2][:p] += 1
       end
     end
 
-    tournament = tournament.sort_by do |key, values|
-      [-values[:p], key]
-    end
+    parsed_teams
+      .sort_by { |name, team| [-team[:p], name] }
   end
 
-  def matchers
+  def games
     input.split("\n")
   end
 
-  def parse_match(match)
-    match.split(";")
+  def parse_game(game)
+    game.split(";")
   end
 end
