@@ -26,20 +26,14 @@ class Tournament
   end
 
   def teams
-    initial = Hash.new { |hash, key| hash[key] = {
-        mp: 0,
-        w: 0,
-        d: 0,
-        l: 0,
-        p: 0
-    }}
+    initial = Hash.new { |hash, key| hash[key] = { mp: 0, w: 0, d: 0, l: 0, p: 0 }}
 
-    games.each_with_object(initial) do |line, hsh|
-      team1, team2, match_result = parse_game line
+    matchers.each_with_object(initial) do |line, hsh|
+      team1, team2, outcome = parse_match line
       hsh[team1][:mp] += 1
       hsh[team2][:mp] += 1
 
-      case match_result
+      case outcome
       when 'win'
         hsh[team1][:w] += 1
         hsh[team1][:p] += 3
@@ -57,11 +51,11 @@ class Tournament
     end
   end
 
-  def games
+  def matchers
     input.split("\n")
   end
 
-  def parse_game(game)
-    game.split(";")
+  def parse_match(match)
+    match.split(";")
   end
 end
