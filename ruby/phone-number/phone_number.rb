@@ -7,6 +7,8 @@
 class PhoneNumber
   INVALID_CHARACTERS = /[a-zA-Z@:!]/.freeze
   DIGITS = /\d/.freeze
+  TELEPHONE_SIZE = 10
+  COUNTRY_DIGIT = '1'.freeze
 
   # Clean up differenly formatted telephone numbers by removing punctuation and
   # contry code (1) if present
@@ -46,24 +48,33 @@ class PhoneNumber
   attr_reader :number
 
   def invalid?
-    number.match(INVALID_CHARACTERS) || invalid_digits?
+    invalid_characters? || invalid_length? || invalid_digits?
+  end
+
+  def invalid_characters?
+    number.match(INVALID_CHARACTERS)
+  end
+
+  def invalid_length?
+    digits.length != TELEPHONE_SIZE
   end
 
   def invalid_digits?
-    digits.length != 10 ||
-      digits.first == '0' ||
+    digits.first == '0' ||
       digits.first == '1' ||
       digits[3] == '0' ||
       digits[3] == '1'
   end
 
   def digits
-    @digits || extract_digits
+    @digits ||= country_code? ? all_digits[1..-1] : all_digits
   end
 
-  def extract_digits
-    d = number.scan(DIGITS)
-    # Ignore country area digit
-    @digits = d.length == 11 && d.first == '1' ? d[1..-1] : d
+  def all_digits
+    @all_digits ||= number.scan(DIGITS)
+  end
+
+  def country_code?
+    all_digits.length == TELEPHONE_SIZE + 1 && all_digits.first == COUNTRY_DIGIT
   end
 end
