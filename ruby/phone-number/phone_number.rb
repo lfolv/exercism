@@ -5,8 +5,8 @@
 # @author Lucas Oliveira
 # @since 0.1.0
 class PhoneNumber
-  INVALID_CHARACTERS = /[a-zA-Z@:!]/
-  DIGITS = /\d/
+  INVALID_CHARACTERS = /[a-zA-Z@:!]/.freeze
+  DIGITS = /\d/.freeze
 
   # Clean up differenly formatted telephone numbers by removing punctuation and
   # contry code (1) if present
@@ -37,6 +37,7 @@ class PhoneNumber
   #   phone_number.clean #=> ""2234567890""
   def clean
     return nil if invalid?
+
     digits.join('')
   end
 
@@ -45,16 +46,19 @@ class PhoneNumber
   attr_reader :number
 
   def invalid?
-    number.match(INVALID_CHARACTERS) or
-      digits.length != 10 or
-      digits.first == '0' or
-      digits.first == '1' or
-      digits[3] == '0' or
+    number.match(INVALID_CHARACTERS) || invalid_digits?
+  end
+
+  def invalid_digits?
+    digits.length != 10 ||
+      digits.first == '0' ||
+      digits.first == '1' ||
+      digits[3] == '0' ||
       digits[3] == '1'
   end
 
   def digits
-    @digits or extract_digits
+    @digits || extract_digits
   end
 
   def extract_digits
