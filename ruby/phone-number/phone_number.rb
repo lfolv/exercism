@@ -1,10 +1,40 @@
 class PhoneNumber
-  def self.clean(number)
-    return nil if number.match(/[a-zA-Z@:!]/)
+  INVALID_CHARACTERS = /[a-zA-Z@:!]/
+  DIGITS = /\d/
 
-    numbers = number.scan(/\d/)
-    numbers = numbers[1..-1] if numbers.length == 11 && numbers.first == '1'
-    return nil if numbers.first == '0' or numbers.first == '1' or numbers[3] == '0' or numbers[3] == '1'
-    return numbers.join('') if numbers.length == 10
+  def self.clean(number)
+    PhoneNumber.new(number).clean
+  end
+
+  def initialize(number)
+    @number = number
+  end
+
+  def clean
+    return nil if invalid?
+    digits.join('')
+  end
+
+  private
+
+  attr_reader :number
+
+  def invalid?
+    number.match(INVALID_CHARACTERS) or
+      digits.length != 10 or
+      digits.first == '0' or
+      digits.first == '1' or
+      digits[3] == '0' or
+      digits[3] == '1'
+  end
+
+  def digits
+    @digits || extract_digits
+  end
+
+  def extract_digits
+    d = number.scan(DIGITS)
+    # Ignore country area digit
+    @digits = d.length == 11 && d.first == '1' ? d[1..-1] : d
   end
 end
