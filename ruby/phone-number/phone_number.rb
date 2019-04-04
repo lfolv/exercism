@@ -54,7 +54,7 @@ class PhoneNumber
   end
 
   def digits
-    @digits || extract_digits
+    @digits or extract_digits
   end
 
   def extract_digits
