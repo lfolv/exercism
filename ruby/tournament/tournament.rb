@@ -1,5 +1,5 @@
 class Tournament
-  PAIRS = Hash['win', 'loss', 'loss', 'win', 'draw', 'draw']
+  PAIRS = Hash[*%w[win loss loss win draw draw]]
 
   def self.tally(input)
     Tournament.new(input).tally
@@ -12,7 +12,7 @@ class Tournament
   def tally
     teams.map(&method(:calculate))
          .sort_by { |results| [-results[:p], results[:name]] }
-         .map(&:values)
+         .map { |results| [*results.values] }
          .unshift(%w[Team MP W D L P])
          .map(&method(:build_line))
          .join
@@ -34,7 +34,7 @@ class Tournament
   end
 
   def build_line(line_values)
-    format("%-31s|%3s |%3s |%3s |%3s |%3s\n", line_values)
+    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % line_values
   end
 
   def teams
