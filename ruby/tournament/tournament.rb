@@ -8,21 +8,19 @@ class Tournament
   end
 
   def tally
-    ''.tap do |result|
-      result << build_line('Team', 'MP', 'W', 'D', 'L', 'P')
-      result << teams
-        .sort_by { |name, results| [-results[:p], name] }
-        .map { |name, results| build_line(name, *results.values)}
-        .join
-    end
+    teams.sort_by { |name, results| [-results[:p], name]}
+         .map { |name, results| [name, *results.values] }
+         .unshift(%w{Team MP W D L P})
+         .map(&method(:build_line))
+         .join
   end
 
   private
 
   attr_reader :input
 
-  def build_line(name, mp, w, d, l, p)
-    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % [name, mp, w, d, l, p]
+  def build_line(line_values)
+    "%-31s|%3s |%3s |%3s |%3s |%3s\n" % line_values
   end
 
   def teams
