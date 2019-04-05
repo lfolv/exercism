@@ -12,7 +12,7 @@ class Tournament
   def tally
     teams.map(&method(:calculate))
          .sort_by { |results| [-results[:p], results[:name]] }
-         .map { |results| [*results.values] }
+         .map(&:values)
          .unshift(%w[Team MP W D L P])
          .map(&method(:build_line))
          .join
