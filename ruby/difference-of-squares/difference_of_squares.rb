@@ -13,6 +13,9 @@ class Squares
   # Calculate the square of the sum of the first N natural numbers
   #
   # @return [Int] the square of the sum of the first N natual numbers
+  #
+  # @example
+  #  Squares.new(100).sum_of_squares #=> 25502500
   def square_of_sum
     (1..n).sum ** 2
   end
