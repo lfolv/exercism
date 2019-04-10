@@ -10,6 +10,17 @@ class Squares
     @n = n
   end
 
+  # Calculate the difference between the square of sum and the sum of the
+  # squares of the first N natural numbers
+  #
+  # @return [Int] the difference of squares
+  #
+  # @example
+  #   Squares.new(100).difference #=> 25164150
+  def difference
+    square_of_sum - sum_of_squares
+  end
+
   # Calculate the square of the sum of the first N natural numbers
   #
   # @return [Int] square of the sum
@@ -17,7 +28,7 @@ class Squares
   # @example
   #  Squares.new(100).sum_of_squares #=> 25502500
   def square_of_sum
-    (1..n).sum ** 2
+    @square_of_sum ||= (1..n).sum ** 2
   end
 
   # Calculate the sum of the squares of the first N natural numbers
@@ -27,7 +38,7 @@ class Squares
   # @example
   #   Squares.new(100).difference #=> 338350
   def sum_of_squares
-    (1..n).sum { |current| current ** 2 }
+    @sum_of_squares ||= (1..n).sum { |current| current ** 2 }
   end
 
   private
