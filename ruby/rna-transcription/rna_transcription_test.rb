@@ -29,7 +29,7 @@ class RnaTranscriptionTest < Minitest::Test
   end
 
   def test_rna_complement
-    skip
+    # skip
     assert_equal 'UGCACCAGAAUU', Complement.of_dna('ACGTGGTCTTAA')
   end
 end
