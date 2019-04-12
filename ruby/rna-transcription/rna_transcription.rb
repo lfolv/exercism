@@ -1,5 +1,5 @@
 module Complement
-  COMPLEMENTS = Hash[*%w{G C C G T A}]
+  COMPLEMENTS = Hash[*%w{G C C G T A A U}]
 
   def self.of_dna(rna)
     return '' if rna == ''
