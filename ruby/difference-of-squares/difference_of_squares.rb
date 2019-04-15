@@ -5,7 +5,7 @@
 class Squares
   # Create a new Squares object.
   #
-  # @param [Int] n - first N natual numbers to calculate
+  # @param [Int] number - first N natual numbers to calculate
   def initialize(number)
     @number = number
   end
