@@ -6,8 +6,8 @@ class Squares
   # Create a new Squares object
   #
   # @param [Int] n - first N natual numbers to calculate
-  def initialize(n)
-    @n = n
+  def initialize(number)
+    @number = number
   end
 
   # Calculate the difference between the square of sum and the sum of the
@@ -28,7 +28,7 @@ class Squares
   # @example
   #  Squares.new(100).sum_of_squares #=> 25502500
   def square_of_sum
-    @square_of_sum ||= (1..n).sum ** 2
+    @square_of_sum ||= (1..number).sum ** 2
   end
 
   # Calculate the sum of the squares of the first N natural numbers
@@ -38,10 +38,10 @@ class Squares
   # @example
   #   Squares.new(100).difference #=> 338350
   def sum_of_squares
-    (n + 1) * n * (2 * n + 1) / 6
+    (number + 1) * number * (2 * number + 1) / 6
   end
 
   private
 
-  attr_reader :n
+  attr_reader :number
 end
