@@ -38,7 +38,7 @@ class Squares
   # @example
   #   Squares.new(100).difference #=> 338350
   def sum_of_squares
-    @sum_of_squares ||= (1..n).sum(&:abs2)
+    (n + 1) * n * (2 * n + 1) / 6
   end
 
   private
