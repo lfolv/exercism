@@ -18,7 +18,7 @@ class Squares
   # @example
   #   Squares.new(100).difference #=> 25164150
   def difference
-    @difference ||= square_of_sum - sum_of_squares
+    square_of_sum - sum_of_squares
   end
 
   # Calculate the square of the sum of the first N natural numbers.
