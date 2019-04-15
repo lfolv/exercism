@@ -30,7 +30,7 @@ class Squares
   # @example
   #  Squares.new(100).sum_of_squares #=> 25502500
   def square_of_sum
-    @square_of_sum ||= (1..number).sum ** 2
+    ((number + 1) * number / 2) ** 2
   end
 
   # Calculate the sum of the squares of the first N natural numbers
