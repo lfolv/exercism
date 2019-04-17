@@ -13,6 +13,20 @@ export class Squares {
   }
 
   /**
+   * Caklculate the difference between the square of sum and the sum
+   * of squres of the first N natual numbers
+   *
+   * @return [number] the difference of squares
+   *
+   * @example
+   *  const squares = new Square(100)
+   *  squares.difference #=> 25164150
+   */
+  get difference() {
+    return this.squareOfSum - this.sumOfSquares;
+  }
+
+  /**
    * Calculate the square of the sum of the first N natual numbers.
    * The square of the sum of the first ten natural number is
    * (1 + 2 + ... + 10) ** 2 = 55 ** 2 = 3025
