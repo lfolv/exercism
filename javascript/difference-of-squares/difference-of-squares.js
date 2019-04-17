@@ -6,7 +6,7 @@ export class Squares {
   /**
    * Create a new Squares object
    *
-   * @param {Number} number - first N natural numbers to calculate
+   * @param {number} number - first N natural numbers to calculate
    */
   constructor(number) {
     this.number = number;
@@ -17,7 +17,7 @@ export class Squares {
    * The square of the sum of the first ten natural number is
    * (1 + 2 + ... + 10) ** 2 = 55 ** 2 = 3025
    *
-   * @return [Number] square of the sum
+   * @return [number] square of the sum
    *
    * @example
    *  const squares = new Square(100)
@@ -25,5 +25,20 @@ export class Squares {
    */
   get squareOfSum() {
     return (((this.number + 1) * this.number) / 2) ** 2;
+  }
+
+  /**
+   * Calculate the sum of the squares of the first N natural numbers
+   * The sum of the squares of the first ten natual numbers is
+   * 1 ** 2 + 2 ** 2 + ... 10 ** 2 = 385
+   *
+   * @return [number] sum of the squares
+   *
+   * @example
+   *  const squares = new Square(100)
+   *  squares.sumOfSquares #=> 338350
+   */
+  get sumOfSquares() {
+    return ((this.number + 1) * this.number * (2 * this.number + 1)) / 6;
   }
 }
