@@ -24,9 +24,8 @@ const COLORS = [
  * @example
  *  value(["brown", "black"]) #=> 10
  */
-export function value(colors) {
-  return Number.parseInt(
+export const value = colors =>
+  Number.parseInt(
     colors.reduce((result, color) => result + COLORS.indexOf(color), ""),
     10
   );
-}
