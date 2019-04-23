@@ -10,9 +10,4 @@ def distance(strand_a, strand_b):
     """
     if len(strand_a) != len(strand_b):
         raise ValueError("Invalid strands")
-    count = 0
-    for letter_a, letter_b in zip(strand_a, strand_b):
-        if not letter_a == letter_b:
-            count += 1
-    return count
-
+    return len([a for a, b in zip(strand_a, strand_b) if not a == b])
