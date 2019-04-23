@@ -2,7 +2,7 @@
 #
 # @author Lucas Oliveira
 class SpaceAge
-  ORBITAL_PERIOD = {
+  PLANET_TO_ORBITAL_PERIOD = {
     earth: 31557600.0,
     mercury: 7600543.81992,
     venus: 19414149.052176,
@@ -15,18 +15,18 @@ class SpaceAge
 
   # Create a new SpaceAge object
   #
-  # @param [Int] seconds - Age in seconds
-  def initialize(seconds)
-    @seconds = seconds
+  # @param [Int] age - Age in seconds
+  def initialize(age)
+    @age = age
   end
 
-  ORBITAL_PERIOD.each do |planet, orbital_period|
+  PLANET_TO_ORBITAL_PERIOD.each do |planet, orbital_period|
     define_method "on_#{planet}" do
-      seconds / orbital_period
+      age / orbital_period
     end
   end
 
   private
 
-  attr_reader :seconds
+  attr_reader :age
 end
