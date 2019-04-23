@@ -1,3 +1,9 @@
 class Array
-  alias_method :accumulate, :map
+  def accumulate
+    result = []
+    self.each do |value|
+      result << yield(value)
+    end
+    result
+  end
 end
