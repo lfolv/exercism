@@ -34,55 +34,55 @@ class TriangleTest < Minitest::Test
   end
 
   def test_triangle_is_isosceles_if_last_two_sides_are_equal
-    skip
+    # skip
     triangle = Triangle.new([3, 4, 4])
     assert triangle.isosceles?, "Expected 'true', triangle [3, 4, 4] is isosceles."
   end
 
   def test_triangle_is_isosceles_if_first_two_sides_are_equal
-    skip
+    # skip
     triangle = Triangle.new([4, 4, 3])
     assert triangle.isosceles?, "Expected 'true', triangle [4, 4, 3] is isosceles."
   end
 
   def test_triangle_is_isosceles_if_first_and_last_sides_are_equal
-    skip
+    # skip
     triangle = Triangle.new([4, 3, 4])
     assert triangle.isosceles?, "Expected 'true', triangle [4, 3, 4] is isosceles."
   end
 
   def test_equilateral_triangles_are_also_isosceles
-    skip
+    # skip
     triangle = Triangle.new([4, 4, 4])
     assert triangle.isosceles?, "Expected 'true', triangle [4, 4, 4] is isosceles."
   end
 
   def test_triangle_is_not_isosceles_if_no_sides_are_equal
-    skip
+    # skip
     triangle = Triangle.new([2, 3, 4])
     refute triangle.isosceles?, "Expected 'false', triangle [2, 3, 4] is not isosceles."
   end
 
   def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_1
-    skip
+    # skip
     triangle = Triangle.new([1, 1, 3])
     refute triangle.isosceles?, "Expected 'false', triangle [1, 1, 3] is not isosceles."
   end
 
   def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_2
-    skip
+    # skip
     triangle = Triangle.new([1, 3, 1])
     refute triangle.isosceles?, "Expected 'false', triangle [1, 3, 1] is not isosceles."
   end
 
   def test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_3
-    skip
+    # skip
     triangle = Triangle.new([3, 1, 1])
     refute triangle.isosceles?, "Expected 'false', triangle [3, 1, 1] is not isosceles."
   end
 
   def test_isosceles_triangle_sides_may_be_floats
-    skip
+    # skip
     triangle = Triangle.new([0.5, 0.4, 0.5])
     assert triangle.isosceles?, "Expected 'true', triangle [0.5, 0.4, 0.5] is isosceles."
   end
