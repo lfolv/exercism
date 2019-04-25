@@ -4,7 +4,7 @@ class Triangle
   end
 
   def equilateral?
-    return false if sides.all?(&:zero?)
+    return false if inequality? || sides.all?(&:zero?)
     sides[0] == sides[1] && sides[0] == sides[2]
   end
 
