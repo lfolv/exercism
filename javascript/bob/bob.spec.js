@@ -106,7 +106,7 @@ describe("Bob", () => {
     expect(result).toEqual("Whatever.");
   });
 
-  xtest("starting with whitespace", () => {
+  test("starting with whitespace", () => {
     const result = hey("         hmmmmmmm...");
     expect(result).toEqual("Whatever.");
   });
