@@ -10,7 +10,7 @@ class Triangle
   end
 
   def isosceles?
-    return false if invalid? || sides.count(1) == 2
+    return false if invalid?
 
     unique_sides <= 2
   end
