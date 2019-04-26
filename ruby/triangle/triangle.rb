@@ -12,7 +12,7 @@ class Triangle
   def isosceles?
     return false if invalid? || sides.count(1) == 2
 
-    unique_sides == 2
+    unique_sides <= 2
   end
 
   def scalene?
