@@ -31,12 +31,12 @@ describe("Bob", () => {
     expect(result).toEqual("Sure.");
   });
 
-  xtest("talking forcefully", () => {
+  test("talking forcefully", () => {
     const result = hey("Let's go make out behind the gym!");
     expect(result).toEqual("Whatever.");
   });
 
-  xtest("using acronyms in regular speech", () => {
+  test("using acronyms in regular speech", () => {
     const result = hey("It's OK if you don't want to go to the DMV.");
     expect(result).toEqual("Whatever.");
   });
