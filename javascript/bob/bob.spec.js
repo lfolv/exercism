@@ -16,7 +16,7 @@ describe("Bob", () => {
     expect(result).toEqual("Whoa, chill out!");
   });
 
-  xtest("asking a question", () => {
+  test("asking a question", () => {
     const result = hey("Does this cryogenic chamber make me look fat?");
     expect(result).toEqual("Sure.");
   });
@@ -91,7 +91,7 @@ describe("Bob", () => {
     expect(result).toEqual("Fine. Be that way!");
   });
 
-  xtest("prolonged silence", () => {
+  test("prolonged silence", () => {
     const result = hey("          ");
     expect(result).toEqual("Fine. Be that way!");
   });
@@ -101,7 +101,7 @@ describe("Bob", () => {
     expect(result).toEqual("Fine. Be that way!");
   });
 
-  xtest("multiple line question", () => {
+  test("multiple line question", () => {
     const result = hey("\nDoes this cryogenic chamber make me look fat?\nno");
     expect(result).toEqual("Whatever.");
   });
@@ -116,12 +116,12 @@ describe("Bob", () => {
     expect(result).toEqual("Sure.");
   });
 
-  xtest("other whitespace", () => {
+  test("other whitespace", () => {
     const result = hey("\n\r \t");
     expect(result).toEqual("Fine. Be that way!");
   });
 
-  xtest("non-question ending with whitespace", () => {
+  test("non-question ending with whitespace", () => {
     const result = hey("This is a statement ending with whitespace      ");
     expect(result).toEqual("Whatever.");
   });
