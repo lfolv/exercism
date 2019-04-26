@@ -46,17 +46,17 @@ describe("Bob", () => {
     expect(result).toEqual("Calm down, I know what I'm doing!");
   });
 
-  xtest("shouting numbers", () => {
+  test("shouting numbers", () => {
     const result = hey("1, 2, 3 GO!");
     expect(result).toEqual("Whoa, chill out!");
   });
 
-  xtest("only numbers", () => {
+  test("only numbers", () => {
     const result = hey("1, 2, 3");
     expect(result).toEqual("Whatever.");
   });
 
-  xtest("question with only numbers", () => {
+  test("question with only numbers", () => {
     const result = hey("4?");
     expect(result).toEqual("Sure.");
   });
