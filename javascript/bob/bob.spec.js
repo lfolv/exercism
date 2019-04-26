@@ -111,7 +111,7 @@ describe("Bob", () => {
     expect(result).toEqual("Whatever.");
   });
 
-  xtest("ending with whitespace", () => {
+  test("ending with whitespace", () => {
     const result = hey("Okay if like my  spacebar  quite a bit?   ");
     expect(result).toEqual("Sure.");
   });

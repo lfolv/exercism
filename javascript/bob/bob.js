@@ -1,6 +1,6 @@
 const FOREFUL_QUESTION_PATTEN = /^[A-Z\s!]+\?$/;
 const YELL_PATTERN = /^(?:\d+\,?\s*)*(?:[A-Z]+[\s!]*[^a-z]*)+$/;
-const QUESTION_PATTERN = /^.+\?$/;
+const QUESTION_PATTERN = /^.+\?\s*$/;
 const SILENCE_PATTERN = /^\s*$/;
 
 export const hey = message => {
