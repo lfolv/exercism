@@ -27,7 +27,7 @@ class Triangle
 
   def invalid?
     a, b, c = sides.sort
-    a.zero? || b.zero? || c.zero? || a + b < c
+    sides.any?(&:zero?) || a + b < c
   end
 
   def unique_sides
