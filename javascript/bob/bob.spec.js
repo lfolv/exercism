@@ -71,22 +71,22 @@ describe("Bob", () => {
     expect(result).toEqual("Whoa, chill out!");
   });
 
-  xtest("statement containing question mark", () => {
+  test("statement containing question mark", () => {
     const result = hey("Ending with a ? means a question.");
     expect(result).toEqual("Whatever.");
   });
 
-  xtest("non-letters with question", () => {
+  test("non-letters with question", () => {
     const result = hey(":) ?");
     expect(result).toEqual("Sure.");
   });
 
-  xtest("prattling on", () => {
+  test("prattling on", () => {
     const result = hey("Wait! Hang on. Are you going to be OK?");
     expect(result).toEqual("Sure.");
   });
 
-  xtest("silence", () => {
+  test("silence", () => {
     const result = hey("");
     expect(result).toEqual("Fine. Be that way!");
   });
@@ -96,7 +96,7 @@ describe("Bob", () => {
     expect(result).toEqual("Fine. Be that way!");
   });
 
-  xtest("alternate silence", () => {
+  test("alternate silence", () => {
     const result = hey("\t\t\t\t\t\t\t\t\t\t");
     expect(result).toEqual("Fine. Be that way!");
   });
