@@ -61,12 +61,12 @@ describe("Bob", () => {
     expect(result).toEqual("Sure.");
   });
 
-  xtest("shouting with special characters", () => {
+  test("shouting with special characters", () => {
     const result = hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!");
     expect(result).toEqual("Whoa, chill out!");
   });
 
-  xtest("shouting with no exclamation mark", () => {
+  test("shouting with no exclamation mark", () => {
     const result = hey("I HATE YOU");
     expect(result).toEqual("Whoa, chill out!");
   });
