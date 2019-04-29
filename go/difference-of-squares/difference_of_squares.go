@@ -2,13 +2,10 @@
 // calculations
 package diffsquares
 
-import (
-	"math"
-)
-
 // SquareOfSum calculate the square of the sum of the first N natural numbers
 func SquareOfSum(n int) int {
-	return int(math.Pow(float64((n+1)*n/2), 2))
+	t := (n+1)*n/2
+	return t * t
 }
 
 // SumOfSquares calculate the square of the sum of the first N natural numbers.
