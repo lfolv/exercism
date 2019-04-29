@@ -1,4 +1,4 @@
-const CODONS_TO_PROTEIN = {
+const CODONS_TO_AMINO_ACID = {
   AUG: "Methionine",
   UUU: "Phenylalanine",
   UUC: "Phenylalanine",
@@ -12,11 +12,27 @@ const CODONS_TO_PROTEIN = {
   UAC: "Tyrosine",
   UGU: "Cysteine",
   UGC: "Cysteine",
-  UGG: "Tryptophan"
+  UGG: "Tryptophan",
+  UAA: "STOP",
+  UAG: "STOP",
+  UGA: "STOP"
 };
 
-const translate = (rna_sequence = "") =>
-  getCodons(rna_sequence).map(codon => CODONS_TO_PROTEIN[codon]);
+const translate = (rna_sequence = "") => {
+  const amino_acids = [];
+
+  for (let codon of getCodons(rna_sequence)) {
+    const amino_acid = CODONS_TO_AMINO_ACID[codon];
+
+    if (!amino_acid) throw new Error("Invalid codon");
+
+    if (amino_acid === "STOP") break;
+
+    amino_acids.push(amino_acid);
+  }
+
+  return amino_acids;
+};
 
 const getCodons = rna_sequence => rna_sequence.match(/(\w{3})/g) || [];
 
