@@ -5,11 +5,11 @@ module IsbnVerifier
   def self.valid?(isbn_number)
     return false unless isbn_number.match(ISBN_PATERN)
 
-    sum = 0
     index = 10
-    isbn_number.scan(DIGITS) do |n|
-      sum += parse_number(n) * index
+    sum = isbn_number.scan(DIGITS).sum do |n|
+      value = parse_number(n) * index
       index -= 1
+      value
     end
     (sum % 11).zero?
   end
