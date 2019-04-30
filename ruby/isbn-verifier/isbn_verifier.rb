@@ -1,16 +1,15 @@
 module IsbnVerifier
-  ISBN_PATERN = /\A(?:\d\-?){9}\-?[\dX]\z/
   DIGITS = /[^\-]/
+  ISBN_PATERN = /\A(?:\d\-?){9}\-?[\dX]\z/
+  ISBN_LENGTH = 10
 
   def self.valid?(isbn_number)
     return false unless isbn_number.match(ISBN_PATERN)
 
-    index = 10
-    sum = isbn_number.scan(DIGITS).sum do |n|
-      value = parse_number(n) * index
-      index -= 1
-      value
+    sum = isbn_number.scan(DIGITS).each.with_index.sum do |digit, index|
+      parse_number(digit) * (ISBN_LENGTH - index)
     end
+
     (sum % 11).zero?
   end
 
