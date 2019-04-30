@@ -16,7 +16,7 @@ class IsbnVerifierTest < Minitest::Test
   end
 
   def test_valid_isbn_number_with_a_check_digit_of_10
-    skip
+    # skip
     string = "3-598-21507-X"
     assert IsbnVerifier.valid?(string), "Expected true, '#{string}' is a valid isbn"
   end
