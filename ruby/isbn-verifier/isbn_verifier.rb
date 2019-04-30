@@ -1,5 +1,6 @@
 module IsbnVerifier
   def self.valid?(isbn_number)
+    return false unless isbn_number.match(/\A(?:\d\-?){9}\-?[\dX]\z/)
     sum = 0
     index = 10
     isbn_number.scan(/[^\-]/) do |n|
