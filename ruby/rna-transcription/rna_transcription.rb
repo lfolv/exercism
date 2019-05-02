@@ -9,6 +9,7 @@ module Complement
     'T' => 'A',
     'A' => 'U'
   }
+  DNA_NUCLEOTIDES = Regexp.new("[#{COMPLEMENTS.keys.join}]")
 
   # Given a DNA strand, return its RNA complement (per RNA transcription)
   #
@@ -18,6 +19,6 @@ module Complement
   # @example
   #   Complement.of_dna('ACGTGGTCTTAA') #=> 'UGCACCAGAAUU'
   def self.of_dna(dna_strand)
-    dna_strand.gsub(/[GCTA]/, COMPLEMENTS)
+    dna_strand.gsub(DNA_NUCLEOTIDES, COMPLEMENTS)
   end
 end
