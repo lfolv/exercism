@@ -3,7 +3,12 @@
 # @author Lucas Oliveira
 # @since 0.1.0
 module Complement
-  COMPLEMENTS = Hash[*%w{G C C G T A A U}]
+  COMPLEMENTS = {
+    'G' => 'C',
+    'C' => 'G',
+    'T' => 'A',
+    'A' => 'U'
+  }
 
   # Given a DNA strand, return its RNA complement (per RNA transcription)
   #
