@@ -18,6 +18,6 @@ module Complement
   # @example
   #   Complement.of_dna('ACGTGGTCTTAA') #=> 'UGCACCAGAAUU'
   def self.of_dna(dna_strand)
-    dna_strand.each_char.sum('') { |nucleotide| COMPLEMENTS[nucleotide] }
+    dna_strand.each_char.sum('', &COMPLEMENTS)
   end
 end
