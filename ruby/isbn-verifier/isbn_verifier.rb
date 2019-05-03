@@ -13,8 +13,8 @@ module IsbnVerifier
     (sum % 11).zero?
   end
 
-  def self.parse_number(number)
-    return 10 if number == 'X'
-    number.to_i
+  def self.parse_number(digit)
+    return 10 if digit == 'X'
+    digit.to_i
   end
 end
