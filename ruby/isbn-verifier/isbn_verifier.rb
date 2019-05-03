@@ -6,7 +6,7 @@ module IsbnVerifier
   def self.valid?(isbn_number)
     return false unless isbn_number.match(ISBN_PATERN)
 
-    sum = isbn_number.scan(DIGITS).each.with_index.sum do |digit, index|
+    sum = isbn_number.scan(DIGITS).each_with_index.sum do |digit, index|
       parse_number(digit) * (ISBN_LENGTH - index)
     end
 
