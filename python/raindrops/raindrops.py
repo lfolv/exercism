@@ -14,6 +14,4 @@ def raindrops(number):
     result = stream.getvalue()
     stream.close()
 
-    if len(result) == 0:
-        return str(number)
-    return result
+    return str(number) if len(result) == 0 else result
