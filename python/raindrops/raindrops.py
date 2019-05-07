@@ -12,6 +12,8 @@ def raindrops(number):
         stream.write("Plong")
 
     result = stream.getvalue()
+    stream.close()
+
     if len(result) == 0:
         return str(number)
     return result
