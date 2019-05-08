@@ -11,6 +11,10 @@ export class Triangle {
     return lines;
   }
 
+  get lastRow() {
+    return this._getLine(this.numberOfRows - 1);
+  }
+
   _getLine(n) {
     let line = [1];
     for (let k = 0; k < n; k++) {
