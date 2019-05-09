@@ -35,4 +35,10 @@ module ListOps
     list.each { |value| sum += value }
     sum
   end
+
+  def self.factorial_reducer(list)
+    sum = 1
+    list.each { |value| sum *= value }
+    sum
+  end
 end
