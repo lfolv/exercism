@@ -15,17 +15,14 @@ class ListOpsTest < Minitest::Test
   end
 
   def test_reverse_empty
-    skip
     assert_equal [], ListOps.reverser([])
   end
 
   def test_reverse_normal
-    skip
     assert_equal [5, 4, 3, 2, 1], ListOps.reverser([1, 2, 3, 4, 5])
   end
 
   def test_reverse_gigantic
-    skip
     expected = (1..1_000_000).to_a.reverse
     assert_equal expected, ListOps.reverser((1..1_000_000).to_a)
   end
