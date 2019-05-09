@@ -29,4 +29,10 @@ module ListOps
     list.each { |value| filtered << value if yield(value) }
     filtered
   end
+
+  def self.sum_reducer(list)
+    sum = 0
+    list.each { |value| sum += value }
+    sum
+  end
 end

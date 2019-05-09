@@ -69,12 +69,10 @@ class ListOpsTest < Minitest::Test
   end
 
   def test_sum_reducer_empty
-    skip
     assert_equal 0, ListOps.sum_reducer([])
   end
 
   def test_sum_reducer_normal
-    skip
     assert_equal 55, ListOps.sum_reducer([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
   end
 
