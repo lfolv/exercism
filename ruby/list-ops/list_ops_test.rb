@@ -28,17 +28,14 @@ class ListOpsTest < Minitest::Test
   end
 
   def test_concat_empty
-    skip
     assert_equal [], ListOps.concatter([], [])
   end
 
   def test_concat_normal
-    skip
     assert_equal [12, 34, 56, 78], ListOps.concatter([12, 34], [56, 78])
   end
 
   def test_concat_gigantic
-    skip
     input1 = (1..1_000_000).to_a
     input2 = (1_000_001..2_000_000).to_a
     assert_equal (1..2_000_000).to_a, ListOps.concatter(input1, input2)
