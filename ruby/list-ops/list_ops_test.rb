@@ -55,18 +55,15 @@ class ListOpsTest < Minitest::Test
   end
 
   def test_filterer_empty
-    skip
     assert_equal [], ListOps.filterer([])
   end
 
   def test_filterer_normal
-    skip
     result = ListOps.filterer([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], &:odd?)
     assert_equal [1, 3, 5, 7, 9], result
   end
 
   def test_filterer_gigantic
-    skip
     result = ListOps.filterer((1..10_000).to_a, &:even?)
     assert_equal (1..10_000).to_a.select(&:even?), result
   end

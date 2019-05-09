@@ -23,4 +23,10 @@ module ListOps
     list.each { |value| mapped << yield(value) }
     mapped
   end
+
+  def self.filterer(list)
+    filtered = []
+    list.each { |value| filtered << value if yield(value) }
+    filtered
+  end
 end
