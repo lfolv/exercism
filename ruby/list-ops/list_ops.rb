@@ -17,4 +17,10 @@ module ListOps
     second_list.each { |value| concatened << value }
     concatened
   end
+
+  def self.mapper(list)
+    mapped = []
+    list.each { |value| mapped << yield(value) }
+    mapped
+  end
 end

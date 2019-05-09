@@ -42,17 +42,14 @@ class ListOpsTest < Minitest::Test
   end
 
   def test_mapper_empty
-    skip
     assert_equal [], ListOps.mapper([])
   end
 
   def test_mapper_normal
-    skip
     assert_equal [2, 3, 4, 5, 6], ListOps.mapper([1, 2, 3, 4, 5]) { |n| n + 1 }
   end
 
   def test_mapper_gigantic
-    skip
     result = ListOps.mapper((1..1_000_000).to_a) { |n| n + 1 }
     assert_equal (2..1_000_001).to_a, result
   end
