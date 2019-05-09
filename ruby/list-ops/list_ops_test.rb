@@ -7,12 +7,10 @@ class ListOpsTest < Minitest::Test
   end
 
   def test_count_normal
-    skip
     assert_equal 5, ListOps.arrays(Array.new(5))
   end
 
   def test_count_gigantic
-    skip
     assert_equal 1_000_000, ListOps.arrays(Array.new(1_000_000))
   end
 
