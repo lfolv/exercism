@@ -7,9 +7,7 @@ module ListOps
 
   def self.reverser(list)
     reversed = []
-    list.each do |value|
-      reversed.unshift(value)
-    end
+    list.each { |value| reversed.unshift(value) }
     reversed
   end
 end
