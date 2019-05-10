@@ -1,3 +1,6 @@
+class InvalidCodonError < StandardError
+end
+
 module Translation
   CODONS_TO_AMINO_ACID = {
     'AUG' => "Methionine",
@@ -20,6 +23,7 @@ module Translation
   }
 
   def self.of_codon(codon)
+    raise InvalidCodonError unless CODONS_TO_AMINO_ACID[codon]
     CODONS_TO_AMINO_ACID[codon]
   end
 

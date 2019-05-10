@@ -64,7 +64,6 @@ class TranslationTest < Minitest::Test
   end
 
   def test_invalid_codons
-    skip
     strand = 'CARROT'
     assert_raises(InvalidCodonError) do
       Translation.of_rna(strand)
