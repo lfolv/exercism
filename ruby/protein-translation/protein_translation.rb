@@ -22,4 +22,12 @@ module Translation
   def self.of_codon(codon)
     CODONS_TO_AMINO_ACID[codon]
   end
+
+  def self.of_rna(rna_sequence)
+    rna_sequence.scan(/\w{3}/).each_with_object([]) do |codon, amnino_acids|
+      amnino_acid = of_codon(codon)
+      return amnino_acids if amnino_acid == 'STOP'
+      amnino_acids << amnino_acid
+    end
+  end
 end
