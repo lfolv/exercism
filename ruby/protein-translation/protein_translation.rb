@@ -19,7 +19,7 @@ module Translation
     'UGA' => "STOP"
   }
 
-  def self.of_codon(rna_sequence)
-    CODONS_TO_AMINO_ACID[rna_sequence]
+  def self.of_codon(codon)
+    CODONS_TO_AMINO_ACID[codon]
   end
 end
