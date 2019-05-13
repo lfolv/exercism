@@ -3,27 +3,27 @@ const COMPLEMENT: { [key: string]: string } = {
   C: "G",
   T: "A",
   A: "U"
-};
+}
 
-const DIVISOR = "";
+const DIVISOR = ""
 
 class Transcriptor {
   toRna(dna_strands: string): string {
     return dna_strands
       .split(DIVISOR)
       .map(this.toRnaNucleotide)
-      .join(DIVISOR);
+      .join(DIVISOR)
   }
 
   toRnaNucleotide(dna_nucleodite: string): string {
-    const rna_nucledite = COMPLEMENT[dna_nucleodite];
+    const rna_nucledite = COMPLEMENT[dna_nucleodite]
 
     if (!rna_nucledite) {
-      throw new Error("Invalid input DNA.");
+      throw new Error("Invalid input DNA.")
     }
 
-    return rna_nucledite;
+    return rna_nucledite
   }
 }
 
-export default Transcriptor;
+export default Transcriptor
