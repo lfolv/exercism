@@ -1,6 +1,6 @@
 module ListOps
   def self.arrays(list)
-    inject(list, 0) { |sum, value| sum + 1 }
+    inject(list, 0) { |length| length + 1 }
   end
 
   def self.reverser(list)
