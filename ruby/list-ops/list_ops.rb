@@ -8,10 +8,7 @@ module ListOps
   end
 
   def self.concatter(first_list, second_list)
-    concatened = []
-    first_list.each { |value| concatened << value }
-    second_list.each { |value| concatened << value }
-    concatened
+    inject(second_list, first_list) { |concatened, value| concatened << value }
   end
 
   def self.mapper(list)
