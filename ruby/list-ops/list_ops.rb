@@ -1,8 +1,6 @@
 module ListOps
   def self.arrays(list)
-    size = 0
-    list.each { size += 1 }
-    size
+    inject(list, 0) { |sum, value| sum + 1 }
   end
 
   def self.reverser(list)
@@ -39,6 +37,14 @@ module ListOps
   def self.factorial_reducer(list)
     sum = 1
     list.each { |value| sum *= value }
+    sum
+  end
+
+  def self.inject(list, initial_value)
+    sum = initial_value
+    for value in list
+      sum = yield(sum, value)
+    end
     sum
   end
 end
