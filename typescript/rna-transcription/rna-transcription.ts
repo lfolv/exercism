@@ -5,14 +5,14 @@ const COMPLEMENT: { [key: string]: string } = {
   A: "U"
 }
 
-const DIVISOR = ""
+const SEPATATOR = ""
 
 class Transcriptor {
   toRna(dna_strands: string): string {
     return dna_strands
-      .split(DIVISOR)
+      .split(SEPATATOR)
       .map(this.toRnaNucleotide)
-      .join(DIVISOR)
+      .join(SEPATATOR)
   }
 
   toRnaNucleotide(dna_nucleodite: string): string {
