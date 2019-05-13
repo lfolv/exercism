@@ -4,9 +4,7 @@ module ListOps
   end
 
   def self.reverser(list)
-    reversed = []
-    list.each { |value| reversed.unshift(value) }
-    reversed
+    inject(list, []) { |reversed, value| reversed.unshift(value) }
   end
 
   def self.concatter(first_list, second_list)
