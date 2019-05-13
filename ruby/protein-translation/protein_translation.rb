@@ -28,10 +28,9 @@ module Translation
   end
 
   def self.of_rna(rna_sequence)
-    rna_sequence.scan(/\w{3}/).each_with_object([]) do |codon, amnino_acids|
-      amnino_acid = of_codon(codon)
-      return amnino_acids if amnino_acid == 'STOP'
-      amnino_acids << amnino_acid
-    end
+    rna_sequence
+      .scan(/\w{3}/)
+      .map { |codon| of_codon(codon) }
+      .take_while { |amino_acid| amino_acid != 'STOP' }
   end
 end
