@@ -19,9 +19,9 @@ module ListOps
   end
 
   def self.filterer(list)
-    filtered = []
-    list.each { |value| filtered << value if yield(value) }
-    filtered
+    inject(list, []) do |filtered, value|
+      yield(value) ? filtered << value : filtered
+    end
   end
 
   def self.sum_reducer(list)
