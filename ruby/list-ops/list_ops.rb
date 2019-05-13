@@ -15,9 +15,7 @@ module ListOps
   end
 
   def self.mapper(list)
-    mapped = []
-    list.each { |value| mapped << yield(value) }
-    mapped
+    inject(list, []) { |mapped, value| mapped << yield(value) }
   end
 
   def self.filterer(list)
