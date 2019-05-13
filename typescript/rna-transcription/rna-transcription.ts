@@ -15,7 +15,7 @@ class Transcriptor {
       .join(SEPATATOR)
   }
 
-  toRnaNucleotide(dna_nucleodite: string): string {
+  private toRnaNucleotide(dna_nucleodite: string): string {
     const rna_nucledite = COMPLEMENT[dna_nucleodite]
 
     if (!rna_nucledite) {
