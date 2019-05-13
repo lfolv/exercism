@@ -25,9 +25,7 @@ module ListOps
   end
 
   def self.sum_reducer(list)
-    sum = 0
-    list.each { |value| sum += value }
-    sum
+    inject(list, 0) { |sum, value| sum += value }
   end
 
   def self.factorial_reducer(list)
