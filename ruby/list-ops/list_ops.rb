@@ -30,10 +30,10 @@ module ListOps
   end
 
   def self.inject(list, initial_value)
-    sum = initial_value
+    accumulator = initial_value
     for value in list
-      sum = yield(sum, value)
+      accumulator = yield(accumulator, value)
     end
-    sum
+    accumulator
   end
 end
