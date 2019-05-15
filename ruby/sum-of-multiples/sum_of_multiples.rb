@@ -4,11 +4,9 @@ class SumOfMultiples
   end
 
   def to(limit)
-    sum = 0
-    (1...limit).each do |n|
-      sum += n if numbers.any? { |m| (n % m).zero? }
-    end
-    sum
+    (1...limit)
+      .select { |number| numbers.any? { |divisor| (number % divisor).zero? } }
+      .sum
   end
 
   private
