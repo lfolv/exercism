@@ -4,13 +4,11 @@ require_relative 'sum_of_multiples'
 # Common test data version: 1.4.1 8f89751
 class SumOfMultiplesTest < Minitest::Test
   def test_no_multiples_within_limit
-    # skip
     sum_of_multiples = SumOfMultiples.new(3, 5)
     assert_equal 0, sum_of_multiples.to(1)
   end
 
   def test_one_factor_has_multiples_within_limit
-    skip
     sum_of_multiples = SumOfMultiples.new(3, 5)
     assert_equal 3, sum_of_multiples.to(4)
   end
