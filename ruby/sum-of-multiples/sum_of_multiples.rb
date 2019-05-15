@@ -1,0 +1,2 @@
+class SumOfMultiples
+end
