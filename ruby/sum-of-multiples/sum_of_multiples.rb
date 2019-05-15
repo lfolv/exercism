@@ -6,7 +6,7 @@ class SumOfMultiples
   def to(limit)
     sum = 0
     (1...limit).each do |n|
-      sum += n if numbers.all? { |m| (n / m).zero? }
+      sum += n if numbers.any? { |m| (n % m).zero? }
     end
     sum
   end
