@@ -1,6 +1,6 @@
 class SumOfMultiples
-  def initialize(*numbers)
-    @numbers = numbers
+  def initialize(*multiples)
+    @multiples = multiples
   end
 
   def to(limit)
@@ -11,9 +11,9 @@ class SumOfMultiples
 
   private
 
-  attr_reader :numbers
+  attr_reader :multiples
 
   def multiple?(number)
-    numbers.any? { |divisor| (number % divisor).zero? }
+    multiples.any? { |multiple| (number % multiple).zero? }
   end
 end
