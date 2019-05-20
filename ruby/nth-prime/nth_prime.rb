@@ -3,9 +3,8 @@ module Prime
     raise ArgumentError.new if n.zero?
 
     count = 1
-    current = 2
 
-    loop do
+    (2..Float::INFINITY).each do |current|
       if prime?(current)
         return current if count == n
         count += 1
