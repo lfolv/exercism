@@ -9,7 +9,6 @@ module Prime
         return current if count == n
         count += 1
       end
-      current += 1
     end
   end
 
