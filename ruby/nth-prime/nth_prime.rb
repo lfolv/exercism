@@ -1,5 +1,7 @@
 module Prime
   def self.nth(n)
+    raise ArgumentError.new if n.zero?
+
     count = 1
     current = 2
 
