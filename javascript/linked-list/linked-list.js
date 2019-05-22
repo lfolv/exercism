@@ -19,6 +19,12 @@ export class LinkedList {
     this.last = this.last.previos
     return value
   }
+
+  shift() {
+    const { value } = this.first
+    this.first = this.first.next
+    return value
+  }
 }
 
 const createNode = ({ value = null, previos = null, next = null}) => ({
