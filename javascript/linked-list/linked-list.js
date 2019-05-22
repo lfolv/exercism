@@ -13,6 +13,12 @@ export class LinkedList {
     }
     this.last = node
   }
+
+  pop() {
+    const { value } = this.last
+    this.last = this.last.previos
+    return value
+  }
 }
 
 const createNode = ({ value = null, previos = null, next = null}) => ({
