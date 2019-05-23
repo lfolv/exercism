@@ -1,13 +1,13 @@
 export class LinkedList {
   constructor() {
-    this.first = null
+    this.head = null
     this.last = null
   }
 
   push(value) {
     const node = createNode({value, previos: this.last})
-    if (!this.first) {
-      this.first = node
+    if (!this.head) {
+      this.head = node
     } else {
       this.last.next = node
     }
@@ -15,13 +15,13 @@ export class LinkedList {
   }
 
   unshift(value) {
-    const node = createNode({ value, next: this.first })
+    const node = createNode({ value, next: this.head })
     if (!this.last) {
       this.last = node
     } else {
-      this.first.previos = node
+      this.head.previos = node
     }
-    this.first = node
+    this.head = node
   }
 
   pop() {
@@ -31,18 +31,18 @@ export class LinkedList {
   }
 
   shift() {
-    const { value } = this.first
-    this.first = this.first.next
+    const { value } = this.head
+    this.head = this.head.next
     return value
   }
 
   count() {
-    if (!this.first) {
+    if (!this.head) {
       return 0
     }
 
     let c = 0
-    let current = this.first
+    let current = this.head
     while (current) {
       c++
       current = current.next
