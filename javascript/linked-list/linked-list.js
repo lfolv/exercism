@@ -35,6 +35,9 @@ export class LinkedList {
 
   shift() {
     const { value } = this.head
+    if (this.tail == this.head) {
+      this.tail = null
+    }
     this.head = this.head.next
     return value
   }
