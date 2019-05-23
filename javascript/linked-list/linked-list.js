@@ -61,6 +61,7 @@ export class LinkedList {
 
     while(current.value !== value) {
       current = current.next
+      if (!current) { return }
     }
 
     if (current === this.head && current === this.tail) {
