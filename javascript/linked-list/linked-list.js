@@ -63,7 +63,11 @@ export class LinkedList {
       current = current.next
     }
 
-    if (current === this.head) {
+    if (current === this.head && current === this.tail) {
+      this.head = null
+      this.tail = null
+    }
+    else if (current === this.head) {
       this.head = current.next
       this.head.previos = null
     } else if (current === this.tail) {

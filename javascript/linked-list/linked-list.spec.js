@@ -76,7 +76,7 @@ describe('LinkedList', () => {
     expect(list.pop()).toBe(30);
     expect(list.shift()).toBe(10);
   });
-  xtest('deletes the only element', () => {
+  test('deletes the only element', () => {
     const list = new LinkedList();
     list.push(10);
     list.delete(10);
