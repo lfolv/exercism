@@ -55,6 +55,25 @@ export class LinkedList {
     }
     return c
   }
+
+  delete(value) {
+    let current = this.head
+
+    while(current.value !== value) {
+      current = current.next
+    }
+
+    if (current === this.head) {
+      this.head = current.next
+      this.head.previos = null
+    } else if (current === this.tail) {
+      this.tail = current.previos
+      this.tail.next = null
+    } else {
+      current.previos.next = current.next
+      current.next.previos = current.previos
+    }
+  }
 }
 
 const createNode = ({ value = null, previos = null, next = null}) => ({

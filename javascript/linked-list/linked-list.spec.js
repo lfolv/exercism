@@ -66,7 +66,7 @@ describe('LinkedList', () => {
     expect(list.count()).toBe(1);
     expect(list.shift()).toBe(20);
   });
-  xtest('deletes the element with the specified value from the list', () => {
+ test('deletes the element with the specified value from the list', () => {
     const list = new LinkedList();
     list.push(10);
     list.push(20);
