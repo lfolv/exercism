@@ -35,6 +35,20 @@ export class LinkedList {
     this.first = this.first.next
     return value
   }
+
+  count() {
+    if (!this.first) {
+      return 0
+    }
+
+    let c = 0
+    let current = this.first
+    while (current) {
+      c++
+      current = current.next
+    }
+    return c
+  }
 }
 
 const createNode = ({ value = null, previos = null, next = null}) => ({
