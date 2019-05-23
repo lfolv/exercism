@@ -14,6 +14,16 @@ export class LinkedList {
     this.last = node
   }
 
+  unshift(value) {
+    const node = createNode({ value, next: this.first })
+    if (!this.last) {
+      this.last = node
+    } else {
+      this.first.previos = node
+    }
+    this.first = node
+  }
+
   pop() {
     const { value } = this.last
     this.last = this.last.previos
