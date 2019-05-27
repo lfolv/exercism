@@ -1,16 +1,16 @@
-module IntegerHelpers
-  refine Integer do
-    def prime?
-      (2..(self / 2)).each do |n|
-        return false if (self % n).zero?
-      end
+module Prime
+  module IntegerHelpers
+    refine Integer do
+      def prime?
+        (2..(self / 2)).each do |n|
+          return false if (self % n).zero?
+        end
 
-      true
+        true
+      end
     end
   end
-end
 
-module Prime
   using IntegerHelpers
 
   def self.nth(n)
