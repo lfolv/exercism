@@ -13,7 +13,7 @@ module Prime
   end
 
   def self.prime?(number)
-    (2...number).each do |n|
+    (2..(number / 2)).each do |n|
       return false if (number % n).zero?
     end
 
