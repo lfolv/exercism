@@ -2,13 +2,12 @@ module Prime
   def self.nth(n)
     raise ArgumentError.new if n.zero?
 
-    count = 1
+    primes.take(n).last
+  end
 
-    (2..Float::INFINITY).each do |current|
-      if prime?(current)
-        return current if count == n
-        count += 1
-      end
+  def self.primes
+    Enumerator.new do |p|
+      (2..).each { |current| p << current if prime?(current) }
     end
   end
 
