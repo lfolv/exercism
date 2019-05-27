@@ -1,18 +1,18 @@
 module Bob
-  FOREFUL_QUESTION_PATTEN = /\A[A-Z\s!]+\?\z/
-  YELL_PATTERN = /\A^(?:\d+\,?\s*)*(?:[A-Z]+[\s!]*[^a-z]*)+\z/
-  QUESTION_PATTERN = /\A^.+\?\s*\z/
-  SILENCE_PATTERN = /\A^\s*\z/
+  FOREFUL_QUESTION = /\A[A-Z\s!]+\?\z/
+  YELL = /\A^(?:\d+\,?\s*)*(?:[A-Z]+[\s!]*[^a-z]*)+\z/
+  QUESTION = /\A^.+\?\s*\z/
+  SILENCE = /\A^\s*\z/
 
   def self.hey(message)
     case message
-    when FOREFUL_QUESTION_PATTEN
+    when FOREFUL_QUESTION
       "Calm down, I know what I'm doing!"
-    when YELL_PATTERN
+    when YELL
       "Whoa, chill out!"
-    when QUESTION_PATTERN
+    when QUESTION
       "Sure."
-    when SILENCE_PATTERN
+    when SILENCE
       "Fine. Be that way!"
     else
       "Whatever."
