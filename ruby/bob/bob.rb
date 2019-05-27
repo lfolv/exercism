@@ -1,5 +1,5 @@
 module Bob
-  FOREFUL_QUESTION = /\A[A-Z\s!]+\?\z/
+  FOREFUL_QUESTION = /\A[A-Z\s]+\?\z/
   YELL = /\A^(?:\d+\,?\s*)*(?:[A-Z]+[\s!]*[^a-z]*)+\z/
   QUESTION = /\A^.+\?\s*\z/
   SILENCE = /\A^\s*\z/
