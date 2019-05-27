@@ -6,4 +6,4 @@ FACTORS_TO_MESSAGE = (
 
 def raindrops(number):
     result = "".join(message for factor, message in FACTORS_TO_MESSAGE if number % factor == 0)
-    return str(number) if not result else result
+    return result if result else str(number)
