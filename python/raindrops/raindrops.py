@@ -1,17 +1,9 @@
-from io import StringIO
-
+FACTORS_TO_MESSAGE = (
+    (3, "Pling"),
+    (5, "Plang"),
+    (7, "Plong")
+)
 
 def raindrops(number):
-    stream = StringIO()
-
-    if number % 3 == 0:
-        stream.write("Pling")
-    if number % 5 == 0:
-        stream.write("Plang")
-    if number % 7 == 0:
-        stream.write("Plong")
-
-    result = stream.getvalue()
-    stream.close()
-
+    result = "".join(message for factor, message in FACTORS_TO_MESSAGE if number % factor == 0)
     return str(number) if len(result) == 0 else result
