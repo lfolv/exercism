@@ -11,12 +11,21 @@ module Prime
     end
   end
 
+  module EnumeratorHelpers
+    refine Enumerator do
+      def nth(n)
+        self.take(n).last
+      end
+    end
+  end
+
   using IntegerHelpers
+  using EnumeratorHelpers
 
-  def self.nth(nth)
-    raise ArgumentError.new if nth <= 0
+  def self.nth(n)
+    raise ArgumentError.new if n <= 0
 
-    primes.take(nth).last
+    primes.nth(n)
   end
 
   def self.primes
