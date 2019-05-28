@@ -14,7 +14,12 @@ module Prime
   module EnumeratorHelpers
     refine Enumerator do
       def nth(n)
-        self.take(n).last
+        count = 1
+
+        self.each do |value|
+          return value if count == n
+          count += 1
+        end
       end
     end
   end
