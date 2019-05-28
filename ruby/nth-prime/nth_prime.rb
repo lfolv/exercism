@@ -13,15 +13,15 @@ module Prime
 
   using IntegerHelpers
 
-  def self.nth(n)
-    raise ArgumentError.new if n.zero?
+  def self.nth(nth)
+    raise ArgumentError.new if nth <= 0
 
-    primes.take(n).last
+    primes.take(nth).last
   end
 
   def self.primes
     Enumerator.new do |p|
-      (2..).each { |current| p << current if current.prime? }
+      (2..Float::INFINITY).each { |current| p << current if current.prime? }
     end
   end
 
