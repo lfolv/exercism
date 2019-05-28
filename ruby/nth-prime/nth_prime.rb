@@ -35,7 +35,7 @@ module Prime
 
   def self.primes
     Enumerator.new do |p|
-      (2..Float::INFINITY).each { |current| p.yield(current) if current.prime? }
+      (2..).each { |current| p.yield(current) if current.prime? }
     end
   end
 
