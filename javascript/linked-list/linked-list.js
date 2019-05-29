@@ -5,7 +5,7 @@ export class LinkedList {
   }
 
   push(value) {
-    const node = createNode({value, previos: this.tail})
+    const node = {value, previos: this.tail}
     if (!this.head) {
       this.head = node
     } else {
@@ -15,7 +15,7 @@ export class LinkedList {
   }
 
   unshift(value) {
-    const node = createNode({ value, next: this.head })
+    const node = { value, next: this.head }
     if (!this.tail) {
       this.tail = node
     } else {
@@ -80,9 +80,3 @@ export class LinkedList {
     }
   }
 }
-
-const createNode = ({ value = null, previos = null, next = null}) => ({
-  value,
-  previos,
-  next
-})
