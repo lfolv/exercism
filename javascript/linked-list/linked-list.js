@@ -29,13 +29,19 @@ export class LinkedList {
   }
 
   unshift(value) {
-    const node = { value, previos: null, next: this.head }
+    const node = this.insertBeforeNode(this.head, value)
     if (!this.tail) {
       this.tail = node
-    } else {
-      this.head.previos = node
     }
     this.head = node
+  }
+
+  insertBeforeNode(node, value) {
+    const newNode = { value, previos: null, next: node }
+    if (node) {
+      node.previos = newNode
+    }
+    return newNode
   }
 
   pop() {
