@@ -26,10 +26,7 @@ export class LinkedList {
 
   pop() {
     const { value } = this.tail
-    if (this.head == this.tail) {
-      this.head = null
-    }
-    this.tail = this.tail.previos
+    this.deleteNode(this.tail)
     return value
   }
 
