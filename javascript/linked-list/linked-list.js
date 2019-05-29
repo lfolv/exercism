@@ -6,14 +6,14 @@ export class LinkedList {
 
   count(node = this.head, length = 0) {
     if (node) {
-      return this.count(node.next || null, length + 1)
+      return this.count(node.next, length + 1)
     }
 
     return length
   }
 
   push(value) {
-    const node = {value, previos: this.tail}
+    const node = {value, previos: this.tail, next: null }
     if (!this.head) {
       this.head = node
     } else {
@@ -23,7 +23,7 @@ export class LinkedList {
   }
 
   unshift(value) {
-    const node = { value, next: this.head }
+    const node = { value, previos: null, next: this.head }
     if (!this.tail) {
       this.tail = node
     } else {
@@ -52,7 +52,7 @@ export class LinkedList {
     if (node.value === value) {
       this.deleteNode(node)
     } else {
-      this.delete(value, node.next || null)
+      this.delete(value, node.next)
     }
   }
 
