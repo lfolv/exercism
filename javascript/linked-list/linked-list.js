@@ -13,7 +13,7 @@ export class LinkedList {
   }
 
   push(value) {
-    const node = {value, previos: this.tail, next: null }
+    const node = { value, previos: this.tail, next: null }
     if (!this.head) {
       this.head = node
     } else {
