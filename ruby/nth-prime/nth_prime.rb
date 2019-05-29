@@ -14,12 +14,8 @@ module Prime
   module EnumeratorHelpers
     refine Enumerator do
       def nth(n)
-        count = 1
-
-        self.each do |value|
-          return value if count == n
-          count += 1
-        end
+        (n-1).times { self.next }
+        self.peek
       end
     end
   end
@@ -38,5 +34,4 @@ module Prime
       (2..).each { |current| p.yield(current) if current.prime? }
     end
   end
-
 end
