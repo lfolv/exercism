@@ -56,22 +56,26 @@ export class LinkedList {
     }
 
     if (node.value === value) {
-      if (node === this.head && node === this.tail) {
-        this.head = null
-        this.tail = null
-      }
-      else if (node === this.head) {
-        this.head = node.next
-        this.head.previos = null
-      } else if (node === this.tail) {
-        this.tail = node.previos
-        this.tail.next = null
-      } else {
-        node.previos.next = node.next
-        node.next.previos = node.previos
-      }
+      this.deleteNode(node)
     } else {
       this.delete(value, node.next || null)
+    }
+  }
+
+  deleteNode(node) {
+    if (node === this.head && node === this.tail) {
+      this.head = null
+      this.tail = null
+    }
+    else if (node === this.head) {
+      this.head = node.next
+      this.head.previos = null
+    } else if (node === this.tail) {
+      this.tail = node.previos
+      this.tail.next = null
+    } else {
+      node.previos.next = node.next
+      node.next.previos = node.previos
     }
   }
 }
