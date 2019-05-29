@@ -4,6 +4,14 @@ export class LinkedList {
     this.tail = null
   }
 
+  count(node = this.head, length = 0) {
+    if (node) {
+      return this.count(node.next || null, length + 1)
+    }
+
+    return length
+  }
+
   push(value) {
     const node = {value, previos: this.tail}
     if (!this.head) {
@@ -34,14 +42,6 @@ export class LinkedList {
     const { value } = this.head
     this.deleteNode(this.head)
     return value
-  }
-
-  count(node = this.head, length = 0) {
-    if (node) {
-      return this.count(node.next || null, length + 1)
-    }
-
-    return length
   }
 
   delete(value, node = this.head) {
