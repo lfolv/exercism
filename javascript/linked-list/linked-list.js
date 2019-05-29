@@ -50,27 +50,28 @@ export class LinkedList {
     return length
   }
 
-  delete(value) {
-    let current = this.head
-
-    while(current.value !== value) {
-      current = current.next
-      if (!current) { return }
+  delete(value, node = this.head) {
+    if (!node) {
+      return
     }
 
-    if (current === this.head && current === this.tail) {
-      this.head = null
-      this.tail = null
-    }
-    else if (current === this.head) {
-      this.head = current.next
-      this.head.previos = null
-    } else if (current === this.tail) {
-      this.tail = current.previos
-      this.tail.next = null
+    if (node.value === value) {
+      if (node === this.head && node === this.tail) {
+        this.head = null
+        this.tail = null
+      }
+      else if (node === this.head) {
+        this.head = node.next
+        this.head.previos = null
+      } else if (node === this.tail) {
+        this.tail = node.previos
+        this.tail.next = null
+      } else {
+        node.previos.next = node.next
+        node.next.previos = node.previos
+      }
     } else {
-      current.previos.next = current.next
-      current.next.previos = current.previos
+      this.delete(value, node.next || null)
     }
   }
 }
