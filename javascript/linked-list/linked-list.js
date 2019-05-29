@@ -42,18 +42,12 @@ export class LinkedList {
     return value
   }
 
-  count() {
-    if (!this.head) {
-      return 0
+  count(node = this.head, length = 0) {
+    if (node) {
+      return this.count(node.next || null, length + 1)
     }
 
-    let c = 0
-    let current = this.head
-    while (current) {
-      c++
-      current = current.next
-    }
-    return c
+    return length
   }
 
   delete(value) {
