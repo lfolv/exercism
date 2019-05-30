@@ -1,7 +1,7 @@
 export class GradeSchool {
   constructor() {
     this.grades = new Proxy({}, {
-      get: function (object, property) {
+      get: (object, property) => {
         return object.hasOwnProperty(property) ? object[property] : []
       }
     })
