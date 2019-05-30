@@ -4,7 +4,7 @@ export class GradeSchool {
   }
 
   add(student, grade) {
-    this.grades[grade] = [student]
+    this.grades[grade] = [...this.grades[grade] || [], student]
   }
 
   roster() {

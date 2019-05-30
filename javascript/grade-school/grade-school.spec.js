@@ -18,7 +18,7 @@ describe('School', () => {
     expect(school.roster()).toEqual(expectedDb);
   });
 
-  xtest('adding more students to the same grade adds them to the roster', () => {
+  test('adding more students to the same grade adds them to the roster', () => {
     school.add('Blair', 2);
     school.add('James', 2);
     school.add('Paul', 2);
