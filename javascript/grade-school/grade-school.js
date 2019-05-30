@@ -12,7 +12,11 @@ export class GradeSchool {
   }
 
   roster() {
-    return this.grades
+    return Object.keys(this.grades)
+      .reduce((object, key) => ({
+        ...object,
+        [key]: [...this.grades[key]]
+      }), {})
   }
 
   grade(g) {
