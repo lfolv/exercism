@@ -10,4 +10,8 @@ export class GradeSchool {
   roster() {
     return this.grades
   }
+
+  grade(g) {
+    return this.grades[g].sort()
+  }
 }
