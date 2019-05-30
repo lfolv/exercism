@@ -12,6 +12,9 @@ export class GradeSchool {
   }
 
   grade(g) {
-    return this.grades[g].sort()
+    if (this.grades[g]) {
+      return this.grades[g].sort()
+    }
+    return []
   }
 }
