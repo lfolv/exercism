@@ -20,6 +20,6 @@ export class GradeSchool {
   }
 
   grade(g) {
-    return this.grades[g]
+    return [...this.grades[g]]
   }
 }
