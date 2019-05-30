@@ -8,7 +8,7 @@ export class GradeSchool {
   }
 
   add(student, grade) {
-    this.grades[grade] = [...this.grades[grade], student]
+    this.grades[grade] = [...this.grades[grade], student].sort()
   }
 
   roster() {
@@ -16,6 +16,6 @@ export class GradeSchool {
   }
 
   grade(g) {
-    return this.grades[g].sort()
+    return this.grades[g]
   }
 }
