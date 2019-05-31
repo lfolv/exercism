@@ -10,11 +10,9 @@ class IsogramTest(unittest.TestCase):
     def test_empty_string(self):
         self.assertIs(is_isogram(""), True)
 
-    @unittest.skip
     def test_isogram_with_only_lower_case_characters(self):
         self.assertIs(is_isogram("isogram"), True)
 
-    @unittest.skip
     def test_word_with_one_duplicated_character(self):
         self.assertIs(is_isogram("eleven"), False)
 
