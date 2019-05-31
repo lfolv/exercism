@@ -28,15 +28,12 @@ class IsogramTest(unittest.TestCase):
     def test_word_with_duplicated_letter_in_mixed_case_lowercase_first(self):
         self.assertIs(is_isogram("alphAbet"), False)
 
-    @unittest.skip
     def test_hypothetical_isogrammic_word_with_hyphen(self):
         self.assertIs(is_isogram("thumbscrew-japingly"), True)
 
-    @unittest.skip
     def test_hypothetical_word_with_duplicate_character_following_hyphen(self):
         self.assertIs(is_isogram("thumbscrew-jappingly"), False)
 
-    @unittest.skip
     def test_isogram_with_duplicated_hyphen(self):
         self.assertIs(is_isogram("six-year-old"), True)
 
