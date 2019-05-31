@@ -25,7 +25,6 @@ class IsogramTest(unittest.TestCase):
     def test_word_with_duplicated_character_in_mixed_case(self):
         self.assertIs(is_isogram("Alphabet"), False)
 
-    @unittest.skip
     def test_word_with_duplicated_letter_in_mixed_case_lowercase_first(self):
         self.assertIs(is_isogram("alphAbet"), False)
 
