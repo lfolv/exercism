@@ -37,21 +37,17 @@ class IsogramTest(unittest.TestCase):
     def test_isogram_with_duplicated_hyphen(self):
         self.assertIs(is_isogram("six-year-old"), True)
 
-    @unittest.skip
     def test_made_up_name_that_is_an_isogram(self):
         self.assertIs(is_isogram("Emily Jung Schwartzkopf"), True)
 
-    @unittest.skip
     def test_duplicated_character_in_the_middle(self):
         self.assertIs(is_isogram("accentor"), False)
 
-    @unittest.skip
     def test_same_first_and_last_characters(self):
         self.assertIs(is_isogram("angola"), False)
 
     # Additional tests for this track
 
-    @unittest.skip
     def test_isogram_with_duplicated_letter_and_nonletter_character(self):
         self.assertIs(is_isogram("Aleph Bot Chap"), False)
 
