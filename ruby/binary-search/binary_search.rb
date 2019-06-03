@@ -8,11 +8,15 @@ class BinarySearch
 
   def search_for(value, head = 0, tail = list.length)
     index = middle(head, tail)
-
-    return index if value == list[index]
-    raise RuntimeError if head == tail
-    return search_for(value, head, tail - 1) if value < list[middle]
-    return search_for(value, head + 1, tail) if value > list[middle]
+    if value == list[index]
+      index
+    elsif  head == tail
+      raise RuntimeError
+    elsif value < list[index]
+      search_for(value, head, tail - 1)
+    else
+      search_for(value, head + 1, tail)
+    end
   end
 
   def middle(head = 0, tail = list.length)
