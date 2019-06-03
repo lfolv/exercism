@@ -26,7 +26,7 @@ class BinarySearch
   private
 
   def valid?
-    list.each_cons(2) { |a| return false if a[0] >= a[1] }
+    list.each_cons(2) { |a| return false if a.first >= a.last }
     true
   end
 end
