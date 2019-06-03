@@ -6,8 +6,13 @@ class BinarySearch
     raise ArgumentError unless valid?
   end
 
-  def search_for(value)
-    raise RuntimeError
+  def search_for(value, head = 0, tail = list.length)
+    index = middle(head, tail)
+
+    return index if value == list[index]
+    raise RuntimeError if head == tail
+    return search_for(value, head, tail - 1) if value < list[middle]
+    return search_for(value, head + 1, tail) if value > list[middle]
   end
 
   def middle(head = 0, tail = list.length)
