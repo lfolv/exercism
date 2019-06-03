@@ -6,6 +6,10 @@ class BinarySearch
     raise ArgumentError unless valid?
   end
 
+  def search_for(value)
+    raise RuntimeError
+  end
+
   private
 
   def valid?
