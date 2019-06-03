@@ -10,6 +10,10 @@ class BinarySearch
     raise RuntimeError
   end
 
+  def middle(head = 0, tail = list.length)
+    middle = ((tail - head) / 2).floor
+  end
+
   private
 
   def valid?

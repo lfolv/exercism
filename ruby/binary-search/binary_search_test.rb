@@ -20,7 +20,6 @@ class BinarySearchTest < Minitest::Test
   end
 
   def test_it_finds_position_of_middle_item
-    skip
     binary = BinarySearch.new([1, 3, 4, 6, 8, 9, 11])
     assert_equal 3, binary.middle
   end
