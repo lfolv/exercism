@@ -20,7 +20,7 @@ class BinarySearch
   end
 
   def middle(head = 0, tail = list.length)
-    middle = ((tail - head) / 2).floor
+    middle = ((tail - head) / 2).floor + head
   end
 
   private

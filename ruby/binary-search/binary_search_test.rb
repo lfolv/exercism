@@ -25,7 +25,6 @@ class BinarySearchTest < Minitest::Test
   end
 
   def test_it_finds_position_of_search_data
-    skip
     binary = BinarySearch.new([1, 3, 4, 6, 8, 9, 11])
     assert_equal 5, binary.search_for(9)
   end
