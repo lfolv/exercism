@@ -26,7 +26,6 @@ class BinarySearch
   private
 
   def sorted?
-    list.each_cons(2) { |a| return false if a.first >= a.last }
-    true
+    list.each_cons(2).all? { |x, y| x < y }
   end
 end
