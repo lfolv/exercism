@@ -24,7 +24,6 @@ class SchoolTest < Minitest::Test
   end
 
   def test_grade_with_multiple_students
-    skip
     school = School.new
     grade    = 6
     students = %w(Aimee Beemee Ceemee)
