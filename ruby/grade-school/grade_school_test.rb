@@ -16,7 +16,6 @@ class SchoolTest < Minitest::Test
   end
 
   def test_add_students_to_different_grades
-    skip
     school = School.new
     school.add('Aimee', 3)
     school.add('Beemee', 7)
