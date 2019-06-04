@@ -3,7 +3,7 @@ class BinarySearch
 
   def initialize(list)
     @list = list
-    raise ArgumentError unless valid?
+    raise ArgumentError unless sorted?
   end
 
   def search_for(value, head = 0, tail = list.length)
@@ -25,7 +25,7 @@ class BinarySearch
 
   private
 
-  def valid?
+  def sorted?
     list.each_cons(2) { |a| return false if a.first >= a.last }
     true
   end
