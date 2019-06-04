@@ -10,11 +10,12 @@ class BinarySearch
     raise RuntimeError if head > tail
 
     index = middle(head, tail)
-    if value < list[index]
+    case compare(value, list[index])
+    when :move_left
       search_for(value, head, index - 1)
-    elsif value > list[index]
+    when :move_right
       search_for(value, index + 1, tail)
-    else
+    when :match
       index
     end
   end
@@ -27,5 +28,15 @@ class BinarySearch
 
   def sorted?
     list.each_cons(2).all? { |x, y| x < y }
+  end
+
+  def compare(value, other)
+    if value < other
+      :move_left
+    elsif value > other
+      :move_right
+    else
+      :match
+    end
   end
 end
