@@ -10,12 +10,12 @@ class BinarySearch
     raise RuntimeError if head == tail
 
     index = middle(head, tail)
-    if value == list[index]
-      index
-    elsif value < list[index]
+    if value < list[index]
       search_for(value, head, tail - 1)
-    else
+    elsif value > list[index]
       search_for(value, head + 1, tail)
+    else
+      index
     end
   end
 
