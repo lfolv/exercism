@@ -7,13 +7,13 @@ class BinarySearch
   end
 
   def search_for(value, head = 0, tail = list.length)
-    raise RuntimeError if head == tail
+    raise RuntimeError if head > tail
 
     index = middle(head, tail)
     if value < list[index]
-      search_for(value, head, tail - 1)
+      search_for(value, head, index - 1)
     elsif value > list[index]
-      search_for(value, head + 1, tail)
+      search_for(value, index + 1, tail)
     else
       index
     end
