@@ -34,7 +34,6 @@ class ProverbTest < Minitest::Test
   end
 
   def test_the_whole_proverb
-    skip
     chain = %w(nail shoe horse rider message battle kingdom)
     proverb = Proverb.new(*chain)
     expected = "For want of a nail the shoe was lost.\n" \
