@@ -21,7 +21,7 @@ class Proverb
   end
 
   def last_sentence
-    s = qualifier.empty? ? inputs.first : qualifier.concat(" #{inputs.first}")
+    s = qualifier.empty? ? inputs.first : "#{qualifier} #{inputs.first}"
     "And all for the want of a #{s}."
   end
 end
