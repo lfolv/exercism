@@ -5,20 +5,18 @@ class Proverb
   end
 
   def to_s
-    "".tap do |proverb|
-      inputs.each_cons(2) do |words|
-        proverb << sentence(*words)
-      end
-
-      proverb << last_sentence
-    end
+    inputs
+      .each_cons(2)
+      .map { |words| to_sentence(*words) }
+      .join
+      .concat(last_sentence)
   end
 
   private
 
   attr_reader :inputs, :qualifier
 
-  def sentence(first, second)
+  def to_sentence(first, second)
     "For want of a #{first} the #{second} was lost.\n"
   end
 
