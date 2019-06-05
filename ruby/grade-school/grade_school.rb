@@ -12,6 +12,10 @@ class School
     grades[grade] << name
   end
 
+  def students_by_grade
+    []
+  end
+
   private
 
   attr_reader :grades
