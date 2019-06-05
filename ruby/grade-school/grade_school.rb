@@ -13,7 +13,7 @@ class School
 
   def students_by_grade
     result = []
-    grades.each_key do |grade|
+    grades.keys.sort.each do |grade|
       result << { grade: grade, students: students(grade)}
     end
     result
