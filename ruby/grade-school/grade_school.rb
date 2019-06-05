@@ -1,5 +1,4 @@
 class School
-
   def initialize
     @grades = Hash.new { |hash, key| hash[key] = [] }
   end
@@ -13,7 +12,11 @@ class School
   end
 
   def students_by_grade
-    []
+    result = []
+    grades.each_key do |grade|
+      result << { grade: grade, students: students(grade)}
+    end
+    result
   end
 
   private
