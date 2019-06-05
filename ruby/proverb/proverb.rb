@@ -4,8 +4,12 @@ class Proverb
   end
 
   def to_s
-    """For want of a nail the shoe was lost.
-And all for the want of a nail."""
+    "".tap do |proverb|
+      inputs.each_cons(2) do |words|
+        proverb << "For want of a #{words.first} the #{words.last} was lost.\n"
+      end
+      proverb << "And all for the want of a #{inputs.first}."
+    end
   end
 
   private
