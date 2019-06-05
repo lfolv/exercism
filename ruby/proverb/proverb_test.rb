@@ -18,7 +18,6 @@ class ProverbTest < Minitest::Test
   end
 
   def test_a_longer_chain_of_consequences
-    skip
     proverb = Proverb.new('nail', 'shoe', 'horse', 'rider')
     expected = "For want of a nail the shoe was lost.\n" \
       "For want of a shoe the horse was lost.\n" \
