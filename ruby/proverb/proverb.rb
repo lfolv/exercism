@@ -21,10 +21,10 @@ class Proverb
   end
 
   def last_sentence
-    "And all for the want of a #{what_was_lost}."
+    "And all for the want of a #{all_for_the_want_of}."
   end
 
-  def what_was_lost
+  def all_for_the_want_of
     qualifier.empty? ? inputs.first : "#{qualifier} #{inputs.first}"
   end
 end
