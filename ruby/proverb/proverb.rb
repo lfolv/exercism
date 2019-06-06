@@ -16,8 +16,8 @@ class Proverb
 
   attr_reader :inputs, :qualifier
 
-  def to_sentence(for_want_of, lost)
-    "For want of a #{for_want_of} the #{lost} was lost.\n"
+  def to_sentence(for_want_of, what_was_lost)
+    "For want of a #{for_want_of} the #{what_was_lost} was lost.\n"
   end
 
   def last_sentence
