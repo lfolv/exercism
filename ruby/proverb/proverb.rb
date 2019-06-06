@@ -7,8 +7,8 @@ class Proverb
   def to_s
     want_and_losses
       .map { |for_want_of, what_was_lost| to_sentence(for_want_of, what_was_lost) }
+      .push(last_sentence)
       .join("\n")
-      .concat("\n#{last_sentence}")
   end
 
   private
