@@ -13,9 +13,11 @@ class School
   end
 
   def students_by_grade
-    grades.keys.sort.each_with_object([]) do |grade, result|
-      result << { grade: grade, students: students(grade)}
-    end
+    grades
+      .keys
+      .sort
+      .each_with_object([])
+      .map { |grade| { grade: grade, students: students(grade)} }
   end
 
   private
