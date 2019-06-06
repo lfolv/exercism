@@ -14,7 +14,7 @@ class School
 
   def students_by_grade
     grades
-      .sort_by { |grade, students| grade }
+      .sort
       .map { |grade, students| {grade: grade, students: students} }
   end
 
