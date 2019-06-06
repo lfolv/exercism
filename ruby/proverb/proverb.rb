@@ -8,8 +8,8 @@ class Proverb
     items
       .each_cons(2)
       .map { |words| to_sentence(*words) }
-      .join
-      .concat(last_sentence)
+      .join("\n")
+      .concat("\n#{last_sentence}")
   end
 
   private
@@ -17,7 +17,7 @@ class Proverb
   attr_reader :items, :qualifier
 
   def to_sentence(for_want_of, what_was_lost)
-    "For want of a #{for_want_of} the #{what_was_lost} was lost.\n"
+    "For want of a #{for_want_of} the #{what_was_lost} was lost."
   end
 
   def last_sentence
