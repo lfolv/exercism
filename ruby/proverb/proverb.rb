@@ -6,7 +6,7 @@ class Proverb
 
   def to_s
     want_and_losses
-      .map { |words| to_sentence(*words) }
+      .map { |for_want_of, what_was_lost| to_sentence(for_want_of, what_was_lost) }
       .join("\n")
       .concat("\n#{last_sentence}")
   end
