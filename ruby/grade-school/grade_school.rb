@@ -4,11 +4,12 @@ class School
   end
 
   def students(grade)
-    grades[grade].sort
+    grades[grade]
   end
 
   def add(name, grade)
     grades[grade] << name
+    grades[grade].sort!
   end
 
   def students_by_grade
