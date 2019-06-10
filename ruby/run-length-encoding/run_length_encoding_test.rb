@@ -4,14 +4,12 @@ require_relative 'run_length_encoding'
 # Common test data version: 1.1.0 1b7900e
 class RunLengthEncodingTest < Minitest::Test
   def test_encode_empty_string
-    # skip
     input = ''
     output = ''
     assert_equal output, RunLengthEncoding.encode(input)
   end
 
   def test_encode_single_characters_only_are_encoded_without_count
-    skip
     input = 'XYZ'
     output = 'XYZ'
     assert_equal output, RunLengthEncoding.encode(input)
