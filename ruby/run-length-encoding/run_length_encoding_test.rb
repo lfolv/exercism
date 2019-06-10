@@ -28,14 +28,12 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_encode_multiple_whitespace_mixed_in_string
-    skip
     input = '  hsqq qww  '
     output = '2 hs2q q2w2 '
     assert_equal output, RunLengthEncoding.encode(input)
   end
 
   def test_encode_lowercase_characters
-    skip
     input = 'aabbbcccc'
     output = '2a3b4c'
     assert_equal output, RunLengthEncoding.encode(input)
