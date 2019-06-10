@@ -1,13 +1,16 @@
 module RunLengthEncoding
+  CONSECUTIVE_DATA_ELEMENTS = /((.)\2*)/
+
   def self.encode(data)
-    encoded = ""
-    data.scan(/((.)\2*)/).each do |chrs, chr|
-      if chrs.length == 1
-        encoded << chr
-      else
-        encoded << "#{chrs.length}#{chr}"
-      end
-    end
-    encoded
+    data
+      .scan(CONSECUTIVE_DATA_ELEMENTS)
+      .map { |chrs, chr| shrink(chr, chrs.length) }
+      .join
+  end
+
+  def self.shrink(chr, length)
+    return chr if length == 1
+
+    "#{length}#{chr}"
   end
 end
