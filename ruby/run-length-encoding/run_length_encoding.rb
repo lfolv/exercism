@@ -4,13 +4,13 @@ module RunLengthEncoding
   def self.encode(data)
     data
       .scan(CONSECUTIVE_DATA_ELEMENTS)
-      .map { |chrs, chr| shrink(chr, chrs.length) }
+      .map { |match| shrink(match.first) }
       .join
   end
 
-  def self.shrink(chr, length)
-    return chr if length == 1
+  def self.shrink(letters)
+    return letters[0] if letters.length == 1
 
-    "#{length}#{chr}"
+    "#{letters.length}#{letters[0]}"
   end
 end
