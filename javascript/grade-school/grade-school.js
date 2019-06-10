@@ -1,14 +1,10 @@
 export class GradeSchool {
   constructor() {
-    this.grades = new Proxy({}, {
-      get: (object, property) => {
-        return object.hasOwnProperty(property) ? object[property] : []
-      }
-    })
+    this.grades = {}
   }
 
   add(student, grade) {
-    this.grades[grade] = [...this.grades[grade], student].sort()
+    this.grades[grade] = [...this.students(grade), student].sort()
   }
 
   roster() {
@@ -20,6 +16,12 @@ export class GradeSchool {
   }
 
   grade(g) {
-    return [...this.grades[g]]
+    return [...this.students(g)]
+  }
+
+  students(grade) {
+    return grade in this.grades ?
+      this.grades[grade] :
+      [];
   }
 }
