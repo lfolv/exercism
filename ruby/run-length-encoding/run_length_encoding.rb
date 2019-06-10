@@ -1,28 +1,13 @@
 module RunLengthEncoding
   def self.encode(data)
     encoded = ""
-    previos = data[0]
-    count = 1
-    data[1..-1]&.each_char do |chr|
-      if previos == chr
-        count += 1
+    data.scan(/((.)\2*)/).each do |chrs, chr|
+      if chrs.length == 1
+        encoded << chr
       else
-        if count == 1
-          encoded << "#{previos}"
-        else
-          encoded << "#{count}#{previos}"
-        end
-        count = 1
+        encoded << "#{chrs.length}#{chr}"
       end
-      previos = chr
     end
-
-    if count == 1
-      encoded << "#{previos}"
-    else
-      encoded << "#{count}#{previos}"
-    end
-
     encoded
   end
 end
