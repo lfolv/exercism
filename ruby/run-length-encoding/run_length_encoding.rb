@@ -15,6 +15,6 @@ module RunLengthEncoding
   end
 
   def self.decode(data)
-    ''
+    data
   end
 end
