@@ -52,7 +52,6 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_decode_string_with_no_single_characters
-    skip
     input = '2A3B4C'
     output = 'AABBBCCCC'
     assert_equal output, RunLengthEncoding.decode(input)
