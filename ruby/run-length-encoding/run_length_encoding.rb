@@ -9,10 +9,10 @@ module RunLengthEncoding
       .join
   end
 
-  def self.shrink(letters)
-    return letters[0] if letters.length == 1
+  def self.shrink(chrs)
+    return chrs[0] if chrs.length == 1
 
-    "#{letters.length}#{letters[0]}"
+    "#{chrs.length}#{chrs[0]}"
   end
 
   def self.decode(data)
@@ -23,7 +23,7 @@ module RunLengthEncoding
   end
 
   def self.grow(compressed_data)
-    match = compressed_data.match(/(?<length>\d?)(?<data>.)/)
-    match[:data] * (match[:length].empty? ? 1 : match[:length.to_i])
+    match = compressed_data.match(/(?<length>\d?)(?<chr>.)/)
+    match[:chr] * (match[:length].empty? ? 1 : match[:length.to_i])
   end
 end
