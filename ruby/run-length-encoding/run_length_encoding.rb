@@ -24,6 +24,6 @@ module RunLengthEncoding
 
   def self.grow(compressed_data)
     match = compressed_data.match(/(?<length>\d?)(?<chr>.)/)
-    match[:chr] * (match[:length].empty? ? 1 : match[:length.to_i])
+    match[:chr] * (match[:length].empty? ? 1 : match[:length].to_i)
   end
 end
