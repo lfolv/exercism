@@ -58,7 +58,6 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_decode_single_characters_with_repeated_characters
-    skip
     input = '12WB12W3B24WB'
     output = 'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB'
     assert_equal output, RunLengthEncoding.decode(input)
