@@ -18,7 +18,7 @@ module RunLengthEncoding
   def self.decode(data)
     data
       .scan(COMPRESSED_DATA_ELEMENTS)
-      .map { |compressed_data| grow(compressed_data.first) }
+      .map { |match| grow(match.first) }
       .join
   end
 
