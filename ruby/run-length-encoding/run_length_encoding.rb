@@ -13,4 +13,8 @@ module RunLengthEncoding
 
     "#{letters.length}#{letters[0]}"
   end
+
+  def self.decode(data)
+    ''
+  end
 end

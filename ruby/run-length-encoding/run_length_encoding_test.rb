@@ -40,7 +40,6 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_decode_empty_string
-    skip
     input = ''
     output = ''
     assert_equal output, RunLengthEncoding.decode(input)
