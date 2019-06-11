@@ -70,14 +70,12 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_decode_lower_case_string
-    skip
     input = '2a3b4c'
     output = 'aabbbcccc'
     assert_equal output, RunLengthEncoding.decode(input)
   end
 
   def test_consistency_encode_followed_by_decode_gives_original_string
-    skip
     input = 'zzz ZZ  zZ'
     encoded = RunLengthEncoding.encode(input)
     assert_equal input, RunLengthEncoding.decode(encoded)
