@@ -64,7 +64,6 @@ class RunLengthEncodingTest < Minitest::Test
   end
 
   def test_decode_multiple_whitespace_mixed_in_string
-    skip
     input = '2 hs2q q2w2 '
     output = '  hsqq qww  '
     assert_equal output, RunLengthEncoding.decode(input)
