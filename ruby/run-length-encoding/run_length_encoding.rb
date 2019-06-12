@@ -1,6 +1,6 @@
 module RunLengthEncoding
   CONSECUTIVE_DATA_ELEMENTS = /((.)\2*)/
-  COMPRESSED_DATA_ELEMENTS = /(\d*.)/
+  COMPRESSED_DATA_ELEMENTS = /(?<length>\d*)(?<chr>.)/
 
   def self.encode(data)
     data.gsub(CONSECUTIVE_DATA_ELEMENTS) { |match| shrink(match) }
@@ -13,16 +13,15 @@ module RunLengthEncoding
   end
 
   def self.decode(data)
-    data
-      .scan(COMPRESSED_DATA_ELEMENTS)
-      .map { |match| grow(match.first) }
-      .join
+    data.gsub(COMPRESSED_DATA_ELEMENTS) do
+      match = Regexp.last_match
+      grow(match[:chr], match[:length])
+    end
   end
 
-  def self.grow(compressed_data)
-    match = compressed_data.match(/(?<length>\d*)(?<chr>.)/)
-    return match[:chr] if match[:length].empty?
+  def self.grow(chr, length)
+    return chr if length.empty?
 
-    match[:chr] * match[:length].to_i
+    chr * length.to_i
   end
 end
