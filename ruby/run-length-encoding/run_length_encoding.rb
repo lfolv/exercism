@@ -9,10 +9,10 @@ module RunLengthEncoding
       .join
   end
 
-  def self.shrink(chrs)
-    return chrs[0] if chrs.length == 1
+  def self.shrink(chr)
+    return chr[0] if chr.length == 1
 
-    "#{chrs.length}#{chrs[0]}"
+    "#{chr.length}#{chr[0]}"
   end
 
   def self.decode(data)
