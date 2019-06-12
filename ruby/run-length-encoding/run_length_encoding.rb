@@ -3,10 +3,7 @@ module RunLengthEncoding
   COMPRESSED_DATA_ELEMENTS = /(\d*.)/
 
   def self.encode(data)
-    data
-      .scan(CONSECUTIVE_DATA_ELEMENTS)
-      .map { |match| shrink(match.first) }
-      .join
+    data.gsub(CONSECUTIVE_DATA_ELEMENTS) { |match| shrink(match) }
   end
 
   def self.shrink(chr)
