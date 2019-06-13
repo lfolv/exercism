@@ -1,9 +1,10 @@
 export class List {
-  constructor() {
+  constructor(values = []) {
+    this.values = values
   }
 
-  append() {
-    return new List()
+  append(other) {
+    return new List([...this.values, ...other.values])
   }
 
   concat() {
