@@ -21,8 +21,9 @@ export class List {
       callback(value) ? [...acc, value] : acc, []))
   }
 
-  map() {
-    return new List()
+  map(callback) {
+    return new List(this.foldl((acc, value) =>
+     [...acc, callback(value)], []))
   }
 
   length() {
