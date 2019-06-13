@@ -8,11 +8,12 @@ export class List {
   }
 
   concat(other) {
-    let newValues = [...this.values]
-    for (const list of other.values) {
-      newValues = [...newValues, ...list.values]
-    }
-    return new List(newValues)
+    return new List([
+      ...this.values,
+      ...other.values.reduce((curr, value) =>
+        [...curr, ...value.values],
+      [])
+    ])
   }
 
   filter() {
