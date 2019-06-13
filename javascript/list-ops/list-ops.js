@@ -16,7 +16,8 @@ export class List {
     ])
   }
 
-  filter() {
+  filter(other) {
+    return new List()
   }
 
   map() {

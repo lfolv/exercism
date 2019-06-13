@@ -40,7 +40,7 @@ describe('concat lists and lists of lists into new list', () => {
 
 
 describe('filter list returning only values that satisfy the filter function', () => {
-  xtest('empty list', () => {
+  test('empty list', () => {
     const list1 = new List([]);
     expect(list1.filter(el => el % 2 === 1).values).toEqual([]);
   });
