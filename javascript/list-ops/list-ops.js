@@ -22,6 +22,7 @@ export class List {
   }
 
   map() {
+    return new List()
   }
 
   length() {

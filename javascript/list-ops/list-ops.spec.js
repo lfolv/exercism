@@ -66,7 +66,7 @@ describe('returns the length of a list', () => {
 
 
 describe('returns a list of elements whose values equal the list value transformed by the mapping function', () => {
-  xtest('empty list', () => {
+  test('empty list', () => {
     const list1 = new List();
     expect(list1.map(el => ++el).values).toEqual([]);
   });
