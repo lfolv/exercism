@@ -42,5 +42,7 @@ export class List {
   }
 
   reverse() {
+    return new List(this.foldl((acc, value) =>
+      [value, ...acc], []))
   }
 }
