@@ -16,8 +16,9 @@ export class List {
     ])
   }
 
-  filter(other) {
-    return new List()
+  filter(callback) {
+    return new List(this.foldl((acc, value) =>
+      callback(value) ? [...acc, value] : acc, []))
   }
 
   map() {
