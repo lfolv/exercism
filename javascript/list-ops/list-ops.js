@@ -25,7 +25,8 @@ export class List {
   length() {
   }
 
-  foldl() {
+  foldl(callback, value) {
+    return value
   }
 
   foldr() {

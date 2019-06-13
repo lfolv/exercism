@@ -79,7 +79,7 @@ describe('returns a list of elements whose values equal the list value transform
 
 
 describe('folds (reduces) the given list from the left with a function', () => {
-  xtest('empty list', () => {
+  test('empty list', () => {
     const list1 = new List();
     expect(list1.foldl((acc, el) => el / acc, 2)).toEqual(2);
   });
