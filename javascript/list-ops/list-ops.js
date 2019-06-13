@@ -25,6 +25,7 @@ export class List {
   }
 
   length() {
+    return 0
   }
 
   foldl(callback, initial) {
