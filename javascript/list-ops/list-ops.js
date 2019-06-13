@@ -27,7 +27,7 @@ export class List {
   }
 
   length() {
-    return 0
+    return this.foldl(acc => acc + 1, 0)
   }
 
   foldl(callback, initial) {
