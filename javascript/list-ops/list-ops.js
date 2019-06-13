@@ -10,7 +10,7 @@ export class List {
   concat(other) {
     return new List([
       ...this.values,
-      ...other.values.reduce((curr, value) =>
+      ...other.foldl((curr, value) =>
         [...curr, ...value.values],
       [])
     ])
