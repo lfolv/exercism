@@ -23,7 +23,7 @@ export class List {
 
   map(callback) {
     return new List(this.foldl((acc, value) =>
-     [...acc, callback(value)], []))
+      [...acc, callback(value)], []))
   }
 
   length() {
@@ -38,7 +38,10 @@ export class List {
     return acc
   }
 
-  foldr() {
+  foldr(callback, initial) {
+    return this
+      .reverse()
+      .foldl(callback, initial)
   }
 
   reverse() {
