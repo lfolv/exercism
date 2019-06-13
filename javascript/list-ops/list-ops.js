@@ -7,8 +7,12 @@ export class List {
     return new List([...this.values, ...other.values])
   }
 
-  concat() {
-    return new List()
+  concat(other) {
+    let newValues = [...this.values]
+    for (const list of other.values) {
+      newValues = [...newValues, ...list.values]
+    }
+    return new List(newValues)
   }
 
   filter() {

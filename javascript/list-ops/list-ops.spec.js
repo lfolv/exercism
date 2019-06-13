@@ -28,7 +28,7 @@ describe('concat lists and lists of lists into new list', () => {
     expect(list1.concat(list2).values).toEqual([]);
   });
 
-  xtest('list of lists', () => {
+  test('list of lists', () => {
     const list1 = new List([1, 2]);
     const list2 = new List([3]);
     const list3 = new List([]);
