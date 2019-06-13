@@ -8,6 +8,7 @@ export class List {
   }
 
   concat() {
+    return new List()
   }
 
   filter() {
