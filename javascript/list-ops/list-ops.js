@@ -25,8 +25,12 @@ export class List {
   length() {
   }
 
-  foldl(callback, value) {
-    return value
+  foldl(callback, initial) {
+    let acc = initial
+    for (const value of this.values) {
+      acc = callback(acc, value)
+    }
+    return acc
   }
 
   foldr() {
