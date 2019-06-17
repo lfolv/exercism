@@ -32,6 +32,16 @@ class Deque
     value
   end
 
+  def unshift(value)
+    node = Node.new value: value, left: head
+    if tail.nil?
+      self.tail = node
+    else
+      head.right = node
+    end
+    self.head = node
+  end
+
   private
 
   attr_accessor :head, :tail
