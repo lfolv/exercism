@@ -33,7 +33,12 @@ class Deque
 
   def shift
     value = head.value
-    self.head = head.left
+    if head == tail
+      self.head = nil
+      self.tail = nil
+    else
+      self.head = head.left
+    end
     value
   end
 
