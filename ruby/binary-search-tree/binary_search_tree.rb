@@ -5,9 +5,9 @@ class Bst
     @data = data
   end
 
-  def insert(data)
+  def insert(data, current = self)
     node = Bst.new(data)
-    if data <= self.data
+    if data <= current.data
       self.left = node
     else
       self.right = node
