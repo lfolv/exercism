@@ -22,7 +22,12 @@ class Deque
 
   def pop
     value = tail.value
-    self.tail = tail.right
+    if head == tail
+      self.head = nil
+      self.tail = nil
+    else
+      self.tail = tail.right
+    end
     value
   end
 
