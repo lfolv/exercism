@@ -1,26 +1,38 @@
 class Node
   attr_reader :value
-  attr_accessor :previos
+  attr_accessor :right, :left
 
-  def initialize(value: nil, previos: nil)
+  def initialize(value: nil, right: nil, left: nil)
     @value = value
-    @previos = previos
+    @right = right
+    @left = left
   end
 end
 
 class Deque
   def push(value)
-    node = Node.new value: value, previos: tail
+    node = Node.new value: value, right: tail
+    if head.nil?
+      self.head = node
+    else
+      tail.left = node
+    end
     self.tail = node
   end
 
   def pop
     value = tail.value
-    self.tail = tail.previos
+    self.tail = tail.right
+    value
+  end
+
+  def shift
+    value = head.value
+    self.head = head.left
     value
   end
 
   private
 
-  attr_accessor :tail
+  attr_accessor :head, :tail
 end

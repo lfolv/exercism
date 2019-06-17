@@ -11,7 +11,6 @@ class DequeTest < Minitest::Test
   end
 
   def test_push_shift
-    skip
     deque = Deque.new
     deque.push(10)
     deque.push(20)
