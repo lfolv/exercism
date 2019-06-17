@@ -6,15 +6,22 @@ class Bst
   end
 
   def insert(data, current = self)
-    node = Bst.new(data)
     if data <= current.data
-      self.left = node
+      if current.left.nil?
+        current.left = Bst.new(data)
+      else
+        insert(data, current.left)
+      end
     else
-      self.right = node
+      if current.right.nil?
+        current.right = Bst.new(data)
+      else
+        insert(data, current.right)
+      end
     end
   end
 
-  private
+  protected
 
   attr_writer :left, :right
 end
