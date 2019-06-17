@@ -78,8 +78,6 @@ class BstTest < Minitest::Test
   end
 
   def test_each_returns_enumerator_if_no_block
-    skip
-
     tree = Bst.new 4
     [2, 1, 3, 6, 7, 5].each { |x| tree.insert x }
     each_enumerator = tree.each

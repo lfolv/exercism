@@ -1,4 +1,6 @@
 class Bst
+  include Enumerable
+
   attr_reader :data, :left, :right
 
   def initialize(data)
@@ -14,9 +16,10 @@ class Bst
   end
 
   def each(&block)
-    left&.each &block
-    block.call(data)
-    right&.each &block
+    left.each(&block) if left
+    block.call(data) if block
+    right.each(&block) if right
+    to_enum
   end
 
   protected
