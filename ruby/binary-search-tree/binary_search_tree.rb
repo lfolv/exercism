@@ -13,6 +13,12 @@ class Bst
     end
   end
 
+  def each(&block)
+    left&.each(block)
+    block.call(data)
+    right&.each(block)
+  end
+
   protected
 
   attr_writer :left, :right
