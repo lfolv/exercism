@@ -55,7 +55,6 @@ class BstTest < Minitest::Test
   end
 
   def test_iterating_over_smaller_element
-    skip
     four = Bst.new 4
     four.insert 2
     assert_equal [2, 4], record_all_data(four)

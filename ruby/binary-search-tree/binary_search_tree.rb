@@ -14,9 +14,9 @@ class Bst
   end
 
   def each(&block)
-    left&.each(block)
+    left&.each &block
     block.call(data)
-    right&.each(block)
+    right&.each &block
   end
 
   protected
