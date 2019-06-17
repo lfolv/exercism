@@ -5,11 +5,11 @@ class Bst
     @data = data
   end
 
-  def insert(data, current = self)
-    if data <= current.data
-      insert_left(data, current)
+  def insert(data)
+    if data <= self.data
+      insert_left(data)
     else
-      insert_right(data, current)
+      insert_right(data)
     end
   end
 
@@ -17,19 +17,19 @@ class Bst
 
   attr_writer :left, :right
 
-  def insert_left(data, current)
-    if current.left.nil?
-      current.left = Bst.new(data)
+  def insert_left(data)
+    if left.nil?
+      self.left = Bst.new(data)
     else
-      insert(data, current.left)
+      left.insert(data)
     end
   end
 
-  def insert_right(data, current)
-    if current.right.nil?
-      current.right = Bst.new(data)
+  def insert_right(data)
+    if right.nil?
+      self.right = Bst.new(data)
     else
-      insert(data, current.right)
+      right.insert(data)
     end
   end
 end
