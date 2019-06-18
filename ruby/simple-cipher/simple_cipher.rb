@@ -36,6 +36,6 @@ class Cipher
   end
 
   def to_chr(index)
-    (index + 97).chr
+    ((index % 26) + 97).chr
   end
 end
