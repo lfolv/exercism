@@ -1,4 +1,6 @@
 class Cipher
+  ALPHABET = 'a'..'z'
+
   attr_reader :key
 
   def initialize(key = 'aaaaaaaaaa')
@@ -10,7 +12,7 @@ class Cipher
       .each_char
       .with_index
       .map do |chr, index|
-        (chr[0].ord + key[index].ord - 97).chr
+        (ALPHABET.find_index(chr) + ALPHABET.find_index(key[index]) + 97).chr
       end
       .join
   end
@@ -20,7 +22,7 @@ class Cipher
       .each_char
       .with_index
       .map do |chr, index|
-        (chr[0].ord - key[index].ord + 97).chr
+        (ALPHABET.find_index(chr) - ALPHABET.find_index(key[index]) + 97).chr
       end
       .join
   end
