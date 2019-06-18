@@ -11,9 +11,7 @@ class Cipher
     data
       .each_char
       .with_index
-      .map do |chr, index|
-        (ALPHABET.find_index(chr) + ALPHABET.find_index(key[index]) + 97).chr
-      end
+      .map { |chr, index| encode_chr(chr, key[index]) }
       .join
   end
 
@@ -21,9 +19,17 @@ class Cipher
     data
       .each_char
       .with_index
-      .map do |chr, index|
-        (ALPHABET.find_index(chr) - ALPHABET.find_index(key[index]) + 97).chr
-      end
+      .map { |chr, index| decode_chr(chr, key[index]) }
       .join
+  end
+
+  private
+
+  def encode_chr(chr, key_chr)
+    (ALPHABET.find_index(chr) + ALPHABET.find_index(key_chr) + 97).chr
+  end
+
+  def decode_chr(chr, key_chr)
+    (ALPHABET.find_index(chr) - ALPHABET.find_index(key_chr) + 97).chr
   end
 end
