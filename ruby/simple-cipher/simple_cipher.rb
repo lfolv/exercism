@@ -2,6 +2,8 @@ class Cipher
   attr_reader :key
 
   def initialize(key = 'aaaaaaaaaa')
+    raise ArgumentError unless key.match(/\A[a-z]+\z/)
+
     @key = key
   end
 
