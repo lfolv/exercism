@@ -10,6 +10,12 @@ class Cipher
   end
 
   def decode(data)
-    key
+    data
+      .each_char
+      .with_index
+      .map do |chr, index|
+        (chr[0].ord - key[index].ord + 97).chr
+      end
+      .join
   end
 end
