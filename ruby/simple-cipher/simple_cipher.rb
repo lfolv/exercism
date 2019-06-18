@@ -1,6 +1,4 @@
 class Cipher
-  ALPHABET = 'a'..'z'
-
   attr_reader :key
 
   def initialize(key = 'aaaaaaaaaa')
