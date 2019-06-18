@@ -1,8 +1,12 @@
 class Cipher
+  VALID_KEY = /\A[a-z]+\z/
+  ALPH_LENGTH = 26
+  START_ORD_CODE = 97
+
   attr_reader :key
 
   def initialize(key = 'aaaaaaaaaa')
-    raise ArgumentError unless key.match(/\A[a-z]+\z/)
+    raise ArgumentError unless key.match(VALID_KEY)
 
     @key = key
   end
@@ -34,10 +38,10 @@ class Cipher
   end
 
   def to_index(chr)
-    chr[0].ord - 97
+    chr.ord - START_ORD_CODE
   end
 
   def to_chr(index)
-    ((index % 26) + 97).chr
+    ((index % ALPH_LENGTH) + START_ORD_CODE).chr
   end
 end
