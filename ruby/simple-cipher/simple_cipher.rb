@@ -26,10 +26,18 @@ class Cipher
   private
 
   def encode_chr(chr, key_chr)
-    (ALPHABET.find_index(chr) + ALPHABET.find_index(key_chr) + 97).chr
+    to_chr(to_index(chr) + to_index(key_chr))
   end
 
   def decode_chr(chr, key_chr)
-    (ALPHABET.find_index(chr) - ALPHABET.find_index(key_chr) + 97).chr
+    to_chr(to_index(chr) - to_index(key_chr))
+  end
+
+  def to_index(chr)
+    chr[0].ord - 97
+  end
+
+  def to_chr(index)
+    (index + 97).chr
   end
 end
