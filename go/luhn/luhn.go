@@ -14,7 +14,7 @@ func Valid(input string) bool {
 	}
 
 	for i:= len(input) - 1; i >= 0; i-- {
-		j := len(input) - i
+		j := len(input) - i - 1
 		rune := input[i]
 		n, _ := strconv.Atoi(string(rune))
 		if j % 2 != 0 {
