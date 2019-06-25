@@ -4,16 +4,19 @@ package luhn
 import (
 	"strconv"
 	"strings"
+	"regexp"
 )
 
 // Valid determine whether or not a number is valid per Luhn formula
 func Valid(input string) bool {
-	sum := 0
-	input = strings.Replace(input, " ", "", -1)
+	r, _ := regexp.Compile(`^\d+(\s*\d+)+$`)
 
-	if len(input) <= 1 {
+	if !r.MatchString(input) {
 		return false
 	}
+
+	sum := 0
+	input = strings.Replace(input, " ", "", -1)
 
 	for i := len(input) - 1; i >= 0; i-- {
 		j := len(input) - i - 1
