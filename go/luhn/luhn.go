@@ -10,8 +10,8 @@ func Valid(input string) bool {
 	sum := 0
 	counter := 0
 
-	for i := len(input) - 1; i >= 0; i-- {
-		r := input[i]
+	for i := range(input) {
+		r := input[len(input)-1-i]
 
 		if r == ' ' {
 			continue
