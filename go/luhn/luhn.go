@@ -20,18 +20,19 @@ func Valid(input string) bool {
 	for i, r := range input {
 		if r == ' ' {
 			spaces++
-		} else {
-			position := len(input) - i - spaces - 1
-			digit, _ := strconv.Atoi(string(r))
-
-			if position%2 != 0 {
-				digit = digit * 2
-				if digit > 9 {
-					digit = digit - 9
-				}
-			}
-			sum += digit
+			continue
 		}
+
+		position := len(input) - i - spaces - 1
+		digit, _ := strconv.Atoi(string(r))
+
+		if position%2 != 0 {
+			digit = digit * 2
+			if digit > 9 {
+				digit = digit - 9
+			}
+		}
+		sum += digit
 	}
 	return sum%10 == 0
 }
