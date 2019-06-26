@@ -2,37 +2,41 @@
 package luhn
 
 import (
-	"regexp"
 	"strconv"
+	"unicode"
 )
-
-var r = regexp.MustCompile(`^\d+(\s*\d+)+$`)
 
 // Valid determine whether or not a number is valid per Luhn formula
 func Valid(input string) bool {
-	if !r.MatchString(input) {
-		return false
-	}
-
 	sum := 0
-	spaces := 0
+	counter := 0
 
-	for i, r := range input {
+	for i := len(input) - 1; i >= 0; i-- {
+		r := rune(input[i])
+
 		if r == ' ' {
-			spaces++
 			continue
 		}
 
-		position := len(input) - i - spaces - 1
+		if !unicode.IsDigit(r) {
+			return false
+		}
+
 		digit, _ := strconv.Atoi(string(r))
 
-		if position%2 != 0 {
+		if counter%2 != 0 {
 			digit = digit * 2
 			if digit > 9 {
 				digit = digit - 9
 			}
 		}
 		sum += digit
+		counter++
 	}
-	return sum%10 == 0
+
+	if counter > 1 {
+		return sum%10 == 0
+	}
+
+	return false
 }
