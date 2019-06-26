@@ -6,10 +6,10 @@ import (
 	"strconv"
 )
 
+var r = regexp.MustCompile(`^\d+(\s*\d+)+$`)
+
 // Valid determine whether or not a number is valid per Luhn formula
 func Valid(input string) bool {
-	r, _ := regexp.Compile(`^\d+(\s*\d+)+$`)
-
 	if !r.MatchString(input) {
 		return false
 	}
