@@ -3,7 +3,6 @@ package luhn
 
 import (
 	"strconv"
-	"unicode"
 )
 
 // Valid determine whether or not a number is valid per Luhn formula
@@ -12,13 +11,13 @@ func Valid(input string) bool {
 	counter := 0
 
 	for i := len(input) - 1; i >= 0; i-- {
-		r := rune(input[i])
+		r := input[i]
 
 		if r == ' ' {
 			continue
 		}
 
-		if !unicode.IsDigit(r) {
+		if r < '0' || r > '9' {
 			return false
 		}
 
