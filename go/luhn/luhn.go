@@ -9,13 +9,11 @@ import (
 func Valid(input string) bool {
 	sum := 0
 	counter := 0
-	spaces := 0
 
 	for i := range(input) {
 		r := input[i]
 
 		if r == ' ' {
-			spaces++
 			continue
 		}
 
@@ -24,7 +22,7 @@ func Valid(input string) bool {
 		}
 
 		digit, _ := strconv.Atoi(string(r))
-		index := len(input) - 1 - i - spaces
+		index := len(input) - 1 - counter
 
 		if index%2 != 0 {
 			digit = digit * 2
