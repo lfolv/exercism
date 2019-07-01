@@ -13,5 +13,5 @@ export const convert = (number) => {
     result += 'Plong'
   }
 
-  return result.length === 0 ? '1' : result
+  return result.length === 0 ? number.toString() : result
 };
