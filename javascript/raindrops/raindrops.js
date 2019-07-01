@@ -7,5 +7,9 @@ export const convert = (number) => {
     return 'Plang'
   }
 
+  if (number % 7 === 0) {
+    return 'Plong'
+  }
+
   return '1'
 };
