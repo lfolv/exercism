@@ -3,7 +3,7 @@ import { convert } from './raindrops';
 describe('Raindrops', () => {
   test('converts 1', () => expect(convert(1)).toEqual('1'));
 
-  xtest('converts 3', () => expect(convert(3)).toEqual('Pling'));
+  test('converts 3', () => expect(convert(3)).toEqual('Pling'));
 
   xtest('converts 5', () => expect(convert(5)).toEqual('Plang'));
 
