@@ -1,15 +1,17 @@
 export const convert = (number) => {
+  let result = ''
+
   if (number % 3 === 0) {
-    return 'Pling'
+    result += 'Pling'
   }
 
   if (number % 5 === 0) {
-    return 'Plang'
+    result += 'Plang'
   }
 
   if (number % 7 === 0) {
-    return 'Plong'
+    result += 'Plong'
   }
 
-  return '1'
+  return result.length === 0 ? '1' : result
 };
