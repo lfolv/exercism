@@ -33,7 +33,7 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('thumbscrew-japingly')).toEqual(true);
   });
 
-  xtest('isogram with duplicated hyphen', () => {
+  test('isogram with duplicated hyphen', () => {
     expect(isIsogram('six-year-old')).toEqual(true);
   });
 
