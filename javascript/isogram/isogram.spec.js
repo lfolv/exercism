@@ -21,7 +21,7 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('subdermatoglyphic')).toEqual(true);
   });
 
-  xtest('word with duplicated character in mixed case', () => {
+  test('word with duplicated character in mixed case', () => {
     expect(isIsogram('Alphabet')).toEqual(false);
   });
 
