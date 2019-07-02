@@ -4,13 +4,9 @@ export const isIsogram = (sentence) => {
   return sentence
     .toUpperCase()
     .split('')
-    .every(letter => {
-      if (letter !== ' ' &&
-          letter !== '-' &&
-          (letters[letter] || !(letters[letter] = true))) {
-        return false
-      }
-
-      return true
-    })
+    .every(letter =>
+      !(letter !== ' ' &&
+        letter !== '-' &&
+        (letters[letter] || !(letters[letter] = true)))
+    )
 };
