@@ -1,8 +1,10 @@
+const IGNORE_CHRS = /[\s\-]/
+
 export const isIsogram = (sentence) => {
   const letters = {}
 
   for (const letter of sentence.toUpperCase()) {
-    if (letter == '-' || letter == ' ') {
+    if (letter.match(IGNORE_CHRS)) {
       continue
     }
 
