@@ -5,11 +5,12 @@ export const isIsogram = (sentence) => {
     .toUpperCase()
     .split('')
     .every(letter => {
-      if (letter !== ' ' && letter !== '-' && letters[letter]) {
+      if (letter !== ' ' &&
+          letter !== '-' &&
+          (letters[letter] || !(letters[letter] = true))) {
         return false
       }
 
-      letters[letter] = true
       return true
     })
 };
