@@ -5,4 +5,6 @@ export const isIsogram = (sentence) =>
     .toUpperCase()
     .replace(IGNORE_CHRS, '')
     .split('')
-    .every((chr, index, chrs) => chrs.indexOf(chr) === index)
+    .every(chrInSameIndex)
+
+const chrInSameIndex = (chr, index, chrs) => chrs.indexOf(chr) === index
