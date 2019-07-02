@@ -1,12 +1,8 @@
-export const isIsogram = (sentence) => {
-  const letters = {}
+const IGNORE_CHRS = /-|\s/g
 
-  return sentence
+export const isIsogram = (sentence) =>
+  sentence
     .toUpperCase()
+    .replace(IGNORE_CHRS, '')
     .split('')
-    .every(letter =>
-      !(letter !== ' ' &&
-        letter !== '-' &&
-        (letters[letter] || !(letters[letter] = true)))
-    )
-};
+    .every((chr, index, chrs) => chrs.indexOf(chr) === index)
