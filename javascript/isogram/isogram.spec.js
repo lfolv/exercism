@@ -25,7 +25,7 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('Alphabet')).toEqual(false);
   });
 
-  xtest('word with duplicated character in mixed case, lowercase first', () => {
+  test('word with duplicated character in mixed case, lowercase first', () => {
     expect(isIsogram('alphAbet')).toEqual(false);
   });
 
