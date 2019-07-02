@@ -13,11 +13,11 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('eleven')).toEqual(false);
   });
 
-  xtest('word with one duplicated character from the end of the alphabet', () => {
+  test('word with one duplicated character from the end of the alphabet', () => {
     expect(isIsogram('zzyzx')).toEqual(false);
   });
 
-  xtest('longest reported english isogram', () => {
+  test('longest reported english isogram', () => {
     expect(isIsogram('subdermatoglyphic')).toEqual(true);
   });
 
