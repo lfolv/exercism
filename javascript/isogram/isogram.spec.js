@@ -37,7 +37,7 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('six-year-old')).toEqual(true);
   });
 
-  xtest('made-up name that is an isogram', () => {
+  test('made-up name that is an isogram', () => {
     expect(isIsogram('Emily Jung Schwartzkopf')).toEqual(true);
   });
 
