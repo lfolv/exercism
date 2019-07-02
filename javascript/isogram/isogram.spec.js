@@ -29,7 +29,7 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('alphAbet')).toEqual(false);
   });
 
-  xtest('hypothetical isogrammic word with hyphen', () => {
+  test('hypothetical isogrammic word with hyphen', () => {
     expect(isIsogram('thumbscrew-japingly')).toEqual(true);
   });
 
