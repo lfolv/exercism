@@ -41,11 +41,11 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('Emily Jung Schwartzkopf')).toEqual(true);
   });
 
-  xtest('duplicated character in the middle', () => {
+  test('duplicated character in the middle', () => {
     expect(isIsogram('accentor')).toEqual(false);
   });
 
-  xtest('same first and last characters', () => {
+  test('same first and last characters', () => {
     expect(isIsogram('angola')).toEqual(false);
   });
 });
