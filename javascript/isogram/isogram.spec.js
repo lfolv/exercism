@@ -5,11 +5,11 @@ describe('Isogram Test Suite', () => {
     expect(isIsogram('')).toEqual(true);
   });
 
-  xtest('isogram with only lower case characters', () => {
+  test('isogram with only lower case characters', () => {
     expect(isIsogram('isogram')).toEqual(true);
   });
 
-  xtest('word with one duplicated character', () => {
+  test('word with one duplicated character', () => {
     expect(isIsogram('eleven')).toEqual(false);
   });
 
