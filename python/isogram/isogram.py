@@ -1,10 +1,5 @@
 from string import ascii_uppercase
 
 def is_isogram(string):
-  chrs = []
-  for c in string.upper():
-    if c in ascii_uppercase:
-      if c in chrs:
-        return False
-      chrs.append(c)
-  return True
+  chrs = string.upper().replace(' ', '').replace('-', '')
+  return all(chrs.index(chr) == index for index, chr in enumerate(chrs))
