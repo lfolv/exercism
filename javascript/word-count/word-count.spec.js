@@ -13,7 +13,7 @@ describe('words()', () => {
     expect(words.count('one of each')).toEqual(expectedCounts);
   });
 
-  xtest('counts multiple occurrences', () => {
+  test('counts multiple occurrences', () => {
     const expectedCounts = {
       one: 1, fish: 4, two: 1, red: 1, blue: 1,
     };
