@@ -4,7 +4,7 @@ export class Words {
       .split(' ')
       .reduce((counter, word) => ({
         ...counter,
-        [word]: counter[word] ? counter[word] + 1 : 1
+        [word]: counter[word] + 1 || 1
       }), {})
   }
 }
