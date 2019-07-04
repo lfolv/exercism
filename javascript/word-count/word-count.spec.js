@@ -37,7 +37,7 @@ describe('words()', () => {
     expect(words.count('go Go GO')).toEqual(expectedCounts);
   });
 
-  xtest('counts properly international characters', () => {
+  test('counts properly international characters', () => {
     const expectedCounts = {
       '¡hola!': 1, '¿qué': 1, 'tal?': 1, 'привет!': 1,
     };
