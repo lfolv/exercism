@@ -59,7 +59,7 @@ describe('words()', () => {
     expect(words.count('hello  world')).toEqual(expectedCounts);
   });
 
-  xtest('does not count leading or trailing whitespace', () => {
+  test('does not count leading or trailing whitespace', () => {
     const expectedCounts = { introductory: 1, course: 1 };
     expect(words.count('\t\tIntroductory Course      ')).toEqual(expectedCounts);
   });

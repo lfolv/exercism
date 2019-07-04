@@ -1,6 +1,7 @@
 export class Words {
   count(phrase) {
     return phrase
+      .trim()
       .toLowerCase()
       .split(/\s+/)
       .reduce((counter, word) => ({
