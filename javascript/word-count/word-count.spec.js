@@ -54,7 +54,7 @@ describe('words()', () => {
     expect(words.count('hello\tworld')).toEqual(expectedCounts);
   });
 
-  xtest('counts multiple spaces as one', () => {
+  test('counts multiple spaces as one', () => {
     const expectedCounts = { hello: 1, world: 1 };
     expect(words.count('hello  world')).toEqual(expectedCounts);
   });
