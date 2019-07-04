@@ -20,7 +20,7 @@ describe('words()', () => {
     expect(words.count('one fish two fish red fish blue fish')).toEqual(expectedCounts);
   });
 
-  xtest('includes punctuation', () => {
+  test('includes punctuation', () => {
     const expectedCounts = {
       car: 1, ':': 2, carpet: 1, as: 1, java: 1, 'javascript!!&@$%^&': 1,
     };
