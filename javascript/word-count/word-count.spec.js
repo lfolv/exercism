@@ -44,7 +44,7 @@ describe('words()', () => {
     expect(words.count('¡Hola! ¿Qué tal? Привет!')).toEqual(expectedCounts);
   });
 
-  xtest('counts multiline', () => {
+  test('counts multiline', () => {
     const expectedCounts = { hello: 1, world: 1 };
     expect(words.count('hello\nworld')).toEqual(expectedCounts);
   });
