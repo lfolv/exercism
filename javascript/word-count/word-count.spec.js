@@ -32,7 +32,7 @@ describe('words()', () => {
     expect(words.count('testing 1 2 testing')).toEqual(expectedCounts);
   });
 
-  xtest('normalizes to lower case', () => {
+  test('normalizes to lower case', () => {
     const expectedCounts = { go: 3 };
     expect(words.count('go Go GO')).toEqual(expectedCounts);
   });
