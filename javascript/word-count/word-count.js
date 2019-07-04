@@ -1,4 +1,4 @@
-const reducer = (counter, word) => ({
+const countWord = (counter, word) => ({
   ...counter,
   [word]: Number.isInteger(counter[word]) ? counter[word] + 1 : 1
 })
@@ -9,6 +9,6 @@ export class Words {
       .trim()
       .toLowerCase()
       .split(/\s+/)
-      .reduce(reducer, {})
+      .reduce(countWord, {})
   }
 }
