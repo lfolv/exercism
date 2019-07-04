@@ -49,7 +49,7 @@ describe('words()', () => {
     expect(words.count('hello\nworld')).toEqual(expectedCounts);
   });
 
-  xtest('counts tabs', () => {
+  test('counts tabs', () => {
     const expectedCounts = { hello: 1, world: 1 };
     expect(words.count('hello\tworld')).toEqual(expectedCounts);
   });
