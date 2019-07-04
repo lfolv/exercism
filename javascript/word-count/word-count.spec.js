@@ -27,7 +27,7 @@ describe('words()', () => {
     expect(words.count('car : carpet as java : javascript!!&@$%^&')).toEqual(expectedCounts);
   });
 
-  xtest('includes numbers', () => {
+  test('includes numbers', () => {
     const expectedCounts = { testing: 2, 1: 1, 2: 1 };
     expect(words.count('testing 1 2 testing')).toEqual(expectedCounts);
   });
