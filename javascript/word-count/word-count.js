@@ -6,7 +6,9 @@ export class Words {
       .split(/\s+/)
       .reduce((counter, word) => ({
         ...counter,
-        [word]: counter[word] + 1 || 1
+        [word]: Number.isInteger(counter[word]) ?
+          counter[word] + 1 :
+          1
       }), {})
   }
 }

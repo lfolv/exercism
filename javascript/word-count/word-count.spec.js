@@ -64,7 +64,7 @@ describe('words()', () => {
     expect(words.count('\t\tIntroductory Course      ')).toEqual(expectedCounts);
   });
 
-  xtest('handles properties that exist on Object’s prototype', () => {
+  test('handles properties that exist on Object’s prototype', () => {
     const expectedCounts = {
       reserved: 1, words: 1, like: 1, constructor: 1, and: 1, tostring: 1, 'ok?': 1,
     };
