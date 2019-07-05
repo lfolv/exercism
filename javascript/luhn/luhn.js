@@ -14,12 +14,14 @@ export class Luhn {
     for (let i = 0; i < digits.length; i++) {
       let d = Number.parseInt(digits[i], 10)
       const luhnIndex = digits.length - i - 1
+
       if (luhnIndex % 2 !== 0) {
         d = d * 2
         if (d > 9) {
           d = d - 9
         }
       }
+
       luhnSum += d
     }
 
