@@ -19,22 +19,18 @@ class Deque
   end
 
   def pop
+    return make_empty if head == tail
+
     value = tail.value
-    if head == tail
-      make_empty
-    else
-      self.tail = tail.previous_node
-    end
+    self.tail = tail.previous_node
     value
   end
 
   def shift
+    return make_empty if head == tail
+
     value = head.value
-    if head == tail
-      make_empty
-    else
-      self.head = head.next_node
-    end
+    self.head = head.next_node
     value
   end
 
@@ -61,7 +57,9 @@ class Deque
   end
 
   def make_empty
+    value = head.value
     self.head = nil
     self.tail = nil
+    value
   end
 end
