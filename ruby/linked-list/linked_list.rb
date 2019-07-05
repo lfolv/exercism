@@ -35,7 +35,7 @@ class Deque
   end
 
   def unshift(value)
-    node = Node.new value: value, next_node: head
+    node = new_head_node(value)
     return add_to_empty(node) if empty?
 
     head.previous_node = node
@@ -48,6 +48,10 @@ class Deque
 
   def new_tail_node(value)
     Node.new value: value, previous_node: tail
+  end
+
+  def new_head_node(value)
+    Node.new value: value, next_node: head
   end
 
   def empty?
