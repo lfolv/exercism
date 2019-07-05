@@ -12,7 +12,7 @@ end
 class Deque
   def push(value)
     node = Node.new value: value, previous_node: tail
-    if head.nil?
+    if empty?
       self.head = node
     else
       tail.next_node = node
@@ -44,7 +44,7 @@ class Deque
 
   def unshift(value)
     node = Node.new value: value, next_node: head
-    if tail.nil?
+    if empty?
       self.tail = node
     else
       head.previous_node = node
@@ -55,4 +55,8 @@ class Deque
   private
 
   attr_accessor :head, :tail
+
+  def empty?
+    head.nil? && tail.nil?
+  end
 end
