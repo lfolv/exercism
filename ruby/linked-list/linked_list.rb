@@ -11,7 +11,7 @@ end
 
 class Deque
   def push(value)
-    node = Node.new value: value, previous_node: tail
+    node = new_tail_node(value)
     return add_to_empty(node) if empty?
 
     tail.next_node = node
@@ -45,6 +45,10 @@ class Deque
   private
 
   attr_accessor :head, :tail
+
+  def new_tail_node(value)
+    Node.new value: value, previous_node: tail
+  end
 
   def empty?
     head.nil? && tail.nil?
