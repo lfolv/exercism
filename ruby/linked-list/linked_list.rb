@@ -21,8 +21,7 @@ class Deque
   def pop
     value = tail.value
     if head == tail
-      self.head = nil
-      self.tail = nil
+      make_empty
     else
       self.tail = tail.previous_node
     end
@@ -32,8 +31,7 @@ class Deque
   def shift
     value = head.value
     if head == tail
-      self.head = nil
-      self.tail = nil
+      make_empty
     else
       self.head = head.next_node
     end
@@ -60,5 +58,10 @@ class Deque
     self.head = node
     self.tail = node
     node
+  end
+
+  def make_empty
+    self.head = nil
+    self.tail = nil
   end
 end
