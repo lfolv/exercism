@@ -1,21 +1,21 @@
 class Node
   attr_reader :value
-  attr_accessor :right, :left
+  attr_accessor :previous_node, :next_node
 
-  def initialize(value: nil, right: nil, left: nil)
+  def initialize(value: nil, previous_node: nil, next_node: nil)
     @value = value
-    @right = right
-    @left = left
+    @previous_node = previous_node
+    @next_node = next_node
   end
 end
 
 class Deque
   def push(value)
-    node = Node.new value: value, right: tail
+    node = Node.new value: value, previous_node: tail
     if head.nil?
       self.head = node
     else
-      tail.left = node
+      tail.next_node = node
     end
     self.tail = node
   end
@@ -26,7 +26,7 @@ class Deque
       self.head = nil
       self.tail = nil
     else
-      self.tail = tail.right
+      self.tail = tail.previous_node
     end
     value
   end
@@ -37,17 +37,17 @@ class Deque
       self.head = nil
       self.tail = nil
     else
-      self.head = head.left
+      self.head = head.next_node
     end
     value
   end
 
   def unshift(value)
-    node = Node.new value: value, left: head
+    node = Node.new value: value, next_node: head
     if tail.nil?
       self.tail = node
     else
-      head.right = node
+      head.previous_node = node
     end
     self.head = node
   end
