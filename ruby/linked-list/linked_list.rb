@@ -12,11 +12,9 @@ end
 class Deque
   def push(value)
     node = Node.new value: value, previous_node: tail
-    if empty?
-      self.head = node
-    else
-      tail.next_node = node
-    end
+    return add_to_empty(node) if empty?
+
+    tail.next_node = node
     self.tail = node
   end
 
@@ -44,11 +42,9 @@ class Deque
 
   def unshift(value)
     node = Node.new value: value, next_node: head
-    if empty?
-      self.tail = node
-    else
-      head.previous_node = node
-    end
+    return add_to_empty(node) if empty?
+
+    head.previous_node = node
     self.head = node
   end
 
@@ -58,5 +54,11 @@ class Deque
 
   def empty?
     head.nil? && tail.nil?
+  end
+
+  def add_to_empty(node)
+    self.head = node
+    self.tail = node
+    node
   end
 end
