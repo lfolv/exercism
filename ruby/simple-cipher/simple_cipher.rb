@@ -21,7 +21,7 @@ class Cipher
     key_characters.rewind
     data
       .each_char
-      .sum('') { |chr, index| decode_character(chr) }
+      .sum('') { |chr| decode_character(chr) }
   end
 
   private
