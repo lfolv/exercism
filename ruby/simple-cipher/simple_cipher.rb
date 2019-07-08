@@ -15,8 +15,7 @@ class Cipher
     data
       .each_char
       .with_index
-      .map { |chr, index| encode_chr(chr, key[index]) }
-      .join
+      .sum('') { |chr, index| encode_chr(chr, key[index]) }
   end
 
   def decode(data)
