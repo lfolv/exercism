@@ -21,17 +21,17 @@ class Deque
   def pop
     return remove_last_node.value if simple_item?
 
-    value = tail.value
-    self.tail = tail.previous_node
-    value
+    tail.value.tap do
+      self.tail = tail.previous_node
+    end
   end
 
   def shift
     return remove_last_node.value if simple_item?
 
-    value = head.value
-    self.head = head.next_node
-    value
+    head.value.tap do
+      self.head = head.next_node
+    end
   end
 
   def unshift(value)
