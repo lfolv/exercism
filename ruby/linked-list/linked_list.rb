@@ -19,7 +19,7 @@ class Deque
   end
 
   def pop
-    return make_empty if head == tail
+    return remove_last_node.value if head == tail
 
     value = tail.value
     self.tail = tail.previous_node
@@ -27,7 +27,7 @@ class Deque
   end
 
   def shift
-    return make_empty if head == tail
+    return remove_last_node.value if head == tail
 
     value = head.value
     self.head = head.next_node
@@ -64,10 +64,10 @@ class Deque
     node
   end
 
-  def make_empty
-    value = head.value
-    self.head = nil
-    self.tail = nil
-    value
+  def remove_last_node
+    head.tap do
+      self.head = nil
+      self.tail = nil
+    end
   end
 end
