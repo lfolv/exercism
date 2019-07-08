@@ -59,9 +59,10 @@ class Deque
   end
 
   def add_to_empty(node)
-    self.head = node
-    self.tail = node
-    node
+    node.tap do
+      self.head = node
+      self.tail = node
+    end
   end
 
   def remove_last_node
