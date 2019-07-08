@@ -28,18 +28,10 @@ class Bst
   attr_writer :left, :right
 
   def insert_left(data)
-    if left.nil?
-      self.left = Bst.new(data)
-    else
-      left.insert(data)
-    end
+    left&.insert(data) || self.left = Bst.new(data)
   end
 
   def insert_right(data)
-    if right.nil?
-      self.right = Bst.new(data)
-    else
-      right.insert(data)
-    end
+    right&.insert(data) || self.right = Bst.new(data)
   end
 end
