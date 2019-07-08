@@ -22,10 +22,10 @@ class Cipher
   end
 
   def decode(data)
+    key_chrs.rewind
     data
       .each_char
-      .with_index
-      .sum('') { |chr, index| decode_chr(chr, key[index]) }
+      .sum('') { |chr, index| decode_chr(chr) }
   end
 
   private
@@ -34,8 +34,8 @@ class Cipher
     to_chr(to_index(chr) + to_index(key_chrs.next))
   end
 
-  def decode_chr(chr, key_chr)
-    to_chr(to_index(chr) - to_index(key_chr))
+  def decode_chr(chr)
+    to_chr(to_index(chr) - to_index(key_chrs.next))
   end
 
   def to_index(chr)
