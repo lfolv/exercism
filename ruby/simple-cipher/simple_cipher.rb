@@ -22,8 +22,7 @@ class Cipher
     data
       .each_char
       .with_index
-      .map { |chr, index| decode_chr(chr, key[index]) }
-      .join
+      .sum('') { |chr, index| decode_chr(chr, key[index]) }
   end
 
   private
