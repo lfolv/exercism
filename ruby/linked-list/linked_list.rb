@@ -19,7 +19,7 @@ class Deque
   end
 
   def pop
-    return remove_last_node.value if head == tail
+    return remove_last_node.value if simple_item?
 
     value = tail.value
     self.tail = tail.previous_node
@@ -27,7 +27,7 @@ class Deque
   end
 
   def shift
-    return remove_last_node.value if head == tail
+    return remove_last_node.value if simple_item?
 
     value = head.value
     self.head = head.next_node
@@ -69,5 +69,9 @@ class Deque
       self.head = nil
       self.tail = nil
     end
+  end
+
+  def simple_item?
+    head == tail
   end
 end
