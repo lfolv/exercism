@@ -10,19 +10,15 @@ class Cipher
     @key = key
   end
 
-  def key_chrs
-    @key_chrs ||= key.each_char.cycle
-  end
-
   def encode(data)
-    key_chrs.rewind
+    key_characters.rewind
     data
       .each_char
       .sum('') { |chr| encode_character(chr) }
   end
 
   def decode(data)
-    key_chrs.rewind
+    key_characters.rewind
     data
       .each_char
       .sum('') { |chr, index| decode_character(chr) }
@@ -30,12 +26,16 @@ class Cipher
 
   private
 
+  def key_characters
+    @key_characters ||= key.each_char.cycle
+  end
+
   def encode_character(chr)
-    to_chr(to_index(chr) + to_index(key_chrs.next))
+    to_chr(to_index(chr) + to_index(key_characters.next))
   end
 
   def decode_character(chr)
-    to_chr(to_index(chr) - to_index(key_chrs.next))
+    to_chr(to_index(chr) - to_index(key_characters.next))
   end
 
   def to_index(chr)
