@@ -10,11 +10,15 @@ class Cipher
     @key = key
   end
 
+  def key_chrs
+    @key_chrs ||= key.each_char.cycle
+  end
+
   def encode(data)
+    key_chrs.rewind
     data
       .each_char
-      .with_index
-      .sum('') { |chr, index| encode_chr(chr, key[index]) }
+      .sum('') { |chr| encode_chr(chr) }
   end
 
   def decode(data)
@@ -26,8 +30,8 @@ class Cipher
 
   private
 
-  def encode_chr(chr, key_chr)
-    to_chr(to_index(chr) + to_index(key_chr))
+  def encode_chr(chr)
+    to_chr(to_index(chr) + to_index(key_chrs.next))
   end
 
   def decode_chr(chr, key_chr)
