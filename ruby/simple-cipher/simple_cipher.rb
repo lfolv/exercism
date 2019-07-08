@@ -31,7 +31,7 @@ class Cipher
   end
 
   def encode_character(chr)
-    to_chr to_index(chr) + to_index(key_characters.next)
+    to_chr chr.ord + key_characters.next.ord - 'a'.ord * 2
   end
 
   def decode_character(chr)
