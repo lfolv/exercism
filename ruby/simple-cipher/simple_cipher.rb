@@ -31,11 +31,11 @@ class Cipher
   end
 
   def encode_character(chr)
-    to_chr(to_index(chr) + to_index(key_characters.next))
+    to_chr to_index(chr) + to_index(key_characters.next)
   end
 
   def decode_character(chr)
-    to_chr(to_index(chr) - to_index(key_characters.next))
+    to_chr to_index(chr) - to_index(key_characters.next)
   end
 
   def to_index(chr)
