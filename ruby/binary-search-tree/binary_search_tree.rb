@@ -16,13 +16,11 @@ class Bst
   end
 
   def each(&block)
-    if block_given?
-      left.each(&block) if left
-      block.call(data)
-      right.each(&block) if right
-    else
-      to_enum(:each)
-    end
+    return to_enum(:each) unless block_given?
+
+    left.each(&block) if left
+    block.call(data)
+    right.each(&block) if right
   end
 
   protected
