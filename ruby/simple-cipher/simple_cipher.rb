@@ -1,6 +1,7 @@
 class Cipher
   VALID_KEY = /\A[a-z]+\z/
   ALPH_LENGTH = 26
+  START_ALPH_UNICODE = 'a'.ord
 
   attr_reader :key
 
@@ -39,10 +40,10 @@ class Cipher
   end
 
   def to_index(chr)
-    chr.ord - 'a'.ord
+    chr.ord - START_ALPH_UNICODE
   end
 
   def to_chr(index)
-    ((index % ALPH_LENGTH) + 'a'.ord).chr
+    ((index % ALPH_LENGTH) + START_ALPH_UNICODE).chr
   end
 end
