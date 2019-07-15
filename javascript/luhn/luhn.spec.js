@@ -16,7 +16,7 @@ describe('Luhn', () => {
     expect(luhn.valid).toEqual(true);
   });
 
-  xtest('a simple valid SIN that becomes invalid if reversed', () => {
+  test('a simple valid SIN that becomes invalid if reversed', () => {
     const luhn = new Luhn('59');
     expect(luhn.valid).toEqual(true);
   });
