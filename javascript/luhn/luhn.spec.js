@@ -36,7 +36,7 @@ describe('Luhn', () => {
     expect(luhn.valid).toEqual(false);
   });
 
-  xtest('valid number with an even number of digits', () => {
+  test('valid number with an even number of digits', () => {
     const luhn = new Luhn('095 245 88');
     expect(luhn.valid).toEqual(true);
   });
