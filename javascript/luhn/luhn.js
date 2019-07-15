@@ -13,6 +13,11 @@ export class Luhn {
 
     for (let i = 0; i < digits.length; i++) {
       let d = Number.parseInt(digits[i], 10)
+
+      if (Number.isNaN(d)) {
+        return false
+      }
+
       const luhnIndex = digits.length - i - 1
 
       if (luhnIndex % 2 !== 0) {

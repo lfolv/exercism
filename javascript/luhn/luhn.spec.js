@@ -41,7 +41,7 @@ describe('Luhn', () => {
     expect(luhn.valid).toEqual(true);
   });
 
-  xtest('valid strings with a non-digit included become invalid', () => {
+  test('valid strings with a non-digit included become invalid', () => {
     const luhn = new Luhn('055a 444 285');
     expect(luhn.valid).toEqual(false);
   });
