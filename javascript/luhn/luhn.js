@@ -9,7 +9,7 @@ export class Luhn {
     }
 
     let luhnSum = 0
-    const digits = this.number.split('')
+    const digits = this.number.replace(/\s/g, '').split('')
 
     for (let i = 0; i < digits.length; i++) {
       let d = Number.parseInt(digits[i], 10)
