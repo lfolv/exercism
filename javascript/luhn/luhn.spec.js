@@ -26,7 +26,7 @@ describe('Luhn', () => {
     expect(luhn.valid).toEqual(true);
   });
 
-  xtest('invalid Canadian SIN', () => {
+  test('invalid Canadian SIN', () => {
     const luhn = new Luhn('055 444 286');
     expect(luhn.valid).toEqual(false);
   });
