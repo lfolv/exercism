@@ -31,7 +31,7 @@ describe('Luhn', () => {
     expect(luhn.valid).toEqual(false);
   });
 
-  xtest('invalid credit card', () => {
+  test('invalid credit card', () => {
     const luhn = new Luhn('8273 1232 7352 0569');
     expect(luhn.valid).toEqual(false);
   });
