@@ -30,12 +30,14 @@ export class List {
     return this.foldl(acc => acc + 1, 0)
   }
 
-  foldl(callback, initial) {
-    let acc = initial
-    for (const value of this.values) {
-      acc = callback(acc, value)
-    }
-    return acc
+  foldl(callback, curr, values = this.values) {
+    if (values.length === 0) { return curr }
+
+    return this.foldl(
+      callback,
+      callback(curr, values[0]),
+      values.slice(1)
+    )
   }
 
   foldr(callback, initial) {
