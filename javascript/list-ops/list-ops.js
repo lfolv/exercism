@@ -33,11 +33,8 @@ export class List {
   foldl(callback, curr, values = this.values) {
     if (values.length === 0) { return curr }
 
-    return this.foldl(
-      callback,
-      callback(curr, values[0]),
-      values.slice(1)
-    )
+    const [head, ...tail] = values
+    return this.foldl(callback, callback(curr, head), tail)
   }
 
   foldr(callback, initial) {
