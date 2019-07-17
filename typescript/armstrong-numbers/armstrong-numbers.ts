@@ -1,16 +1,23 @@
 function isArmstrongNumber(n: number): boolean {
-  return n === armstrongNumberSum(n)
+  return n === armstrongNumberSum(n);
 }
 
 const armstrongNumberSum = (n: number): number =>
-  getDigits(n)
-    .reduce((prev: number, curr: number, _, ds: number[]): number =>
-      prev + (curr ** ds.length)
-    , 0)
+  getDigits(n).reduce(armstrongNumberSumReducer, 0);
 
- const getDigits = (n: number): number[] =>
-  n.toString().split('').map((digit) => Number.parseInt(digit))
+const getDigits = (n: number): number[] =>
+  n
+    .toString()
+    .split("")
+    .map(digit => Number.parseInt(digit));
+
+const armstrongNumberSumReducer = (
+  sum: number,
+  value: number,
+  _: number,
+  digits: number[]
+): number => sum + value ** digits.length;
 
 export default {
   isArmstrongNumber
-}
+};
