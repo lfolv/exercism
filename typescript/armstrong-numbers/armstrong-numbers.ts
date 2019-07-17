@@ -1,22 +1,25 @@
-const isArmstrongNumber = (n: number): boolean =>
-  n === armstrongNumberSum(n);
+export default class ArmstrongNumbers {
+  static isArmstrongNumber(n: number): boolean {
+    return n === ArmstrongNumbers.armstrongNumberSum(n);
+  }
 
-const armstrongNumberSum = (n: number): number =>
-  getDigits(n).reduce(armstrongNumberSumReducer, 0);
+  private static armstrongNumberSum(n: number): number {
+    return ArmstrongNumbers.getDigits(n).reduce(ArmstrongNumbers.armstrongNumberSumReducer, 0);
+  }
 
-const getDigits = (n: number): number[] =>
-  n
-    .toString()
-    .split("")
-    .map(digit => Number.parseInt(digit));
+  private static getDigits(n: number): number[] {
+    return n
+      .toString()
+      .split("")
+      .map(digit => Number.parseInt(digit));
+  }
 
-const armstrongNumberSumReducer = (
-  sum: number,
-  value: number,
-  _: number,
-  digits: number[]
-): number => sum + value ** digits.length;
-
-export default {
-  isArmstrongNumber
-};
+  private static armstrongNumberSumReducer (
+    sum: number,
+    value: number,
+    _: number,
+    digits: number[]
+  ): number {
+    return sum + value ** digits.length;
+  }
+}
