@@ -1,6 +1,5 @@
-function isArmstrongNumber(n: number): boolean {
-  return n === armstrongNumberSum(n);
-}
+const isArmstrongNumber = (n: number): boolean =>
+  n === armstrongNumberSum(n);
 
 const armstrongNumberSum = (n: number): number =>
   getDigits(n).reduce(armstrongNumberSumReducer, 0);
