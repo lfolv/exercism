@@ -7,50 +7,50 @@ const PLANET_TO_ORBITAL_PERIOD: { [key: string]: number } = {
   saturn: 929292362.8848,
   uranus: 2651370019.3296,
   neptune: 5200418560.032001
-}
+};
 
 class SpaceAge {
-  seconds: number
+  seconds: number;
 
   constructor(seconds: number) {
-    this.seconds = seconds
+    this.seconds = seconds;
   }
 
   onEarth(): number {
-    return this.age('earth')
+    return this.age('earth');
   }
 
   onMercury(): number {
-    return this.age('mercury')
+    return this.age('mercury');
   }
 
   onVenus(): number {
-    return this.age('venus')
+    return this.age('venus');
   }
 
   onMars(): number {
-    return this.age('mars')
+    return this.age('mars');
   }
 
   onJupiter(): number {
-    return this.age('jupiter')
+    return this.age('jupiter');
   }
 
   onSaturn(): number {
-    return this.age('saturn')
+    return this.age('saturn');
   }
 
   onUranus(): number {
-    return this.age('uranus')
+    return this.age('uranus');
   }
 
   onNeptune(): number {
-    return this.age('neptune')
+    return this.age('neptune');
   }
 
   private age(planet: string): number {
-    return Number.parseFloat((this.seconds / PLANET_TO_ORBITAL_PERIOD[planet]).toFixed(2))
+    return Number.parseFloat((this.seconds / PLANET_TO_ORBITAL_PERIOD[planet]).toFixed(2));
   }
 }
 
-export default SpaceAge
+export default SpaceAge;
