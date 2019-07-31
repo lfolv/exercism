@@ -49,7 +49,7 @@ class SpaceAge {
   }
 
   private age(planet: string): number {
-    return Number.parseFloat((this.seconds / PLANET_TO_ORBITAL_PERIOD[planet]).toFixed(2));
+    return Number((this.seconds / PLANET_TO_ORBITAL_PERIOD[planet]).toFixed(2));
   }
 }
 
