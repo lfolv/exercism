@@ -44,7 +44,7 @@ describe('Robot', () => {
     expect(differentRobot.name).not.toEqual(robot.name);
   });
 
-  xtest('is able to reset the name', () => {
+  test('is able to reset the name', () => {
     const originalName = robot.name;
 
     robot.reset();

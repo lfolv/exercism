@@ -2,14 +2,21 @@ const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 export class Robot { 
   constructor() {
-    this.name = ''
+    this.reset()
+  }
+
+  reset() {
+    let newName = ''
+
     for (let i = 0; i < 2; i++) {
-      this.name += CHARACTERS.charAt(Math.floor(Math.random() * CHARACTERS.length))
+      newName += CHARACTERS.charAt(Math.floor(Math.random() * CHARACTERS.length))
     }
 
     for (let i = 0; i < 3; i++) {
-      this.name += Math.floor(Math.random() * 10)
+      newName += Math.floor(Math.random() * 10)
     }
+
+    this.name = newName
   }
 }
 
