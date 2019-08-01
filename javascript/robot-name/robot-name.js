@@ -5,6 +5,10 @@ export class Robot {
     this.reset()
   }
 
+  get name() {
+    return this._name
+  }
+
   reset() {
     let newName = generateRobotName()
 
@@ -13,7 +17,7 @@ export class Robot {
     }
 
     Robot.usedNames.add(newName)
-    this.name = newName
+    this._name = newName
   }
 }
 
