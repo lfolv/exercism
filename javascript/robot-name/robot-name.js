@@ -6,7 +6,14 @@ export class Robot {
   }
 
   reset() {
-    this.name = generateRobotName()
+    let newName = generateRobotName()
+
+    while (Robot.usedNames.has(newName)) {
+      newName = generateRobotName()
+    }
+
+    Robot.usedNames.add(newName)
+    this.name = newName
   }
 }
 
@@ -24,4 +31,8 @@ function generateRobotName() {
   return newName
 }
 
-Robot.releaseNames = () => { };
+Robot.usedNames = new Set()
+
+Robot.releaseNames = () => { 
+  Robot.usedNames = new Set()
+};

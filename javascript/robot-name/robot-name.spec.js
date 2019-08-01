@@ -54,7 +54,7 @@ describe('Robot', () => {
     expect(originalName).not.toEqual(newName);
   });
 
-  xtest('should set a unique name after reset', () => {
+  test('should set a unique name after reset', () => {
     const NUMBER_OF_ROBOTS = 10000;
     const usedNames = new Set();
 
