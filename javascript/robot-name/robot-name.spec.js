@@ -73,7 +73,7 @@ describe('Robot', () => {
   });
 
 
-  xtest('new names should not be sequential', () => {
+  test('new names should not be sequential', () => {
     const name1 = robot.name;
     const name2 = (new Robot()).name;
     const name3 = (new Robot()).name;
