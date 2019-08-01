@@ -82,7 +82,7 @@ describe('Robot', () => {
     expect(areSequential(name2, name3)).toBe(false);
   });
 
-  xtest('names from reset should not be sequential', () => {
+  test('names from reset should not be sequential', () => {
     const name1 = robot.name;
     robot.reset();
     const name2 = robot.name;
