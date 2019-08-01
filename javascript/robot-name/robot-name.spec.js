@@ -35,7 +35,7 @@ describe('Robot', () => {
     expect(robot.name).toMatch(/^[A-Z]{2}\d{3}$/);
   });
 
-  xtest('name is the same each time', () => {
+  test('name is the same each time', () => {
     expect(robot.name).toEqual(robot.name);
   });
 
