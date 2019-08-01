@@ -1,9 +1,15 @@
-// This is only a SKELETON file for the 'Robot Name' exercise. It's been
-// provided as a convenience to get your started writing code faster.
+const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 export class Robot { 
   constructor() {
-    this.name = "RX837"
+    this.name = ''
+    for (let i = 0; i < 2; i++) {
+      this.name += CHARACTERS.charAt(Math.floor(Math.random() * CHARACTERS.length))
+    }
+
+    for (let i = 0; i < 3; i++) {
+      this.name += Math.floor(Math.random() * 10)
+    }
   }
 }
 
