@@ -2,9 +2,8 @@ module PrimeFactors
   def self.for(number)
     [].tap do |factors|
       while number > 1
-        factor = minimal_factor_of number
-        number /= factor
-        factors << factor
+        factors << minimal_factor_of(number)
+        number /= factors.last
       end
     end
   end
