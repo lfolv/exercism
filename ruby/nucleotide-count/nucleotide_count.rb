@@ -12,13 +12,14 @@ class Nucleotide
   end
 
   def histogram
-    h = { 'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0 }
-    
-    nucleotides.each do |c|
-      h[c] += 1
+    @histogra ||= nucleotides.each_with_object({ 
+      'A' => 0, 
+      'T' => 0, 
+      'C' => 0, 
+      'G' => 0 
+    }) do |nucleotide, obj|
+      obj[nucleotide] += 1
     end
-    
-    h
   end
 
   private
