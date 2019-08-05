@@ -14,7 +14,7 @@ class Nucleotide
   def histogram
     h = { 'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0 }
     
-    dna.each_char do |c|
+    nucleotides.each do |c|
       h[c] += 1
     end
     
@@ -24,4 +24,8 @@ class Nucleotide
   private
 
   attr_reader :dna
+
+  def nucleotides
+    dna.each_char
+  end
 end
