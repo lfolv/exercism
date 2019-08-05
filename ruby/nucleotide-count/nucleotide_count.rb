@@ -12,7 +12,7 @@ class Nucleotide
   end
 
   def histogram
-    @histogra ||= nucleotides.each_with_object({ 
+    @histogram ||= nucleotides.each_with_object({ 
       'A' => 0, 
       'T' => 0, 
       'C' => 0, 
