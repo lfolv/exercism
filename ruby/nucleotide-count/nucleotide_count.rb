@@ -8,7 +8,11 @@ class Nucleotide
   end
 
   def count(nucleotide)
-    dna.length
+    count = 0
+    dna.each_char do |char|
+      count += 1 if char == nucleotide
+    end
+    count
   end
 
   private

@@ -11,7 +11,6 @@ class NucleotideTest < Minitest::Test
   end
 
   def test_counts_only_thymidine
-    skip
     assert_equal 1, Nucleotide.from_dna('GGGGGTAACCCGG').count('T')
   end
 
