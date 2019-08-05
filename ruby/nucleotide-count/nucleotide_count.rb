@@ -4,6 +4,8 @@ class Nucleotide
   end
 
   def initialize(dna)
+    raise ArgumentError unless dna =~ /^[ATCG]*$/
+
     @dna = dna
   end
 
