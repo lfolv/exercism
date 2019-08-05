@@ -22,7 +22,6 @@ class NucleotideTest < Minitest::Test
   end
 
   def test_empty_dna_strand_has_no_nucleotides
-    skip
     expected = { 'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0 }
     assert_equal expected, Nucleotide.from_dna('').histogram
   end

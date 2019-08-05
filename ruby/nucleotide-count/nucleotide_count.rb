@@ -11,6 +11,10 @@ class Nucleotide
     dna.count nucleotide
   end
 
+  def histogram
+    { 'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0 }
+  end
+
   private
 
   attr_reader :dna
