@@ -27,7 +27,6 @@ class NucleotideTest < Minitest::Test
   end
 
   def test_repetitive_sequence_has_only_guanosine
-    skip
     expected = { 'A' => 0, 'T' => 0, 'C' => 0, 'G' => 8 }
     assert_equal expected, Nucleotide.from_dna('GGGGGGGG').histogram
   end
