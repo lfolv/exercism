@@ -1,9 +1,7 @@
 class Nucleotide
   NUCLEOTIDES = %w{A T C G}
-
   INITIAL_COUNTS = NUCLEOTIDES.to_h { |nucleotide| [nucleotide, 0] }
-
-  VALID_DNA_FORMAT = Regexp.new("^[#{NUCLEOTIDES}]*$")
+  VALID_DNA_FORMAT = Regexp.new("^[#{NUCLEOTIDES.join}]*$")
 
   def self.from_dna(dna)
     Nucleotide.new dna
