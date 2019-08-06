@@ -12,7 +12,7 @@ class Nucleotide
   end
 
   def self.valid?(dna)
-    !!(dna =~ VALID_DNA_FORMAT)
+    dna.match? VALID_DNA_FORMAT
   end
 
   def initialize(dna)
