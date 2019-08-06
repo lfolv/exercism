@@ -11,8 +11,12 @@ class Nucleotide
     Nucleotide.new dna
   end
 
+  def self.valid?(dna)
+    !!(dna =~ VALID_DNA_FORMAT)
+  end
+
   def initialize(dna)
-    raise ArgumentError unless dna =~ VALID_DNA_FORMAT
+    raise ArgumentError unless Nucleotide.valid?(dna)
 
     @dna = dna
   end
