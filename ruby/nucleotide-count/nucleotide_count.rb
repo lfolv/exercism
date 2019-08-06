@@ -19,8 +19,8 @@ class Nucleotide
       'T' => 0, 
       'C' => 0, 
       'G' => 0 
-    }) do |nucleotide, obj|
-      obj[nucleotide] += 1
+    }) do |nucleotide, acc|
+      acc[nucleotide] += 1
     end
   end
 
