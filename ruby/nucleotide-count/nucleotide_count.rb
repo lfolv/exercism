@@ -1,4 +1,11 @@
 class Nucleotide
+  INITIAL_COUNTS = { 
+    'A' => 0, 
+    'T' => 0, 
+    'C' => 0, 
+    'G' => 0 
+  }
+
   def self.from_dna(dna)
     Nucleotide.new dna
   end
@@ -14,12 +21,7 @@ class Nucleotide
   end
 
   def histogram
-    @histogram ||= each_nucleotide.each_with_object({ 
-      'A' => 0, 
-      'T' => 0, 
-      'C' => 0, 
-      'G' => 0 
-    }) do |nucleotide, acc|
+    @histogram ||= each_nucleotide.each_with_object(INITIAL_COUNTS.dup) do |nucleotide, acc|
       acc[nucleotide] += 1
     end
   end
