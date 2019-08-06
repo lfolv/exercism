@@ -1,9 +1,7 @@
 class Nucleotide
   NUCLEOTIDES = %w{A T C G}
 
-  INITIAL_COUNTS = NUCLEOTIDES.each_with_object({}) do |nucleotide, acc|
-    acc[nucleotide] = 0
-  end
+  INITIAL_COUNTS = NUCLEOTIDES.to_h { |nucleotide| [nucleotide, 0] }
 
   VALID_DNA_FORMAT = Regexp.new("^[#{NUCLEOTIDES}]*$")
 
