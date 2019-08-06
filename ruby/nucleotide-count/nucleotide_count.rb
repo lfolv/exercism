@@ -5,13 +5,14 @@ class Nucleotide
     'C' => 0, 
     'G' => 0 
   }
+  VALID_DNA_FORMAT = /^[ATCG]*$/
 
   def self.from_dna(dna)
     Nucleotide.new dna
   end
 
   def initialize(dna)
-    raise ArgumentError unless dna =~ /^[ATCG]*$/
+    raise ArgumentError unless dna =~ VALID_DNA_FORMAT
 
     @dna = dna
   end
