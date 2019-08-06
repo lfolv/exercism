@@ -26,7 +26,7 @@ class Nucleotide
   end
 
   def histogram
-    @histogram ||= each_nucleotide.each_with_object(INITIAL_COUNTS.dup) do |nucleotide, counts|
+    each_nucleotide.each_with_object(INITIAL_COUNTS.dup) do |nucleotide, counts|
       counts[nucleotide] += 1
     end
   end
