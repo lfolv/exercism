@@ -14,7 +14,7 @@ class Nucleotide
   end
 
   def histogram
-    @histogram ||= nucleotides.each_with_object({ 
+    @histogram ||= each_nucleotide.each_with_object({ 
       'A' => 0, 
       'T' => 0, 
       'C' => 0, 
@@ -28,7 +28,7 @@ class Nucleotide
 
   attr_reader :dna
 
-  def nucleotides
+  def each_nucleotide
     dna.each_char
   end
 end
