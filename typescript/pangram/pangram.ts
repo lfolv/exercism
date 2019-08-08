@@ -8,8 +8,10 @@ export default class Pangran {
   }
 
   isPangram(): boolean {
+    const sentence = this.sentence.toLowerCase()
+
     for (let letter of LETTERS) {
-      if (!this.sentence.includes(letter)) {
+      if (!sentence.includes(letter)) {
         return false
       }
     }
