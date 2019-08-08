@@ -4,18 +4,11 @@ export default class Pangran {
   private sentence: string
 
   constructor(sentence: string) {
-    this.sentence = sentence
+    this.sentence = sentence.toLowerCase()
   }
 
   isPangram(): boolean {
-    const sentence = this.sentence.toLowerCase()
-
-    for (let letter of LETTERS) {
-      if (!sentence.includes(letter)) {
-        return false
-      }
-    }
-
-    return true
+    return LETTERS
+      .every(letter => this.sentence.includes(letter))
   }
 }
