@@ -2,17 +2,17 @@ const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 export class Robot { 
   static releaseNames() { 
-    Robot.usedNames = new Set()
+    Robot.usedNames = {}
   };
 
   static newName() {
     let newName = Robot.generateRobotName()
 
-    while (Robot.usedNames.has(newName)) {
+    while (Robot.usedNames[newName]) {
       newName = Robot.generateRobotName()
     }
 
-    Robot.usedNames.add(newName)
+    Robot.usedNames[newName] = true
     return newName
   }
 
