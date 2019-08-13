@@ -20,22 +20,26 @@ const CODONS_TO_AMINO_ACID = {
   UGA: STOP
 };
 
-const translate = (rna_sequence = "") => {
-  const amino_acids = [];
-
-  for (let codon of getCodons(rna_sequence)) {
-    const amino_acid = CODONS_TO_AMINO_ACID[codon];
-
-    if (!amino_acid) throw new Error("Invalid codon");
-
-    if (amino_acid === STOP) break;
-
-    amino_acids.push(amino_acid);
+const translate = (rnaSequence) => {
+  if (rnaSequence === undefined) {
+    return []
   }
 
-  return amino_acids;
+  const aminoAcids = [];
+
+  for (let codon of getCodons(rnaSequence)) {
+    const aminoAcid = CODONS_TO_AMINO_ACID[codon];
+
+    if (!aminoAcid) throw new Error("Invalid codon");
+
+    if (aminoAcid === STOP) break;
+
+    aminoAcids.push(aminoAcid);
+  }
+
+  return aminoAcids;
 };
 
-const getCodons = rna_sequence => rna_sequence.match(/(\w{3})/g) || [];
+const getCodons = rnaSequence => rnaSequence.match(/(\w{1,3})/g) || [];
 
 export default translate;
