@@ -1,3 +1,5 @@
+const STOP = "STOP"
+
 const CODONS_TO_AMINO_ACID = {
   AUG: "Methionine",
   UUU: "Phenylalanine",
@@ -13,9 +15,9 @@ const CODONS_TO_AMINO_ACID = {
   UGU: "Cysteine",
   UGC: "Cysteine",
   UGG: "Tryptophan",
-  UAA: "STOP",
-  UAG: "STOP",
-  UGA: "STOP"
+  UAA: STOP,
+  UAG: STOP,
+  UGA: STOP
 };
 
 const translate = (rna_sequence = "") => {
@@ -26,7 +28,7 @@ const translate = (rna_sequence = "") => {
 
     if (!amino_acid) throw new Error("Invalid codon");
 
-    if (amino_acid === "STOP") break;
+    if (amino_acid === STOP) break;
 
     amino_acids.push(amino_acid);
   }
