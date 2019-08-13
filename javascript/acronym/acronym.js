@@ -1,6 +1,9 @@
-export const parse = (phrase) => {
-  return phrase
-    .split(' ')
-    .map(word => word[0])
+const SEPARATOR = /[\s-_]+/
+
+export const parse = phrase => 
+  phrase
+    .split(SEPARATOR)
+    .map(wordToAcronym)
     .join('')
-};
+
+const wordToAcronym = word => word[0].toUpperCase()
