@@ -12,8 +12,11 @@ export class Cipher {
       .join('')
   }
 
-  decode() {
-    throw new Error("Remove this statement and implement this function");
+  decode(data) {
+    return data
+      .split('')
+      .map((chr, index) => decodeChr(chr, index, this.key))
+      .join('')
   }
 
   get key() {
@@ -31,8 +34,22 @@ function generateKey() {
   return result
 }
 
-const encodeChr = (chr, index, key) => 
-  CHRS[
+function encodeChr(chr, index, key) {
+  const i = (
     CHRS.indexOf(chr) +
-    CHRS.indexOf(key.charAt(index))
-  ]
+    CHRS.indexOf(key.charAt(index % key.length))
+  ) % CHRS.length 
+
+  return CHRS[i]
+}
+  
+
+function decodeChr(chr, index, key) {
+  let i = CHRS.indexOf(chr) - CHRS.indexOf(key.charAt(index % key.length))
+
+  if (i < 0) {
+    i += CHRS.length
+  }
+
+  return CHRS[i]
+}
