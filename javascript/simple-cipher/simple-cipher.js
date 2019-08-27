@@ -6,21 +6,22 @@ export class Cipher {
   }
 
   encode(data) {
-    return data
-      .split('')
-      .map((chr, index) => encodeChr(chr, index, this.key))
-      .join('')
+    return this.transformWith(data, encodeChr)
   }
 
   decode(data) {
-    return data
-      .split('')
-      .map((chr, index) => decodeChr(chr, index, this.key))
-      .join('')
+    return this.transformWith(data, decodeChr)
   }
 
   get key() {
     return this._key
+  }
+
+  transformWith(data, callback) {
+    return data 
+      .split('')
+      .map((chr, index) => callback(chr, index, this.key))
+      .join('')
   }
 }
 
@@ -42,7 +43,6 @@ function encodeChr(chr, index, key) {
 
   return CHRS[i]
 }
-  
 
 function decodeChr(chr, index, key) {
   let i = CHRS.indexOf(chr) - CHRS.indexOf(key.charAt(index % key.length))
