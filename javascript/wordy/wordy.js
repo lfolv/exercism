@@ -4,7 +4,7 @@ export class WordProblem {
   }
 
   answer() {
-    const match = this.problem.match(/^What is (\d+) plus (\d+)\?$/)
+    const match = this.problem.match(/^What is (-?\d+) plus (-?\d+)\?$/)
     return Number(match[1]) + Number(match[2])
   }
 }
