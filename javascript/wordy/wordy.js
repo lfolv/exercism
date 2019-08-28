@@ -4,19 +4,21 @@ export class WordProblem {
   }
 
   answer() {
-    const match = this.problem.match(/^What is (-?\d+) (plus|minus|multiplied by) (-?\d+)\?$/)
+    const result = Number(this.problem.match(/^What is (-?\d+).*$/)[1]) 
+    const match = /(plus|minus|multiplied by|divided by) (-?\d+)\?$/.exec(this.problem)
 
-    const x = Number(match[1])
-    const operation = match[2]
-    const y = Number(match[3])
+    const operation = match[1]
+    const value = Number(match[2])
 
     switch(operation) {
       case 'plus':
-        return x + y
+        return result + value
       case 'minus':
-        return x - y
+        return result - value
       case 'multiplied by':
-        return x * y
+        return result * value
+      case 'divided by':
+        return result / value
     }
   }
 }
