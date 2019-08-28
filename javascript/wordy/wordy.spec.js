@@ -21,7 +21,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(45801);
   });
 
-  xtest('subtract', () => {
+  test('subtract', () => {
     const question = 'What is 4 minus -12?';
     expect(new WordProblem(question).answer()).toEqual(16);
   });

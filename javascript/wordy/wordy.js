@@ -4,7 +4,17 @@ export class WordProblem {
   }
 
   answer() {
-    const match = this.problem.match(/^What is (-?\d+) plus (-?\d+)\?$/)
-    return Number(match[1]) + Number(match[2])
+    const match = this.problem.match(/^What is (-?\d+) (plus|minus) (-?\d+)\?$/)
+
+    const x = Number(match[1])
+    const operation = match[2]
+    const y = Number(match[3])
+
+    switch(operation) {
+      case 'plus':
+        return x + y
+      case 'minus':
+        return x - y
+    }
   }
 }
