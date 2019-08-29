@@ -46,7 +46,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(8);
   });
 
-  xtest('subtract twice', () => {
+  test('subtract twice', () => {
     const question = 'What is 20 minus 4 minus 13?';
     expect(new WordProblem(question).answer()).toEqual(3);
   });
