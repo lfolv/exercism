@@ -71,7 +71,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(2);
   });
 
-  xtest('too advanced', () => {
+  test('too advanced', () => {
     const question = 'What is 53 cubed?';
     const problem = new WordProblem(question);
 
