@@ -36,7 +36,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(-11);
   });
 
-  xtest('add twice', () => {
+  test('add twice', () => {
     const question = 'What is 1 plus 1 plus 1?';
     expect(new WordProblem(question).answer()).toEqual(3);
   });

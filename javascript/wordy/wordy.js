@@ -1,24 +1,36 @@
+const FIRST_NUMBER = /^What is (-?\d+).*$/
+const OPERATION = /(plus|minus|multiplied by|divided by) (-?\d+)/g
+const OPERATION_NAME_TO_CALLBACK = {
+  'plus': (x, y) => x + y,
+  'minus': (x, y) => x - y,
+  'multiplied': (x, y) => x * y,
+  'divided': (x, y) => x / y 
+}
+
 export class WordProblem {
   constructor(problem) {
-    this.problem = problem
+    this.problem = problem;
   }
 
   answer() {
-    const result = Number(this.problem.match(/^What is (-?\d+).*$/)[1]) 
-    const match = /(plus|minus|multiplied by|divided by) (-?\d+)\?$/.exec(this.problem)
-
-    const operation = match[1]
-    const value = Number(match[2])
-
-    switch(operation) {
-      case 'plus':
-        return result + value
-      case 'minus':
-        return result - value
-      case 'multiplied by':
-        return result * value
-      case 'divided by':
-        return result / value
-    }
+    return operationsFrom(this.problem)
+      .reduce(operationReducer, firstNumberFrom(this.problem));
   }
+}
+
+const firstNumberFrom = problem =>
+  Number(problem.match(FIRST_NUMBER)[1]);
+
+const operationReducer = (current, [callback, value]) => 
+  callback(current, value)
+
+const operationsFrom = problem =>
+  problem
+    .match(OPERATION)
+    .map(parseOperation);
+
+const parseOperation = operation => {
+  const [name, value] = operation.replace(" by", "").split(" ")
+
+  return [OPERATION_NAME_TO_CALLBACK[name], Number(value)]
 }
