@@ -61,7 +61,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(-12);
   });
 
-  xtest('add then multiply', () => {
+  test('add then multiply', () => {
     const question = 'What is -3 plus 7 multiplied by -2?';
     expect(new WordProblem(question).answer()).toEqual(-8);
   });
