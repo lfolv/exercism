@@ -56,7 +56,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(14);
   });
 
-  xtest('multiply twice', () => {
+  test('multiply twice', () => {
     const question = 'What is 2 multiplied by -2 multiplied by 3?';
     expect(new WordProblem(question).answer()).toEqual(-12);
   });
