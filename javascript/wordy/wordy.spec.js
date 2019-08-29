@@ -41,7 +41,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(3);
   });
 
-  xtest('add then subtract', () => {
+  test('add then subtract', () => {
     const question = 'What is 1 plus 5 minus -2?';
     expect(new WordProblem(question).answer()).toEqual(8);
   });
