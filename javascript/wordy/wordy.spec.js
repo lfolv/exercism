@@ -66,7 +66,7 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(-8);
   });
 
-  xtest('divide twice', () => {
+  test('divide twice', () => {
     const question = 'What is -12 divided by 2 divided by -3?';
     expect(new WordProblem(question).answer()).toEqual(2);
   });
