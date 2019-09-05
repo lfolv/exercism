@@ -234,7 +234,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_output_base_is_one
-    skip
+    # skip
     digits = [1, 0, 1, 0, 1, 0]
     input_base = 2
     output_base = 1
