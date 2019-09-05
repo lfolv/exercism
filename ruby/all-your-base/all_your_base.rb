@@ -1,6 +1,6 @@
 module BaseConverter
   def self.convert(input_base, digits, output_base)
-    raise ArgumentError.new if input_base <= 1 || output_base <= 1
+    raise ArgumentError.new if invalid_base(input_base) || invalid_base(output_base)
     
     base10 = 0
     
@@ -20,5 +20,9 @@ module BaseConverter
     return [0] if result.empty?
     
     result
+  end
+
+  def self.invalid_base(base)
+    base <= 1
   end
 end
