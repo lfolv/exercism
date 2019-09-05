@@ -254,7 +254,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_output_base_is_negative
-    skip
+    # skip
     digits = [1]
     input_base = 2
     output_base = -7
