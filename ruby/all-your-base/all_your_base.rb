@@ -9,7 +9,7 @@ module BaseConverter
     result = []
 
     while base10 > 0
-      result << base10 % output_base
+      result.unshift base10 % output_base
       base10 = (base10 / output_base).floor
     end
 
