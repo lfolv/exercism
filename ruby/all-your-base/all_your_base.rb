@@ -6,6 +6,13 @@ module BaseConverter
       base10 += digit * (input_base ** index)
     end
 
-    base10.to_s.split('').map(&:to_i)
+    result = []
+
+    while base10 > 0
+      result << base10 % output_base
+      base10 = (base10 / output_base).floor
+    end
+
+    result
   end
 end

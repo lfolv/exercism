@@ -34,7 +34,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_single_decimal_to_binary
-    skip
+    # skip
     digits = [5]
     input_base = 10
     output_base = 2
