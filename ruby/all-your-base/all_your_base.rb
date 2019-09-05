@@ -25,9 +25,13 @@ module BaseConverter
       .reverse_each
       .with_index
       .sum do |digit, index|
-        raise ArgumentError.new if digit < 0 || digit >= input_base
+        raise ArgumentError.new if invalid_digit(input_base, digit)
 
         digit * (input_base ** index)
       end
+  end
+
+  def self.invalid_digit(base, digit)
+    digit < 0 || digit >= base
   end
 end
