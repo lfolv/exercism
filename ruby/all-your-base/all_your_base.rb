@@ -2,13 +2,7 @@ module BaseConverter
   def self.convert(input_base, digits, output_base)
     raise ArgumentError.new if invalid_base(input_base) || invalid_base(output_base)
     
-    base10 = 0
-    
-    digits.reverse.each.with_index do |digit, index|
-      raise ArgumentError.new if digit < 0 || digit >= input_base
-
-      base10 += digit * (input_base ** index)
-    end
+    base10 = to_base10(input_base, digits)
 
     result = []
 
@@ -24,5 +18,17 @@ module BaseConverter
 
   def self.invalid_base(base)
     base <= 1
+  end
+
+  def self.to_base10(input_base, digits)
+    base10 = 0
+    
+    digits.reverse.each.with_index do |digit, index|
+      raise ArgumentError.new if digit < 0 || digit >= input_base
+
+      base10 += digit * (input_base ** index)
+    end
+
+    base10
   end
 end
