@@ -21,14 +21,13 @@ module BaseConverter
   end
 
   def self.to_base10(input_base, digits)
-    base10 = 0
-    
-    digits.reverse.each.with_index do |digit, index|
-      raise ArgumentError.new if digit < 0 || digit >= input_base
+    digits
+      .reverse_each
+      .with_index
+      .sum do |digit, index|
+        raise ArgumentError.new if digit < 0 || digit >= input_base
 
-      base10 += digit * (input_base ** index)
-    end
-
-    base10
+        digit * (input_base ** index)
+      end
   end
 end
