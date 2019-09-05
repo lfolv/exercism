@@ -5,8 +5,8 @@ module BaseConverter
     base10 = 0
     
     digits.reverse.each.with_index do |digit, index|
-      raise ArgumentError.new if digit < 0
-      
+      raise ArgumentError.new if digit < 0 || digit >= input_base
+
       base10 += digit * (input_base ** index)
     end
 
