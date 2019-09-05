@@ -13,6 +13,8 @@ module BaseConverter
       base10 = (base10 / output_base).floor
     end
 
+    return [0] if result.empty?
+    
     result
   end
 end
