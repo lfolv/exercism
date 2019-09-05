@@ -19,7 +19,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_binary_to_single_decimal
-    skip
+    # skip
     digits = [1, 0, 1]
     input_base = 2
     output_base = 10
