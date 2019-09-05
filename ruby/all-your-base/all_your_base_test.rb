@@ -139,7 +139,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_single_zero
-    skip
+    # skip
     digits = [0]
     input_base = 10
     output_base = 2
@@ -154,7 +154,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_multiple_zeros
-    skip
+    # skip
     digits = [0, 0, 0]
     input_base = 10
     output_base = 2
@@ -169,7 +169,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_leading_zeros
-    skip
+    # skip
     digits = [0, 6, 0]
     input_base = 7
     output_base = 10
