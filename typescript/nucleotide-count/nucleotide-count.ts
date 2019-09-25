@@ -12,7 +12,7 @@ class NucleotideCount {
     }
 
     for (const nucleotide of strand) {
-      if (!counter.hasOwnProperty(nucleotide)) {
+      if (counter[nucleotide] === undefined) {
         throw new Error('Invalid nucleotide in strand')
       }
 
