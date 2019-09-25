@@ -8,6 +8,10 @@ class NucleotideCount {
     }
 
     for (const nucleotide of dna) {
+      if (!result.hasOwnProperty(nucleotide)) {
+        throw new Error('Invalid nucleotide in strand')
+      }
+
       result[nucleotide] += 1
     }
 

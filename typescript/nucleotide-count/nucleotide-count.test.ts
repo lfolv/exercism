@@ -41,7 +41,7 @@ describe('count all nucleotides in a strand', () => {
     expect(NucleotideCount.nucleotideCounts('AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC')).toEqual(expected)
   })
 
-  xit('strand with invalid nucleotides', () => {
+  it('strand with invalid nucleotides', () => {
     const expected = 'Invalid nucleotide in strand'
     expect(() => {NucleotideCount.nucleotideCounts('AGXXACT')}).toThrowError(expected)
   })
