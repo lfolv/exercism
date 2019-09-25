@@ -3,7 +3,7 @@ interface Counter {
 }
 
 class NucleotideCount {
-  static nucleotideCounts(dna: string): Counter {
+  static nucleotideCounts(strand: string): Counter {
     const counter: Counter = {
       A: 0,
       C: 0,
@@ -11,7 +11,7 @@ class NucleotideCount {
       T: 0
     }
 
-    for (const nucleotide of dna) {
+    for (const nucleotide of strand) {
       if (!counter.hasOwnProperty(nucleotide)) {
         throw new Error('Invalid nucleotide in strand')
       }
