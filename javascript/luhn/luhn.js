@@ -32,5 +32,3 @@ export class Luhn {
 
     return luhnSum % 10 === 0
   }
-}
-
