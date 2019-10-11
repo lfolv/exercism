@@ -5,7 +5,7 @@ describe('SumOfMultiples', () => {
     expect(SumOfMultiples([3, 5]).to(1)).toBe(0)
   })
 
-  xit('to 3', () => {
+  it('to 3', () => {
     expect(SumOfMultiples([3, 5]).to(4)).toBe(3)
   })
 
@@ -13,11 +13,11 @@ describe('SumOfMultiples', () => {
     expect(SumOfMultiples([3, 5]).to(10)).toBe(23)
   })
 
-  xit('to 100', () => {
+  it('to 100', () => {
     expect(SumOfMultiples([3, 5]).to(100)).toBe(2318)
   })
 
-  xit('to 1000', () => {
+  it('to 1000', () => {
     expect(SumOfMultiples([3, 5]).to(1000)).toBe(233168)
   })
 

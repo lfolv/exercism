@@ -4,7 +4,7 @@ function SumOfMultiples([ x, y ]: number[]) {
       let sum: number = 0
 
       for (let n = 1; n <= limit; n++) {
-        if (n % x === 0 && n % y === 0) {
+        if (n % x === 0 || n % y === 0) {
           sum += n
         }
       }
