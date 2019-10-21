@@ -1,10 +1,10 @@
-function SumOfMultiples([ x, y ]: number[]) {
+function SumOfMultiples(numbers: number[]) {
   return {
     to(limit: number): number {
       let sum: number = 0
 
       for (let n = 1; n < limit; n++) {
-        if (n % x === 0 || n % y === 0) {
+        if (numbers.some(x => n % x === 0)) {
           sum += n
         }
       }
