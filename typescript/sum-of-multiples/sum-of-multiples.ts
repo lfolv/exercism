@@ -1,9 +1,9 @@
 function SumOfMultiples(numbers: number[]) {
   return {
-    to(limit: number): number {
+    to(stop: number): number {
       let sum: number = 0
 
-      for (let n = 1; n < limit; n++) {
+      for (const n of range(1, stop)) {
         if (numbers.some(x => n % x === 0)) {
           sum += n
         }
@@ -11,6 +11,12 @@ function SumOfMultiples(numbers: number[]) {
 
       return sum
     }
+  }
+}
+
+function* range(start: number, stop: number) {
+  for (let i = start; i < stop; i++) {
+    yield i
   }
 }
 
