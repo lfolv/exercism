@@ -18,6 +18,10 @@ const isInvalidDigits = digits => {
     return true
   }
 
+  if (digits.some(digit => digit < 0)) {
+    return true
+  }
+
   return false
 }
 
