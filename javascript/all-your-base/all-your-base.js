@@ -1,9 +1,9 @@
 export const convert = (digits, baseOrigin = 0, baseDestiny) => {
-  if (baseOrigin <= 1) {
+  if (isInvalidBase(baseOrigin)) {
     throw new Error("Wrong input base")
   }
 
-  if (baseDestiny <= 1) {
+  if (isInvalidBase(baseDestiny)) {
     throw new Error("Wrong output base")
   }
   
@@ -16,6 +16,9 @@ export const convert = (digits, baseOrigin = 0, baseDestiny) => {
 
   return convertedDigits.length === 0 ? [0] : convertedDigits
 };
+
+const isInvalidBase = base =>
+  base <= 1
 
 const hasInvalidDigit = (digits, base) => {
   if (digits.length > 1 && digits[0] === 0) {
