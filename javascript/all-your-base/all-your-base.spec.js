@@ -13,23 +13,23 @@ describe("Converter", () => {
     expect(convert([5], 10, 2)).toEqual([1, 0, 1]);
   });
 
-  xtest("binary to multiple decimal", () => {
+  test("binary to multiple decimal", () => {
     expect(convert([1, 0, 1, 0, 1, 0], 2, 10)).toEqual([4, 2]);
   });
 
-  xtest("decimal to binary", () => {
+  test("decimal to binary", () => {
     expect(convert([4, 2], 10, 2)).toEqual([1, 0, 1, 0, 1, 0]);
   });
 
-  xtest("trinary to hexadecimal", () => {
+  test("trinary to hexadecimal", () => {
     expect(convert([1, 1, 2, 0], 3, 16)).toEqual([2, 10]);
   });
 
-  xtest("hexadecimal to trinary", () => {
+  test("hexadecimal to trinary", () => {
     expect(convert([2, 10], 16, 3)).toEqual([1, 1, 2, 0]);
   });
 
-  xtest("15-bit integer", () => {
+  test("15-bit integer", () => {
     expect(convert([3, 46, 60], 97, 73)).toEqual([6, 10, 45]);
   });
 

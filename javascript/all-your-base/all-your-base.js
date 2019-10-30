@@ -12,7 +12,7 @@ const convertFromBase10 = (number, baseDestiny) => {
   const digits = [];
 
   while (number > 0) {
-    digits.push(number % baseDestiny);
+    digits.unshift(number % baseDestiny);
     number = Math.floor(number / baseDestiny);
   }
 
