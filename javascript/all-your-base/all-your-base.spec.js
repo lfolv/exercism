@@ -5,7 +5,7 @@ describe('Converter', () => {
     expect(convert([1], 2, 10)).toEqual([1]);
   });
 
-  xtest('binary to single decimal', () => {
+  test('binary to single decimal', () => {
     expect(convert([1, 0, 1], 2, 10)).toEqual([5]);
   });
 
