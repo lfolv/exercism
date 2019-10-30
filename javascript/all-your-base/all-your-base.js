@@ -1,5 +1,5 @@
 export const convert = (digits, baseOrigin, baseDestiny) => {
-  if (isInvalidDigits(digits, baseOrigin)) {
+  if (digits.length === 0 || hasInvalidDigit(digits, baseOrigin)) {
     throw new Error("Input has wrong format");
   }
 
@@ -9,11 +9,7 @@ export const convert = (digits, baseOrigin, baseDestiny) => {
   return convertedDigits.length === 0 ? [0] : convertedDigits
 };
 
-const isInvalidDigits = (digits, base) => {
-  if (digits.length === 0) {
-    return true
-  }
-
+const hasInvalidDigit = (digits, base) => {
   if (digits.length > 1 && digits[0] === 0) {
     return true
   }
