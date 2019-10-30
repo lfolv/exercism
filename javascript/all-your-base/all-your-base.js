@@ -18,7 +18,7 @@ export const convert = (digits, baseOrigin = 0, baseDestiny) => {
 };
 
 const isInvalidBase = base =>
-  base <= 1
+  base <= 1 || !Number.isInteger(base)
 
 const hasInvalidDigit = (digits, base) => {
   if (digits.length > 1 && digits[0] === 0) {
