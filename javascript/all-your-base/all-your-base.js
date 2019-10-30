@@ -3,6 +3,10 @@ export const convert = (digits, baseOrigin, baseDestiny) => {
     return [0]
   }
 
+  if (digits[0] === 0) {
+    throw new Error("Input has wrong format");
+  }
+
   const number = convertToBase10(digits, baseOrigin);
   const convertedDigits = convertFromBase10(number, baseDestiny);
 
