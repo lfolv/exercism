@@ -1,11 +1,20 @@
-export const convert = (digits, baseOrigin, base_to_convert) => {
-  return convertToBase10(digits, baseOrigin)
-    .toString()
-    .split("")
-    .map(digit => Number(digit));
+export const convert = (digits, baseOrigin, baseDestiny) => {
+  const number = convertToBase10(digits, baseOrigin);
+  return convertFromBase10(number, baseDestiny);
 };
 
 const convertToBase10 = (digits, baseOrigin) =>
   digits
     .reverse()
     .reduce((sum, digit, index) => sum + digit * baseOrigin ** index, 0);
+
+const convertFromBase10 = (number, baseDestiny) => {
+  const digits = [];
+
+  while (number > 0) {
+    digits.push(number % baseDestiny);
+    number = Math.floor(number / baseDestiny);
+  }
+
+  return digits;
+};
