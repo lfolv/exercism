@@ -1,18 +1,18 @@
-export const convert = (digits, baseOrigin = 0, baseDestiny) => {
-  if (isInvalidBase(baseOrigin)) {
+export const convert = (digits, inputBase = 0, outputBase) => {
+  if (isInvalidBase(inputBase)) {
     throw new Error("Wrong input base")
   }
 
-  if (isInvalidBase(baseDestiny)) {
+  if (isInvalidBase(outputBase)) {
     throw new Error("Wrong output base")
   }
   
-  if (digits.length === 0 || hasInvalidDigit(digits, baseOrigin)) {
+  if (digits.length === 0 || hasInvalidDigit(digits, inputBase)) {
     throw new Error("Input has wrong format");
   }
 
-  const number = convertToBase10(digits, baseOrigin);
-  const convertedDigits = convertFromBase10(number, baseDestiny);
+  const number = convertToBase10(digits, inputBase);
+  const convertedDigits = convertFromBase10(number, outputBase);
 
   return convertedDigits.length === 0 ? [0] : convertedDigits
 };
@@ -32,17 +32,17 @@ const hasInvalidDigit = (digits, base) => {
   return false
 }
 
-const convertToBase10 = (digits, baseOrigin) =>
+const convertToBase10 = (digits, inputBase) =>
   digits
     .reverse()
-    .reduce((sum, digit, index) => sum + digit * baseOrigin ** index, 0);
+    .reduce((sum, digit, index) => sum + digit * inputBase ** index, 0);
 
-const convertFromBase10 = (number, baseDestiny) => {
+const convertFromBase10 = (number, outputBase) => {
   const digits = [];
 
   while (number > 0) {
-    digits.unshift(number % baseDestiny);
-    number = Math.floor(number / baseDestiny);
+    digits.unshift(number % outputBase);
+    number = Math.floor(number / outputBase);
   }
 
   return digits;
