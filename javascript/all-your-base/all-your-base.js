@@ -1,4 +1,12 @@
-export const convert = (digits, baseOrigin, baseDestiny) => {
+export const convert = (digits, baseOrigin = 0, baseDestiny) => {
+  if (baseOrigin <= 1) {
+    throw new Error("Wrong input base")
+  }
+
+  if (baseDestiny <= 1) {
+    throw new Error("Wrong output base")
+  }
+  
   if (digits.length === 0 || hasInvalidDigit(digits, baseOrigin)) {
     throw new Error("Input has wrong format");
   }

@@ -67,49 +67,49 @@ describe("Converter", () => {
     }).toThrow(new Error("Input has wrong format"));
   });
 
-  xtest("first base is one", () => {
+  test("first base is one", () => {
     expect(() => {
       convert([], 1, 10);
     }).toThrow(new Error("Wrong input base"));
   });
 
-  xtest("second base is one", () => {
+  test("second base is one", () => {
     expect(() => {
       convert([1, 0, 1, 0, 1, 0], 2, 1);
     }).toThrow(new Error("Wrong output base"));
   });
 
-  xtest("first base is zero", () => {
+  test("first base is zero", () => {
     expect(() => {
       convert([], 0, 10);
     }).toThrow(new Error("Wrong input base"));
   });
 
-  xtest("second base is zero", () => {
+  test("second base is zero", () => {
     expect(() => {
       convert([7], 10, 0);
     }).toThrow(new Error("Wrong output base"));
   });
 
-  xtest("first base is negative", () => {
+  test("first base is negative", () => {
     expect(() => {
       convert([1], -2, 10);
     }).toThrow(new Error("Wrong input base"));
   });
 
-  xtest("second base is negative", () => {
+  test("second base is negative", () => {
     expect(() => {
       convert([1], 2, -7);
     }).toThrow(new Error("Wrong output base"));
   });
 
-  xtest("both bases are negative", () => {
+  test("both bases are negative", () => {
     expect(() => {
       convert([1], -2, -7);
     }).toThrow(new Error("Wrong input base"));
   });
 
-  xtest("missing input base throws an error", () => {
+  test("missing input base throws an error", () => {
     expect(() => {
       convert([0]);
     }).toThrow(new Error("Wrong input base"));
