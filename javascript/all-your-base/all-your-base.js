@@ -1,14 +1,16 @@
 export const convert = (digits, baseOrigin, baseDestiny) => {
-  if (digits.length === 0) {
-    throw new Error("Input has wrong format");
-  }
-
   if (digits.length === 1 && digits[0] === 0) {
     return [0]
   }
-  
+
   const number = convertToBase10(digits, baseOrigin);
-  return convertFromBase10(number, baseDestiny);
+  const convertedDigits = convertFromBase10(number, baseDestiny);
+
+  if (convertedDigits.length === 0) {
+    throw new Error("Input has wrong format");
+  }
+
+  return convertedDigits
 };
 
 const convertToBase10 = (digits, baseOrigin) =>
