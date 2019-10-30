@@ -1,21 +1,25 @@
 export const convert = (digits, baseOrigin, baseDestiny) => {
-  if (digits.length === 1 && digits[0] === 0) {
-    return [0]
-  }
-
-  if (digits[0] === 0) {
+  if (isInvalidDigits(digits)) {
     throw new Error("Input has wrong format");
   }
 
   const number = convertToBase10(digits, baseOrigin);
   const convertedDigits = convertFromBase10(number, baseDestiny);
 
-  if (convertedDigits.length === 0) {
-    throw new Error("Input has wrong format");
+  return convertedDigits.length === 0 ? [0] : convertedDigits
+};
+
+const isInvalidDigits = digits => {
+  if (digits.length === 0) {
+    return true
   }
 
-  return convertedDigits
-};
+  if (digits.length > 1 && digits[0] === 0) {
+    return true
+  }
+
+  return false
+}
 
 const convertToBase10 = (digits, baseOrigin) =>
   digits
