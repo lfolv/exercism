@@ -4,7 +4,7 @@ export const flatten = list => {
       return [...acc, ...flatten(value)];
     }
 
-    if (value === undefined) {
+    if (value === undefined || value === null) {
       return acc;
     }
 
