@@ -1,13 +1,13 @@
 export const flatten = list => {
-  let flattedList = [];
-
-  for (const value of list) {
+  return list.reduce((acc, value) => {
     if (Array.isArray(value)) {
-      flattedList = [...flattedList, ...flatten(value)];
-    } else if (value !== undefined) {
-      flattedList = [...flattedList, value];
+      return [...acc, ...flatten(value)];
     }
-  }
 
-  return flattedList;
+    if (value === undefined) {
+      return acc;
+    }
+
+    return [...acc, value];
+  }, []);
 };
