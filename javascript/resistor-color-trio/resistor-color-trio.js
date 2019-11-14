@@ -21,7 +21,7 @@ export class ResistorColorTrio {
   }
 
   get value() {
-    return this.valueOfFirstColor + this.valueOfSecondColor;
+    return (this.valueOfFirstColor + this.valueOfSecondColor) * this.valueOfThirdColor;
   }
 
   get valueOfFirstColor() {
@@ -30,5 +30,9 @@ export class ResistorColorTrio {
   
   get valueOfSecondColor() {
     return COLORS.indexOf(this.colors[1])
+  }
+
+  get valueOfThirdColor() {
+    return 10 ** COLORS.indexOf(this.colors[2])
   }
 }

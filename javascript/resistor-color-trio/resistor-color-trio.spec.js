@@ -11,7 +11,7 @@ describe("Resistor Color Trio", () => {
     );
   });
 
-  xtest("Blue and grey and brown", () => {
+  test("Blue and grey and brown", () => {
     expect(new ResistorColorTrio(["blue", "grey", "brown"]).label).toEqual(
       makeLabel({ value: 680, unit: "ohms" })
     );
