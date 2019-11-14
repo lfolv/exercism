@@ -17,6 +17,11 @@ export class ResistorColorTrio {
   }
 
   get label() {
+    if (this.value > 1000) {
+      const valueInKiloOhm = this.value / 1000
+      return `Resistor value: ${valueInKiloOhm} kiloohms`;
+    }
+
     return `Resistor value: ${this.value} ohms`;
   }
 

@@ -17,19 +17,19 @@ describe("Resistor Color Trio", () => {
     );
   });
 
-  xtest("Red and black and red", () => {
+  test("Red and black and red", () => {
     expect(new ResistorColorTrio(["red", "black", "red"]).label).toEqual(
       makeLabel({ value: 2, unit: "kiloohms" })
     );
   });
 
-  xtest("Green and brown and orange", () => {
+  test("Green and brown and orange", () => {
     expect(new ResistorColorTrio(["green", "brown", "orange"]).label).toEqual(
       makeLabel({ value: 51, unit: "kiloohms" })
     );
   });
 
-  xtest("Yellow and violet and yellow", () => {
+  test("Yellow and violet and yellow", () => {
     expect(new ResistorColorTrio(["yellow", "violet", "yellow"]).label).toEqual(
       makeLabel({ value: 470, unit: "kiloohms" })
     );
