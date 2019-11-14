@@ -21,6 +21,14 @@ export class ResistorColorTrio {
   }
 
   get value() {
-    return COLORS.indexOf(this.colors[0]) * 10 + COLORS.indexOf(this.colors[1]);
+    return this.valueOfFirstColor + this.valueOfSecondColor;
+  }
+
+  get valueOfFirstColor() {
+    return COLORS.indexOf(this.colors[0]) * 10
+  }
+  
+  get valueOfSecondColor() {
+    return COLORS.indexOf(this.colors[1])
   }
 }
