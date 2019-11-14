@@ -36,7 +36,7 @@ describe("Resistor Color Trio", () => {
   });
 
   // optional: error
-  xtest("Invalid color", () => {
+  test("Invalid color", () => {
     expect(
       () => new ResistorColorTrio(["yellow", "purple", "black"]).label
     ).toThrowError(/invalid color/);

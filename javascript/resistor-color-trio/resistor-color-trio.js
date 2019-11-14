@@ -11,6 +11,16 @@ const COLORS = [
   "white"
 ];
 
+function valueOf(color) {
+    const value = COLORS.indexOf(color)
+
+    if (value === -1) {
+      throw new Error('invalid color')
+    }
+
+    return value
+}
+
 export class ResistorColorTrio {
   constructor(colors) {
     this.colors = colors;
@@ -30,14 +40,14 @@ export class ResistorColorTrio {
   }
 
   get valueOfFirstColor() {
-    return COLORS.indexOf(this.colors[0]) * 10
+    return valueOf(this.colors[0]) * 10
   }
   
   get valueOfSecondColor() {
-    return COLORS.indexOf(this.colors[1])
+    return valueOf(this.colors[1])
   }
 
   get valueOfThirdColor() {
-    return 10 ** COLORS.indexOf(this.colors[2])
+    return 10 ** valueOf(this.colors[2])
   }
 }
