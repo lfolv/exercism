@@ -1,9 +1,7 @@
-export const accumulate = (collection, accumulator) => {
-  const acc = []
+export const accumulate = (collection, accumulator) =>
+  reduce(collection, (acc, value) => [...acc, accumulator(value)], []);
 
-  for (const value of collection) {
-    acc.push(accumulator(value))
-  }
-
-  return acc
-};
+const reduce = (collection, callback, acc, index = 0) =>
+  index >= collection.length
+    ? acc
+    : reduce(collection, callback, callback(acc, collection[index]), index + 1);
