@@ -35,27 +35,27 @@ describe("Abundant numbers", () => {
 })
 
 describe("Deficient numbers", () => {
-  xit("Smallest prime deficient number is classified correctly", () => {
+  it("Smallest prime deficient number is classified correctly", () => {
     const expected = "deficient"
     expect(PerfectNumbers.classify(2)).toEqual(expected)
   })
 
-  xit("Smallest non-prime deficient number is classified correctly", () => {
+  it("Smallest non-prime deficient number is classified correctly", () => {
     const expected = "deficient"
     expect(PerfectNumbers.classify(4)).toEqual(expected)
   })
 
-  xit("Medium deficient number is classified correctly", () => {
+  it("Medium deficient number is classified correctly", () => {
     const expected = "deficient"
     expect(PerfectNumbers.classify(32)).toEqual(expected)
   })
 
-  xit("Large deficient number is classified correctly", () => {
+  it("Large deficient number is classified correctly", () => {
     const expected = "deficient"
     expect(PerfectNumbers.classify(33550337)).toEqual(expected)
   })
 
-  xit("Edge case (no factors other than itself) is classified correctly", () => {
+  it("Edge case (no factors other than itself) is classified correctly", () => {
     const expected = "deficient"
     expect(PerfectNumbers.classify(1)).toEqual(expected)
   })

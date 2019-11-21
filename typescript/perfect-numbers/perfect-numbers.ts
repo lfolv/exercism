@@ -1,6 +1,7 @@
 enum Category {
   Perfect = 'perfect',
-  Abundant = 'abundant'
+  Abundant = 'abundant',
+  Deficient = 'deficient'
 }
 
 const factorsOf = (n: number): number[] => {
@@ -24,6 +25,10 @@ export default class PerfectNumbers {
       return Category.Perfect
     }
 
-    return Category.Abundant
+    if (aliquotSum(n) > n) {
+      return Category.Abundant
+    }
+
+    return Category.Deficient
   }
 }
