@@ -18,17 +18,17 @@ describe("Perfect numbers", () => {
 })
 
 describe("Abundant numbers", () => {
-  xit("Smallest abundant number is classified correctly", () => {
+  it("Smallest abundant number is classified correctly", () => {
     const expected = "abundant"
     expect(PerfectNumbers.classify(12)).toEqual(expected)
   })
 
-  xit("Medium abundant number is classified correctly", () => {
+  it("Medium abundant number is classified correctly", () => {
     const expected = "abundant"
     expect(PerfectNumbers.classify(30)).toEqual(expected)
   })
 
-  xit("Large abundant number is classified correctly", () => {
+  it("Large abundant number is classified correctly", () => {
     const expected = "abundant"
     expect(PerfectNumbers.classify(33550335)).toEqual(expected)
   })

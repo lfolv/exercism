@@ -3,17 +3,20 @@ enum Category {
   Abundant = 'abundant'
 }
 
-function aliquotSum(n: number): number {
-  let sum: number = 0
+const factorsOf = (n: number): number[] => {
+  const factors = []
 
   for (let i: number = 0; i <= n/2; i++) {
     if (n % i === 0) {
-      sum += i
+      factors.push(i)
     }
   }
 
-  return sum
+  return factors
 }
+
+const aliquotSum = (n: number): number => 
+  factorsOf(n).reduce((sum, value) => sum + value, 0)
 
 export default class PerfectNumbers {
   static classify(n: number): Category {
