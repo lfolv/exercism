@@ -1,34 +1,40 @@
 enum Category {
-  Perfect = 'perfect',
-  Abundant = 'abundant',
-  Deficient = 'deficient'
+  Perfect = "perfect",
+  Abundant = "abundant",
+  Deficient = "deficient"
 }
 
 const factorsOf = (n: number): number[] => {
-  const factors = []
+  const factors = [];
 
-  for (let i: number = 0; i <= n/2; i++) {
+  for (let i: number = 0; i <= n / 2; i++) {
     if (n % i === 0) {
-      factors.push(i)
+      factors.push(i);
     }
   }
 
-  return factors
-}
+  return factors;
+};
 
-const aliquotSum = (n: number): number => 
-  factorsOf(n).reduce((sum, value) => sum + value, 0)
+const calcAliquotSum = (n: number): number =>
+  factorsOf(n).reduce((sum, value) => sum + value, 0);
 
 export default class PerfectNumbers {
   static classify(n: number): Category {
-    if (aliquotSum(n) === n) {
-      return Category.Perfect
+    if (n <= 0) {
+      throw new Error("Classification is only possible for natural numbers.");
     }
 
-    if (aliquotSum(n) > n) {
-      return Category.Abundant
+    const aliquotSum = calcAliquotSum(n);
+
+    if (aliquotSum === n) {
+      return Category.Perfect;
     }
 
-    return Category.Deficient
+    if (aliquotSum > n) {
+      return Category.Abundant;
+    }
+
+    return Category.Deficient;
   }
 }
