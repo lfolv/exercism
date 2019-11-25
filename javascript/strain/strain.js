@@ -8,6 +8,6 @@ export const keep = (collection, predicate) => {
   }, []);
 };
 
-export const discard = () => {
-  throw new Error("Remove this statement and implement this function");
+export const discard = (collection, predicate) => {
+  return keep(collection, value => !predicate(value))
 };
