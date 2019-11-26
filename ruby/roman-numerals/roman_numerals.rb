@@ -1,5 +1,5 @@
 class Integer
-  NUMBER_TO_ROMAN_ALG = {
+  ARABIC_TO_ROMAN_NUMERAL = {
     1000 => 'M',
     900 => 'CM',
     500 => 'D',
@@ -16,11 +16,11 @@ class Integer
   }
 
   def to_roman
-    remaining_value = self
+    remaining = self
 
-    NUMBER_TO_ROMAN_ALG.each_with_object('') do |(number, roman_alg), in_roman|
-      in_roman << roman_alg * (remaining_value / number)
-      remaining_value = remaining_value % number
+    ARABIC_TO_ROMAN_NUMERAL.each_with_object('') do |(arabic, roman), in_roman|
+      times_to_repeat, remaining = remaining.divmod(arabic)
+      in_roman << roman * times_to_repeat
     end
   end
 end
