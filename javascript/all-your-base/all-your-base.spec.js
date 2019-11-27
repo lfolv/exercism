@@ -74,7 +74,7 @@ describe("Converter", () => {
   });
 
   test("second base is one", () => {
-    expect(() => {
+    :xpect(() => {
       convert([1, 0, 1, 0, 1, 0], 2, 1);
     }).toThrow(new Error("Wrong output base"));
   });
