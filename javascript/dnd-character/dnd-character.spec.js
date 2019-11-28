@@ -80,7 +80,7 @@ describe("D&D Character", () => {
   });
 
   describe("Ability scores calculated properly", () => {
-    xtest("ability within range", () => {
+    test("ability within range", () => {
       expect(Character.rollAbility()).toBeLessThanOrEqual(18);
       expect(Character.rollAbility()).toBeGreaterThanOrEqual(3);
     });

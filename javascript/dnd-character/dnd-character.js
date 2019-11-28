@@ -12,7 +12,16 @@ export const abilityModifier = score => {
 
 export class Character {
   static rollAbility() {
-    throw new Error("Remove this statement and implement this function");
+    const values = []
+
+    for (let i = 0; i < 4; i++) {
+      values.push(Math.floor(1 + Math.random(6)))
+    }
+
+    return values
+      .sort(n => Number(n))
+      .slice(1)
+      .reduce((sum, n) => sum + n, 0)
   }
 
   get strength() {
