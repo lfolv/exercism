@@ -15,7 +15,7 @@ export class Character {
     const values = []
 
     for (let i = 0; i < 4; i++) {
-      values.push(Math.floor(1 + Math.random(6)))
+      values.push(Math.floor(1 + Math.random() * 6))
     }
 
     return values
@@ -24,31 +24,41 @@ export class Character {
       .reduce((sum, n) => sum + n, 0)
   }
 
+  constructor() {
+    this._strength = Character.rollAbility()
+    this._dexterity = Character.rollAbility()
+    this._constitution = Character.rollAbility()
+    this._intelligence = Character.rollAbility()
+    this._wisdom = Character.rollAbility()
+    this._charisma = Character.rollAbility()
+    this._hitpoints = 10 + abilityModifier(this._constitution)
+  }
+
   get strength() {
-    throw new Error("Remove this statement and implement this function");
+    return this._strength
   }
 
   get dexterity() {
-    throw new Error("Remove this statement and implement this function");
+    return this._dexterity
   }
 
   get constitution() {
-    throw new Error("Remove this statement and implement this function");
+    return this._constitution
   }
 
   get intelligence() {
-    throw new Error("Remove this statement and implement this function");
+    return this._intelligence
   }
 
   get wisdom() {
-    throw new Error("Remove this statement and implement this function");
+    return this._wisdom
   }
 
   get charisma() {
-    throw new Error("Remove this statement and implement this function");
+    return this._charisma
   }
 
   get hitpoints() {
-    throw new Error("Remove this statement and implement this function");
+    return this._hitpoints
   }
 }
