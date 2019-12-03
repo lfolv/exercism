@@ -12,10 +12,10 @@ export class BinarySearchTree {
   }
 
   get left() {
-    throw new Error("Remove this statement and implement this function");
+    return this._left;
   }
 
-  insert() {
-    throw new Error("Remove this statement and implement this function");
+  insert(data) {
+    this._left = new BinarySearchTree(data);
   }
 }

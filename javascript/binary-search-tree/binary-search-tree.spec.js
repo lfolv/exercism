@@ -13,7 +13,7 @@ describe("BinarySearchTree", () => {
     expect(new BinarySearchTree(4).data).toEqual(4);
   });
 
-  xtest("inserting less", () => {
+  test("inserting less", () => {
     const four = new BinarySearchTree(4);
     four.insert(2);
 
@@ -21,7 +21,7 @@ describe("BinarySearchTree", () => {
     expect(four.left.data).toEqual(2);
   });
 
-  xtest("inserting same", () => {
+  test("inserting same", () => {
     const four = new BinarySearchTree(4);
     four.insert(4);
 
