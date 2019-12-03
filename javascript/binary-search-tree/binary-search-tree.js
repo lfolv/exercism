@@ -18,16 +18,28 @@ export class BinarySearchTree {
   insert(data) {
     if (data <= this.data) {
       if (this.left) {
-        this.left.insert(data)
+        this.left.insert(data);
       } else {
-        this._left = new BinarySearchTree(data)
+        this._left = new BinarySearchTree(data);
       }
     } else {
       if (this.right) {
-        this.right.insert(data)
+        this.right.insert(data);
       } else {
-        this._right = new BinarySearchTree(data)
+        this._right = new BinarySearchTree(data);
       }
+    }
+  }
+
+  each(callback) {
+    if (this.left) {
+      this.left.each(callback);
+    }
+
+    callback(this.data);
+
+    if (this.right) {
+      this.right.each(callback);
     }
   }
 }
