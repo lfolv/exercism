@@ -8,7 +8,7 @@ export class BinarySearchTree {
   }
 
   get right() {
-    throw new Error("Remove this statement and implement this function");
+    return this._right;
   }
 
   get left() {
@@ -16,6 +16,12 @@ export class BinarySearchTree {
   }
 
   insert(data) {
-    this._left = new BinarySearchTree(data);
+    const node = new BinarySearchTree(data);
+
+    if (data <= this.data) {
+      this._left = node;
+    } else {
+      this._right = node;
+    }
   }
 }
