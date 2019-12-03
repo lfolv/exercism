@@ -37,7 +37,7 @@ describe("BinarySearchTree", () => {
     expect(four.right.data).toEqual(5);
   });
 
-  xtest("complex tree", () => {
+  test("complex tree", () => {
     const four = new BinarySearchTree(4);
     four.insert(2);
     four.insert(6);

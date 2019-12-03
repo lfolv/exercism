@@ -16,12 +16,18 @@ export class BinarySearchTree {
   }
 
   insert(data) {
-    const node = new BinarySearchTree(data);
-
     if (data <= this.data) {
-      this._left = node;
+      if (this.left) {
+        this.left.insert(data)
+      } else {
+        this._left = new BinarySearchTree(data)
+      }
     } else {
-      this._right = node;
+      if (this.right) {
+        this.right.insert(data)
+      } else {
+        this._right = new BinarySearchTree(data)
+      }
     }
   }
 }
