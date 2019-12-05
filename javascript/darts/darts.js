@@ -1,5 +1,5 @@
 export const solve = (x, y) => {
-  const distance = Math.sqrt(x ** 2 + y ** 2);
+  const distance = calculeDistance([x, y], [0, 0]);
 
   if (distance <= 1) {
     return 10
@@ -15,3 +15,8 @@ export const solve = (x, y) => {
 
   return 0;
 };
+
+const calculeDistance = ([x1, y1], [x2, y2]) => 
+  Math.sqrt((x1 ** 2 + x2 ** 2) + (y1 ** 2 + y2 ** 2))
+
+
