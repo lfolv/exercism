@@ -1,5 +1,11 @@
 export class Prime {
-  nth() {
-    return 2;
+  nth(n) {
+    let currentPrimeIndex = 0;
+
+    while (currentPrimeIndex <= n) {
+      currentPrimeIndex++;
+    }
+
+    return currentPrimeIndex;
   }
 }
