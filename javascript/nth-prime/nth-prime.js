@@ -1,11 +1,26 @@
 export class Prime {
   nth(n) {
-    let currentPrimeIndex = 0;
+    let index = 0;
+    let value = 1;
 
-    while (currentPrimeIndex <= n) {
-      currentPrimeIndex++;
+    while (index < n) {
+      value++;
+
+      if (this.isPrime(value)) {
+        index++;
+      }
     }
 
-    return currentPrimeIndex;
+    return value;
+  }
+
+  isPrime(n) {
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }

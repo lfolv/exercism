@@ -11,11 +11,11 @@ describe('Prime', () => {
     expect(prime.nth(2)).toEqual(3);
   });
 
-  xtest('sixth', () => {
+  test('sixth', () => {
     expect(prime.nth(6)).toEqual(13);
   });
 
-  xtest('big prime', () => {
+  test('big prime', () => {
     expect(prime.nth(10001)).toEqual(104743);
   });
 
