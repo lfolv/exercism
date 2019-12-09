@@ -1,30 +1,29 @@
 export class Prime {
   nth(n) {
     if (n <= 0) {
-      throw new Error('Prime is not possible')
+      throw new Error("Prime is not possible");
     }
 
-    let index = 0;
-    let value = 1;
+    const primes = [];
+    let value = 2;
 
-    while (index < n) {
+    while (primes.length < n) {
+      let isPrime = true;
+
+      for (let prime of primes) {
+        if (value % prime === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+
+      if (isPrime) {
+        primes.push(value);
+      }
+
       value++;
-
-      if (this.isPrime(value)) {
-        index++;
-      }
     }
 
-    return value;
-  }
-
-  isPrime(n) {
-    for (let i = 2; i < n; i++) {
-      if (n % i === 0) {
-        return false;
-      }
-    }
-
-    return true;
+    return primes[n - 1];
   }
 }
