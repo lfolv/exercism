@@ -1,16 +1,28 @@
 export class Prime {
+  constructor() {
+    this.primes = [2];
+  }
+
   nth(n) {
     if (n <= 0) {
       throw new Error("Prime is not possible");
     }
 
-    const primes = [];
-    let value = 2;
+    while (this.primes.length < n) {
+      this.calculateNextPrime();
+    }
 
-    while (primes.length < n) {
+    return this.primes[n - 1];
+  }
+
+  calculateNextPrime() {
+    let value = this.lastCalculatePrime();
+
+    while (true) {
       let isPrime = true;
+      value++;
 
-      for (let prime of primes) {
+      for (const prime of this.primes) {
         if (value % prime === 0) {
           isPrime = false;
           break;
@@ -18,12 +30,13 @@ export class Prime {
       }
 
       if (isPrime) {
-        primes.push(value);
+        this.primes.push(value);
+        break;
       }
-
-      value++;
     }
+  }
 
-    return primes[n - 1];
+  lastCalculatePrime() {
+    return this.primes[this.primes.length - 1];
   }
 }
