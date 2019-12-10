@@ -16,7 +16,7 @@ export class Prime {
   }
 
   calculateNextPrime() {
-    let value = this.lastCalculatePrime();
+    let value = this.lastCalculatePrime;
 
     while (true) {
       let isPrime = true;
@@ -36,7 +36,7 @@ export class Prime {
     }
   }
 
-  lastCalculatePrime() {
+  get lastCalculatePrime() {
     return this.primes[this.primes.length - 1];
   }
 }
