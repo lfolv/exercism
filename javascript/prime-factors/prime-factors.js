@@ -1,6 +1,41 @@
-export const primeFactors = (number) => {
-  if (number === 2) {
-    return [2]
+export const primeFactors = number => {
+  const factors = [];
+
+  while (number > 1) {
+    for (const prime of primeNumbers()) {
+      if (number % prime === 0) {
+        number /= prime;
+        factors.push(prime);
+        break;
+      }
+    }
   }
-  return []
+
+  return factors;
 };
+
+function* primeNumbers() {
+  const primes = [];
+  let current = 2;
+
+  while (true) {
+    primes.push(current);
+    yield current;
+
+    while (true) {
+      let isPrime = true;
+      current++;
+
+      for (const prime of primes) {
+        if (current % prime === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+
+      if (isPrime) {
+        break;
+      }
+    }
+  }
+}
