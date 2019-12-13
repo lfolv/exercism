@@ -22,19 +22,17 @@ function* primeNumbers() {
     primes.push(current);
     yield current;
 
-    while (true) {
-      let isPrime = true;
+    let isPrime = false
+
+    while (!isPrime) {
       current++;
+      isPrime = true;
 
       for (const prime of primes) {
         if (current % prime === 0) {
           isPrime = false;
           break;
         }
-      }
-
-      if (isPrime) {
-        break;
       }
     }
   }
