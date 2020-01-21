@@ -1,5 +1,5 @@
-export const encode = () => {
-  return "";
+export const encode = data => {
+  return data;
 };
 
 export const decode = () => {
