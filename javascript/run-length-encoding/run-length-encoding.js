@@ -5,13 +5,9 @@ const shrink = characters =>
     ? characters[0]
     : `${characters.length}${characters[0]}`;
 
-export const decode = data => {
-  return data
-    .replace(/(\d*)(.)/g, match => {
-      if (match.length === 1) {
-        return match
-      }
+export const decode = data => data.replace(/(\d*)(.)/g, grow);
 
-      return match[match.length - 1].repeat(Number.parseInt(match))
-    })
-};
+const grow = encoded =>
+  encoded.length === 1
+    ? encoded
+    : encoded[encoded.length - 1].repeat(Number.parseInt(encoded));
