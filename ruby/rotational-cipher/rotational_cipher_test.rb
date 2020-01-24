@@ -16,12 +16,10 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_m_by_13
-    skip
     assert_equal "z", RotationalCipher.rotate("m", 13)
   end
 
   def test_rotate_n_by_13_with_wrap_around_alphabet
-    skip
     assert_equal "a", RotationalCipher.rotate("n", 13)
   end
 
