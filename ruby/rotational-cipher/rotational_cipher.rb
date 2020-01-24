@@ -1,5 +1,9 @@
 module RotationalCipher
+  CHARACTERS = %W{a b c d e f g h i j k l m n o p q r s t u v w x y z}
+
   def self.rotate(text, key)
-    text.gsub(/\w/) { |character| (character.ord + key).chr }
+    text.gsub(/\w/) do |character|
+      CHARACTERS[(CHARACTERS.index(character) + key) % CHARACTERS.length]
+    end
   end
 end

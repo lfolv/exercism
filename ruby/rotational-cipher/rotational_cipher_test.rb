@@ -12,7 +12,6 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_a_by_26_same_output_as_input
-    skip
     assert_equal "a", RotationalCipher.rotate("a", 26)
   end
 
