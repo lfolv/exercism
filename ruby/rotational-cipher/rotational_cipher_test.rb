@@ -4,12 +4,10 @@ require_relative 'rotational_cipher'
 # Common test data version: 1.2.0 cf23851
 class RotationalCipherTest < Minitest::Test
   def test_rotate_a_by_0_same_output_as_input
-    # skip
     assert_equal "a", RotationalCipher.rotate("a", 0)
   end
 
   def test_rotate_a_by_1
-    skip
     assert_equal "b", RotationalCipher.rotate("a", 1)
   end
 
