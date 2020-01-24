@@ -24,27 +24,22 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_capital_letters
-    skip
     assert_equal "TRL", RotationalCipher.rotate("OMG", 5)
   end
 
   def test_rotate_spaces
-    skip
     assert_equal "T R L", RotationalCipher.rotate("O M G", 5)
   end
 
   def test_rotate_numbers
-    skip
     assert_equal "Xiwxmrk 1 2 3 xiwxmrk", RotationalCipher.rotate("Testing 1 2 3 testing", 4)
   end
 
   def test_rotate_punctuation
-    skip
     assert_equal "Gzo'n zvo, Bmviyhv!", RotationalCipher.rotate("Let's eat, Grandma!", 21)
   end
 
   def test_rotate_all_letters
-    skip
     assert_equal "Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", RotationalCipher.rotate("The quick brown fox jumps over the lazy dog.", 13)
   end
 end
