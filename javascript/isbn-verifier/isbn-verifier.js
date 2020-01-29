@@ -1,4 +1,6 @@
 const ISBN_PATERN = /^(?:\d\-?){9}\-?[\dX]$/;
+const ISBN_DIGITS = /[\dX]/g
+const ISBN_LENGTH = 10
 
 export class ISBN {
   constructor(isbnNumber) {
@@ -19,9 +21,8 @@ export class ISBN {
 
   checksum() {
     return this.isbnNumber
-      .match(/(\d|X)/g)
+      .match(ISBN_DIGITS)
       .map(ISBN.parseDigit)
-      .reverse()
-      .reduce((sum, value, index) => sum + value * (index + 1), 0);
+      .reduce((sum, value, index) => sum + value * (ISBN_LENGTH - index), 0);
   }
 }
