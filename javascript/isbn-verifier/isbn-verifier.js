@@ -1,4 +1,4 @@
-const ISBN_PATERN = /^(?:\d\-?){9}\-?[\dX]$/
+const ISBN_PATERN = /^(?:\d\-?){9}\-?[\dX]$/;
 
 export class ISBN {
   constructor(isbnNumber) {
@@ -12,16 +12,16 @@ export class ISBN {
   }
 
   isValid() {
-    if (!this.isbnNumber.match(ISBN_PATERN)) return false
+    if (!this.isbnNumber.match(ISBN_PATERN)) return false;
 
-    return (
-      this.isbnNumber
-        .match(/(\d|X)/g)
-        .map(ISBN.parseDigit)
-        .reverse()
-        .reduce((sum, value, index) => sum + value * (index + 1), 0) %
-        11 ===
-      0
-    );
+    return this.checksum() % 11 === 0;
+  }
+
+  checksum() {
+    return this.isbnNumber
+      .match(/(\d|X)/g)
+      .map(ISBN.parseDigit)
+      .reverse()
+      .reduce((sum, value, index) => sum + value * (index + 1), 0);
   }
 }
