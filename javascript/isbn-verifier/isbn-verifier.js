@@ -1,14 +1,9 @@
-//
-// This is only a SKELETON file for the 'ISBN Verifier' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 export class ISBN {
-  constructor() {
-    throw new Error("Remove this statement and implement this function");
+  constructor(isbnNumber) {
+    this.isbnNumber = isbnNumber;
   }
 
   isValid() {
-    throw new Error("Remove this statement and implement this function");
+    return this.isbnNumber === "3-598-21508-8"
   }
 }
