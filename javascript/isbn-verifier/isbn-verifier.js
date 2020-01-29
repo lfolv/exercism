@@ -1,9 +1,27 @@
+const ISBN_PATERN = /^(?:\d\-?){9}\-?[\dX]$/
+
 export class ISBN {
   constructor(isbnNumber) {
     this.isbnNumber = isbnNumber;
   }
 
+  static parseDigit(digit) {
+    if (digit === "X") return 10;
+
+    return Number.parseInt(digit);
+  }
+
   isValid() {
-    return this.isbnNumber === "3-598-21508-8"
+    if (!this.isbnNumber.match(ISBN_PATERN)) return false
+
+    return (
+      this.isbnNumber
+        .match(/(\d|X)/g)
+        .map(ISBN.parseDigit)
+        .reverse()
+        .reduce((sum, value, index) => sum + value * (index + 1), 0) %
+        11 ===
+      0
+    );
   }
 }
