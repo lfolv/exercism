@@ -12,14 +12,14 @@ export class HighScores {
   }
 
   get personalBest() {
-    return this.sort()[this.scores.length - 1];
+    return this.sort()[0];
   }
 
   get personalTopThree() {
-    throw new Error("Remove this statement and implement this function");
+    return this.sort().slice(0, 3);
   }
 
   sort() {
-    return this.scores.sort((x, y) => Number.parseInt(x) - Number.parseInt(y));
+    return this.scores.sort((x, y) => Number.parseInt(y) - Number.parseInt(x));
   }
 }

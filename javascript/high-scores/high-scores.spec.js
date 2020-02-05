@@ -16,7 +16,7 @@ describe("High Scores Test Suite", () => {
     expect(new HighScores(input).personalBest).toEqual(100);
   });
 
-  xtest("Personal top three from a list of scores", () => {
+  test("Personal top three from a list of scores", () => {
     const input = [10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70];
     expect(new HighScores(input).personalTopThree).toEqual([100, 90, 70]);
   });
