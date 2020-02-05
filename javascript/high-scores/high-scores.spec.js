@@ -21,22 +21,22 @@ describe("High Scores Test Suite", () => {
     expect(new HighScores(input).personalTopThree).toEqual([100, 90, 70]);
   });
 
-  xtest("Personal top highest to lowest", () => {
+  test("Personal top highest to lowest", () => {
     const input = [20, 10, 30];
     expect(new HighScores(input).personalTopThree).toEqual([30, 20, 10]);
   });
 
-  xtest("Personal top when there is a tie", () => {
+  test("Personal top when there is a tie", () => {
     const input = [40, 20, 40, 30];
     expect(new HighScores(input).personalTopThree).toEqual([40, 40, 30]);
   });
 
-  xtest("Personal top when there are less than 3", () => {
+  test("Personal top when there are less than 3", () => {
     const input = [30, 70];
     expect(new HighScores(input).personalTopThree).toEqual([70, 30]);
   });
 
-  xtest("Personal top when there is only one", () => {
+  test("Personal top when there is only one", () => {
     const input = [40];
     expect(new HighScores(input).personalTopThree).toEqual([40]);
   });
