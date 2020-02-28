@@ -4,13 +4,11 @@ require_relative 'sieve'
 # Common test data version: 1.1.0 8bbb634
 class SieveTest < Minitest::Test
   def test_no_primes_under_two
-    # skip
     expected = []
     assert_equal expected, Sieve.new(1).primes
   end
 
   def test_find_first_prime
-    skip
     expected = [2]
     assert_equal expected, Sieve.new(2).primes
   end
