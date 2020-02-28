@@ -4,13 +4,9 @@ class Sieve
   end
 
   def primes
-    current = []
-
-    (2..limit).each do |x|
-      current << x unless current.any? { |y| (x % y).zero? }
+    (2..limit).each_with_object([]) do |number, calculed_primes|
+      calculed_primes << number unless calculed_primes.any? { |prime| (number % prime).zero? }
     end
-
-    current
   end
 
   private
