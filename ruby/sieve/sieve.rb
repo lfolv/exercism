@@ -6,7 +6,7 @@ class Sieve
   def primes
     current = []
 
-    (2..limit).to_a.each do |x|
+    (2..limit).each do |x|
       current << x unless current.any? { |y| (x % y).zero? }
     end
 
