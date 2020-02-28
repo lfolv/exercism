@@ -4,7 +4,13 @@ class Sieve
   end
 
   def primes
-    (2..limit).to_a
+    current = []
+
+    (2..limit).to_a.each do |x|
+      current << x unless current.any? { |y| (x % y).zero? }
+    end
+
+    current
   end
 
   private
