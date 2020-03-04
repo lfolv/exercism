@@ -1,8 +1,8 @@
-=begin
-Write your code for the 'Beer Song' exercise in this file. Make the tests in
-`beer_song_test.rb` pass.
-
-To get started with TDD, see the `README.md` file in your
-`ruby/beer-song` directory.
-=end
-
+module BeerSong
+  def self.recite(bottles, takes)
+    "".tap do |lyris|
+      lyris << "#{bottles} bottles of beer on the wall, #{bottles} bottles of beer.\n"
+      lyris << "Take one down and pass it around, #{bottles - 1} bottles of beer on the wall.\n"
+    end
+  end
+end

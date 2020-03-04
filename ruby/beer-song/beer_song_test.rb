@@ -4,7 +4,6 @@ require_relative 'beer_song'
 # Common test data version: 2.1.0 87a334d
 class BeerSongTest < Minitest::Test
   def test_first_generic_verse
-    skip
     expected = <<~TEXT
     99 bottles of beer on the wall, 99 bottles of beer.
     Take one down and pass it around, 98 bottles of beer on the wall.
@@ -13,7 +12,6 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_last_generic_verse
-    skip
     expected = <<~TEXT
     3 bottles of beer on the wall, 3 bottles of beer.
     Take one down and pass it around, 2 bottles of beer on the wall.
