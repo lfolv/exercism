@@ -36,7 +36,6 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_verse_with_0_bottles
-    skip
     expected = <<~TEXT
     No more bottles of beer on the wall, no more bottles of beer.
     Go to the store and buy some more, 99 bottles of beer on the wall.
