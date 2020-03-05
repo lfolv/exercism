@@ -15,7 +15,6 @@ class EquilateralTriangleTest(unittest.TestCase):
     def test_no_sides_are_equal(self):
         self.assertIs(equilateral([5, 4, 6]), False)
 
-    @unittest.skip('skip test')
     def test_all_zero_sides_is_not_a_triangle(self):
         self.assertIs(equilateral([0, 0, 0]), False)
 
