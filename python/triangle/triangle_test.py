@@ -6,7 +6,6 @@ from triangle import equilateral, isosceles, scalene
 
 
 class EquilateralTriangleTest(unittest.TestCase):
-    @unittest.skip('skip test')
     def test_all_sides_are_equal(self):
         self.assertIs(equilateral([2, 2, 2]), True)
 
