@@ -9,11 +9,9 @@ class EquilateralTriangleTest(unittest.TestCase):
     def test_all_sides_are_equal(self):
         self.assertIs(equilateral([2, 2, 2]), True)
 
-    @unittest.skip('skip test')
     def test_any_side_is_unequal(self):
         self.assertIs(equilateral([2, 3, 2]), False)
 
-    @unittest.skip('skip test')
     def test_no_sides_are_equal(self):
         self.assertIs(equilateral([5, 4, 6]), False)
 
