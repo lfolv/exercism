@@ -1,7 +1,7 @@
 module BeerSong
   def self.recite(bottles, takes)
     bottles.downto(bottles - takes + 1).map do |n|
-      case bottles
+      case n
       when 2
         <<~TEXT
         2 bottles of beer on the wall, 2 bottles of beer.
