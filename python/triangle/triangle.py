@@ -13,7 +13,10 @@ def isosceles(sides):
 
 
 def scalene(sides):
-    pass
+    if invalid(sides):
+        return False
+
+    return number_of_unique_sides(sides) == 3
 
 
 def invalid(sides):

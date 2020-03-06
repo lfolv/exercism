@@ -52,23 +52,18 @@ class IsoscelesTriangleTest(unittest.TestCase):
 
 
 class ScaleneTriangleTest(unittest.TestCase):
-    @unittest.skip('skip test')
     def test_no_sides_are_equal(self):
         self.assertIs(scalene([5, 4, 6]), True)
 
-    @unittest.skip('skip test')
     def test_all_sides_are_equal(self):
         self.assertIs(scalene([4, 4, 4]), False)
 
-    @unittest.skip('skip test')
     def test_two_sides_are_equal(self):
         self.assertIs(scalene([4, 4, 3]), False)
 
-    @unittest.skip('skip test')
     def test_may_not_violate_triangle_inequality(self):
         self.assertIs(scalene([7, 3, 2]), False)
 
-    @unittest.skip('skip test')
     def test_sides_may_be_floats(self):
         self.assertIs(scalene([0.5, 0.4, 0.6]), True)
 
