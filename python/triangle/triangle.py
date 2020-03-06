@@ -6,7 +6,10 @@ def equilateral(sides):
 
 
 def isosceles(sides):
-    pass
+    if invalid(sides):
+        return False
+
+    return len(set(sides)) <= 2
 
 
 def scalene(sides):
@@ -14,4 +17,6 @@ def scalene(sides):
 
 
 def invalid(sides):
-    return any(side == 0 for side in sides)
+    a, b, c = sorted(sides)
+
+    return any(side == 0 for side in sides) or a + b < c

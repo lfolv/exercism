@@ -23,39 +23,30 @@ class EquilateralTriangleTest(unittest.TestCase):
 
 
 class IsoscelesTriangleTest(unittest.TestCase):
-    @unittest.skip('skip test')
     def test_last_two_sides_are_equal(self):
         self.assertIs(isosceles([3, 4, 4]), True)
 
-    @unittest.skip('skip test')
     def test_first_two_sides_are_equal(self):
         self.assertIs(isosceles([4, 4, 3]), True)
 
-    @unittest.skip('skip test')
     def test_first_and_last_sides_are_equal(self):
         self.assertIs(isosceles([4, 3, 4]), True)
 
-    @unittest.skip('skip test')
     def test_equilateral_triangles_are_also_isosceles(self):
         self.assertIs(isosceles([4, 4, 4]), True)
 
-    @unittest.skip('skip test')
     def test_no_sides_are_equal(self):
         self.assertIs(isosceles([2, 3, 4]), False)
 
-    @unittest.skip('skip test')
     def test_first_triangle_inequality_violation(self):
         self.assertIs(isosceles([1, 1, 3]), False)
 
-    @unittest.skip('skip test')
     def test_second_triangle_inequality_violation(self):
         self.assertIs(isosceles([1, 3, 1]), False)
 
-    @unittest.skip('skip test')
     def test_third_triangle_inequality_violation(self):
         self.assertIs(isosceles([3, 1, 1]), False)
 
-    @unittest.skip('skip test')
     def test_sides_may_be_floats(self):
         self.assertIs(isosceles([0.5, 0.4, 0.5]), True)
 
