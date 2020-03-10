@@ -36,7 +36,7 @@ describe('Rotational cipher', () => {
     expect(actual).toEqual(expected);
   });
 
-  xtest('rotate capital letters', () => {
+  test('rotate capital letters', () => {
     const expected = 'TRL';
     const actual = RotationalCipher.rotate('OMG', 5);
 
