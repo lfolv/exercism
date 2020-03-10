@@ -22,14 +22,14 @@ describe('Rotational cipher', () => {
     expect(actual).toEqual(expected);
   });
 
-  xtest('rotate m by 13', () => {
+  test('rotate m by 13', () => {
     const expected = 'z';
     const actual = RotationalCipher.rotate('m', 13);
 
     expect(actual).toEqual(expected);
   });
 
-  xtest('rotate n by 13 with wrap around alphabet', () => {
+  test('rotate n by 13 with wrap around alphabet', () => {
     const expected = 'a';
     const actual = RotationalCipher.rotate('n', 13);
 
