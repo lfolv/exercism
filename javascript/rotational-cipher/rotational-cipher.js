@@ -1,8 +1,9 @@
-const ALPH = [...'abcdefghijklmnopqrstuvwxyz']
+const LETTERS = [...'abcdefghijklmnopqrstuvwxyz']
+const LETTER_PATTERN = /[a-zA-Z]/g
 
 export class RotationalCipher {
   static rotate(input, rotate) {
-    return input.replace(/[a-zA-Z]/g, (letter) =>
+    return input.replace(LETTER_PATTERN, (letter) =>
       RotationalCipher.rotateLetter(letter, rotate))
   }
 
@@ -13,8 +14,8 @@ export class RotationalCipher {
         .toUpperCase()
     }
 
-    return ALPH[
-      (ALPH.indexOf(letter) + rotate) % ALPH.length
-    ]
+    const letterIndex = LETTERS.indexOf(letter)
+    const rotatedLetterIndex = (letterIndex + rotate) % LETTERS.length
+    return LETTERS[rotatedLetterIndex]
   }
 }
