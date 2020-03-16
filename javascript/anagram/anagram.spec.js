@@ -14,17 +14,17 @@ describe('Anagram', () => {
     ]);
   });
 
-  xtest('does not detect anagram subsets', () => {
+  test('does not detect anagram subsets', () => {
     expect(findAnagrams('good', ['dog', 'goody'])).toEqual([]);
   });
 
-  xtest('detects anagram', () => {
+  test('detects anagram', () => {
     expect(
       findAnagrams('listen', ['enlists', 'google', 'inlets', 'banana'])
     ).toEqual(['inlets']);
   });
 
-  xtest('detects three anagrams', () => {
+  test('detects three anagrams', () => {
     expect(
       findAnagrams('allergy', [
         'gallery',
