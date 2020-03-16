@@ -7,7 +7,7 @@ describe('Anagram', () => {
     ).toEqual([]);
   });
 
-  xtest('detects two anagrams', () => {
+  test('detects two anagrams', () => {
     expect(findAnagrams('master', ['stream', 'pigeon', 'maters'])).toEqual([
       'stream',
       'maters'
