@@ -1,6 +1,12 @@
-export const findAnagrams = (word, words) => {
-  const sortedWord = word.split('').sort().join('')
+export const findAnagrams = (word, possible_anagrams) => {
+  const sortedWord = sortWord(word)
 
-  return words
-    .filter(currentWord => sortedWord === currentWord.split('').sort().join(''))
+  return possible_anagrams
+    .filter(possible_anagram => sortedWord === sortWord(possible_anagram))
 }
+
+const sortWord = (word) =>
+  word
+    .split('')
+    .sort()
+    .join('')
