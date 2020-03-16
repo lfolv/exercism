@@ -41,33 +41,33 @@ describe('Anagram', () => {
     expect(findAnagrams('nose', ['Eons', 'ONES'])).toEqual(['Eons', 'ONES']);
   });
 
-  xtest('does not detect non-anagrams with identical checksum', () => {
+  test('does not detect non-anagrams with identical checksum', () => {
     expect(findAnagrams('mass', ['last'])).toEqual([]);
   });
 
-  xtest('detects anagrams case-insensitively', () => {
+  test('detects anagrams case-insensitively', () => {
     expect(
       findAnagrams('Orchestra', ['cashregister', 'Carthorse', 'radishes'])
     ).toEqual(['Carthorse']);
   });
 
-  xtest('detects anagrams using case-insensitive subject', () => {
+  test('detects anagrams using case-insensitive subject', () => {
     expect(
       findAnagrams('Orchestra', ['cashregister', 'carthorse', 'radishes'])
     ).toEqual(['carthorse']);
   });
 
-  xtest('detects anagrams using case-insensitive possible matches', () => {
+  test('detects anagrams using case-insensitive possible matches', () => {
     expect(
       findAnagrams('orchestra', ['cashregister', 'Carthorse', 'radishes'])
     ).toEqual(['Carthorse']);
   });
 
-  xtest('does not detect an anagram if the original word is repeated', () => {
+  test('does not detect an anagram if the original word is repeated', () => {
     expect(findAnagrams('go', ['go Go GO'])).toEqual([]);
   });
 
-  xtest('anagrams must use all letters exactly once', () => {
+  test('anagrams must use all letters exactly once', () => {
     expect(findAnagrams('tapper', ['patter'])).toEqual([]);
   });
 
