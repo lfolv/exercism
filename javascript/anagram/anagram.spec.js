@@ -37,7 +37,7 @@ describe('Anagram', () => {
     ).toEqual(['gallery', 'regally', 'largely']);
   });
 
-  xtest('detects multiple anagrams with different case', () => {
+  test('detects multiple anagrams with different case', () => {
     expect(findAnagrams('nose', ['Eons', 'ONES'])).toEqual(['Eons', 'ONES']);
   });
 
