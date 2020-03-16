@@ -71,11 +71,11 @@ describe('Anagram', () => {
     expect(findAnagrams('tapper', ['patter'])).toEqual([]);
   });
 
-  xtest('words are not anagrams of themselves (case-insensitive)', () => {
+  test('words are not anagrams of themselves (case-insensitive)', () => {
     expect(findAnagrams('BANANA', ['BANANA', 'Banana', 'banana'])).toEqual([]);
   });
 
-  xtest('words other than themselves can be anagrams', () => {
+  test('words other than themselves can be anagrams', () => {
     expect(findAnagrams('LISTEN', ['Listen', 'Silent', 'LISTEN'])).toEqual([
       'Silent'
     ]);
