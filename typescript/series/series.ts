@@ -8,6 +8,17 @@ export default class Series {
   }
 
   slices(size: number) {
-    return this.digits.slice(0, size)
+    if (size > this.digits.length) {
+      throw new Error()
+    }
+
+    const currentSlices = []
+
+    for (let i = 0; i <= this.digits.length - size; i++) {
+      const slice = this.digits.slice(i, i + size)
+      currentSlices.push(slice)
+    }
+
+    return currentSlices
   }
 }
