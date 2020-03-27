@@ -1,3 +1,5 @@
+from itertools import takewhile
+
 CONDON_LENGTH = 3
 CONDON_TO_PROTEIN = {
     'AUG': 'Methionine',
@@ -21,17 +23,10 @@ CONDON_TO_PROTEIN = {
 
 
 def proteins(strand):
-    current_proteins = []
-
-    for condon in condons(strand):
-        protein = CONDON_TO_PROTEIN[condon]
-
-        if protein == 'STOP':
-            break
-
-        current_proteins.append(protein)
-
-    return current_proteins
+    return list(takewhile(
+        lambda protein: protein != 'STOP',
+        (CONDON_TO_PROTEIN[condon] for condon in condons(strand))
+    ))
 
 
 def condons(strand):
