@@ -26,7 +26,6 @@ class ProteinTranslationTest(unittest.TestCase):
         expected = ["Leucine"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_leucine_rna_sequence_2(self):
         value = "UUG"
         expected = ["Leucine"]
