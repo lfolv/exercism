@@ -61,19 +61,16 @@ class ProteinTranslationTest(unittest.TestCase):
         expected = ["Tyrosine"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_cysteine_rna_sequence_1(self):
         value = "UGU"
         expected = ["Cysteine"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_cysteine_rna_sequence_2(self):
         value = "UGC"
         expected = ["Cysteine"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_tryptophan_rna_sequence(self):
         value = "UGG"
         expected = ["Tryptophan"]
