@@ -36,7 +36,6 @@ class ProteinTranslationTest(unittest.TestCase):
         expected = ["Serine"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_serine_rna_sequence_2(self):
         value = "UCC"
         expected = ["Serine"]
