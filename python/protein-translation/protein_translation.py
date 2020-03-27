@@ -1,4 +1,9 @@
+RNA_TO_PROTEIN = {
+    'AUG': 'Methionine',
+    'UUU': 'Phenylalanine',
+    'UUC': 'Phenylalanine'
+}
+
+
 def proteins(strand):
-    if strand == 'UUU':
-        return ['Phenylalanine']
-    return ['Methionine']
+    return [RNA_TO_PROTEIN[strand]]
