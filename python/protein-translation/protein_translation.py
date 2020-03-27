@@ -1,7 +1,8 @@
 RNA_TO_PROTEIN = {
     'AUG': 'Methionine',
     'UUU': 'Phenylalanine',
-    'UUC': 'Phenylalanine'
+    'UUC': 'Phenylalanine',
+    'UUA': 'Leucine'
 }
 
 
