@@ -91,37 +91,31 @@ class ProteinTranslationTest(unittest.TestCase):
         expected = []
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_translate_rna_strand_into_correct_protein_list(self):
         value = "AUGUUUUGG"
         expected = ["Methionine", "Phenylalanine", "Tryptophan"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_translation_stops_if_stop_codon_at_beginning_of_sequence(self):
         value = "UAGUGG"
         expected = []
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_translation_stops_if_stop_codon_at_end_of_two_codon_sequence(self):
         value = "UGGUAG"
         expected = ["Tryptophan"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_translation_stops_if_stop_codon_at_end_of_three_codon_sequence(self):
         value = "AUGUUUUAA"
         expected = ["Methionine", "Phenylalanine"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_translation_stops_if_stop_codon_in_middle_of_three_codon_sequence(self):
         value = "UGGUAGUGG"
         expected = ["Tryptophan"]
         self.assertEqual(proteins(value), expected)
 
-    @unittest.skip
     def test_translation_stops_if_stop_codon_in_middle_of_six_codon_sequence(self):
         value = "UGGUGUUAUUAAUGGUUU"
         expected = ["Tryptophan", "Cysteine", "Tyrosine"]

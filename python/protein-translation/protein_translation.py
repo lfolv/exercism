@@ -1,4 +1,4 @@
-RNA_TO_PROTEIN = {
+CONDON_TO_PROTEIN = {
     'AUG': 'Methionine',
     'UUU': 'Phenylalanine',
     'UUC': 'Phenylalanine',
@@ -20,9 +20,15 @@ RNA_TO_PROTEIN = {
 
 
 def proteins(strand):
-    protein = RNA_TO_PROTEIN[strand]
+    condons = [(strand[i:i+3]) for i in range(0, len(strand), 3)]
+    current_proteins = []
 
-    if protein == 'STOP':
-        return []
+    for condon in condons:
+        protein = CONDON_TO_PROTEIN[condon]
 
-    return [protein]
+        if protein == 'STOP':
+            break
+
+        current_proteins.append(protein)
+
+    return current_proteins
