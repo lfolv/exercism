@@ -7,7 +7,9 @@ RNA_TO_PROTEIN = {
     'UCU': 'Serine',
     'UCC': 'Serine',
     'UCA': 'Serine',
-    'UCG': 'Serine'
+    'UCG': 'Serine',
+    'UAU': 'Tyrosine',
+    'UAC': 'Tyrosine'
 }
 
 
