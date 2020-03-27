@@ -3,7 +3,8 @@ RNA_TO_PROTEIN = {
     'UUU': 'Phenylalanine',
     'UUC': 'Phenylalanine',
     'UUA': 'Leucine',
-    'UUG': 'Leucine'
+    'UUG': 'Leucine',
+    'UCU': 'Serine'
 }
 
 
