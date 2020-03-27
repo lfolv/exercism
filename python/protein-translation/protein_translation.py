@@ -12,9 +12,17 @@ RNA_TO_PROTEIN = {
     'UAC': 'Tyrosine',
     'UGU': 'Cysteine',
     'UGC': 'Cysteine',
-    'UGG': 'Tryptophan'
+    'UGG': 'Tryptophan',
+    'UAA': 'STOP',
+    'UAG': 'STOP',
+    'UGA': 'STOP'
 }
 
 
 def proteins(strand):
-    return [RNA_TO_PROTEIN[strand]]
+    protein = RNA_TO_PROTEIN[strand]
+
+    if protein == 'STOP':
+        return []
+
+    return [protein]
