@@ -1,3 +1,4 @@
+CONDON_LENGTH = 3
 CONDON_TO_PROTEIN = {
     'AUG': 'Methionine',
     'UUU': 'Phenylalanine',
@@ -20,10 +21,9 @@ CONDON_TO_PROTEIN = {
 
 
 def proteins(strand):
-    condons = [(strand[i:i+3]) for i in range(0, len(strand), 3)]
     current_proteins = []
 
-    for condon in condons:
+    for condon in condons(strand):
         protein = CONDON_TO_PROTEIN[condon]
 
         if protein == 'STOP':
@@ -32,3 +32,8 @@ def proteins(strand):
         current_proteins.append(protein)
 
     return current_proteins
+
+
+def condons(strand):
+    for i in range(0, len(strand), CONDON_LENGTH):
+        yield strand[i:i+CONDON_LENGTH]
