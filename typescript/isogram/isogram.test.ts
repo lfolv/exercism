@@ -6,17 +6,17 @@ describe("Check if the given string is an isogram", () => {
     expect(Isogram.isIsogram("")).toEqual(expected)
   })
 
-  xit("isogram with only lower case characters", () => {
+  it("isogram with only lower case characters", () => {
     const expected = true
     expect(Isogram.isIsogram("isogram")).toEqual(expected)
   })
 
-  xit("word with one duplicated character", () => {
+  it("word with one duplicated character", () => {
     const expected = false
     expect(Isogram.isIsogram("eleven")).toEqual(expected)
   })
 
-  xit("longest reported english isogram", () => {
+  it("longest reported english isogram", () => {
     const expected = true
     expect(Isogram.isIsogram("subdermatoglyphic")).toEqual(expected)
   })
