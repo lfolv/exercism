@@ -1,8 +1,9 @@
 class Isogram {
     static isIsogram(phrase: string) {
         const letters = new Map<string, boolean>()
+        const normalizedPhrase = Isogram.normalize(phrase)
 
-        for (const letter of phrase) {
+        for (const letter of normalizedPhrase) {
             if (letters.has(letter)) {
                 return false
             }
@@ -11,6 +12,12 @@ class Isogram {
         }
 
         return true
+    }
+
+    static normalize(phrase: string) {
+        return phrase
+            .replace(/[\-\s]*/g, '')
+            .toUpperCase()
     }
 }
 

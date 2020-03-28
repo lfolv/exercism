@@ -21,27 +21,27 @@ describe("Check if the given string is an isogram", () => {
     expect(Isogram.isIsogram("subdermatoglyphic")).toEqual(expected)
   })
 
-  xit("word with duplicated character in mixed case", () => {
+  it("word with duplicated character in mixed case", () => {
     const expected = false
     expect(Isogram.isIsogram("Alphabet")).toEqual(expected)
   })
 
-  xit("hypothetical isogrammic word with hyphen", () => {
+  it("hypothetical isogrammic word with hyphen", () => {
     const expected = true
     expect(Isogram.isIsogram("thumbscrew-japingly")).toEqual(expected)
   })
 
-  xit("isogram with duplicated hyphen", () => {
+  it("isogram with duplicated hyphen", () => {
     const expected = true
     expect(Isogram.isIsogram("six-year-old")).toEqual(expected)
   })
 
-  xit("made-up name that is an isogram", () => {
+  it("made-up name that is an isogram", () => {
     const expected = true
     expect(Isogram.isIsogram("Emily Jung Schwartzkopf")).toEqual(expected)
   })
 
-  xit("duplicated character in the middle", () => {
+  it("duplicated character in the middle", () => {
     const expected = false
     expect(Isogram.isIsogram("accentor")).toEqual(expected)
   })
