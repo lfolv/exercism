@@ -10,23 +10,18 @@ class RnaTranscriptionTest(unittest.TestCase):
     def test_empty_rna_sequence(self):
         self.assertEqual(to_rna(""), "")
 
-    @unittest.skip
     def test_transcribes_cytosine_to_guanine(self):
         self.assertEqual(to_rna('C'), 'G')
 
-    @unittest.skip
     def test_transcribes_guanine_to_cytosine(self):
         self.assertEqual(to_rna('G'), 'C')
 
-    @unittest.skip
     def test_transcribes_thymine_to_adenine(self):
         self.assertEqual(to_rna('T'), 'A')
 
-    @unittest.skip
     def test_transcribes_adenine_to_uracil(self):
         self.assertEqual(to_rna('A'), 'U')
 
-    @unittest.skip
     def test_transcribes_all_occurrences(self):
         self.assertEqual(to_rna('ACGTGGTCTTAA'), 'UGCACCAGAAUU')
 
