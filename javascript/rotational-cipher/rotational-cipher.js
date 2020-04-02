@@ -1,6 +1,12 @@
+const AVALIABLE_ROTATE_CHRS = /[a-zA-Z]/g;
+const ASCII_START_CODE = 97;
+const ALPHABET_LENGTH = 26;
+
 export class RotationalCipher {
   static rotate(input, key) {
-    return input.replace(/[a-zA-Z]/g, chr => this.rotateChr(chr, key));
+    return input.replace(AVALIABLE_ROTATE_CHRS, chr =>
+      this.rotateChr(chr, key)
+    );
   }
 
   static rotateChr(chr, key) {
@@ -14,6 +20,6 @@ export class RotationalCipher {
     const outputIndex =
       ((inputIndex + key) % ALPHABET_LENGTH) + ASCII_START_CODE;
 
-    return LATIN_ALPABET[outputIndex];
+    return String.fromCharCode(outputIndex);
   }
 }
