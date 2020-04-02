@@ -1,21 +1,19 @@
-const LETTERS = [...'abcdefghijklmnopqrstuvwxyz']
-const LETTER_PATTERN = /[a-zA-Z]/g
-
 export class RotationalCipher {
-  static rotate(input, rotate) {
-    return input.replace(LETTER_PATTERN, (letter) =>
-      RotationalCipher.rotateLetter(letter, rotate))
+  static rotate(input, key) {
+    return input.replace(/[a-zA-Z]/g, chr => this.rotateChr(chr, key));
   }
 
-  static rotateLetter(letter, rotate) {
-    if (letter === letter.toUpperCase()) {
-      return RotationalCipher
-        .rotateLetter(letter.toLowerCase(), rotate)
-        .toUpperCase()
+  static rotateChr(chr, key) {
+    if (chr === chr.toUpperCase()) {
+      const lowerChr = chr.toLowerCase();
+
+      return this.rotateChr(lowerChr, key).toUpperCase();
     }
 
-    const letterIndex = LETTERS.indexOf(letter)
-    const rotatedLetterIndex = (letterIndex + rotate) % LETTERS.length
-    return LETTERS[rotatedLetterIndex]
+    const inputIndex = chr.charCodeAt(0) - ASCII_START_CODE;
+    const outputIndex =
+      ((inputIndex + key) % ALPHABET_LENGTH) + ASCII_START_CODE;
+
+    return LATIN_ALPABET[outputIndex];
   }
 }
