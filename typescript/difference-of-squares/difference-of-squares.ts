@@ -1,20 +1,28 @@
 class Squares {
-  public squareOfSum: number;
-  public sumOfSquares: number;
-  public difference: number;
+  constructor(private n: number) {}
 
-  constructor(n: number) {
-    let squareOfSum: number = 0;
-    let sumOfSquares: number = 0;
+  get squareOfSum() {
+    let currentSquareOfSum = 0;
 
-    for (let i = 0; i <= n; i++) {
-      squareOfSum += i;
-      sumOfSquares += i ** 2;
+    for (let i = 0; i <= this.n; i++) {
+      currentSquareOfSum += i;
     }
 
-    this.sumOfSquares = sumOfSquares;
-    this.squareOfSum = squareOfSum ** 2;
-    this.difference = this.squareOfSum - this.sumOfSquares;
+    return currentSquareOfSum ** 2;
+  }
+
+  get sumOfSquares() {
+    let currentSumOfSquares = 0;
+
+    for (let i = 0; i <= this.n; i++) {
+      currentSumOfSquares += i ** 2;
+    }
+
+    return currentSumOfSquares;
+  }
+
+  get difference() {
+    return this.squareOfSum - this.sumOfSquares;
   }
 }
 
