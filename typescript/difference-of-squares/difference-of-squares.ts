@@ -1,24 +1,22 @@
+function range(start: number, end: number, step = 1) {
+  const result = [];
+
+  for (let i = start; i <= end; i += step) {
+    result.push(i);
+  }
+
+  return result;
+}
+
 class Squares {
   constructor(private n: number) {}
 
   get squareOfSum() {
-    let currentSquareOfSum = 0;
-
-    for (let i = 0; i <= this.n; i++) {
-      currentSquareOfSum += i;
-    }
-
-    return currentSquareOfSum ** 2;
+    return range(0, this.n).reduce((acc, value) => acc + value, 0) ** 2;
   }
 
   get sumOfSquares() {
-    let currentSumOfSquares = 0;
-
-    for (let i = 0; i <= this.n; i++) {
-      currentSumOfSquares += i ** 2;
-    }
-
-    return currentSumOfSquares;
+    return range(0, this.n).reduce((acc, value) => acc + value ** 2, 0);
   }
 
   get difference() {
