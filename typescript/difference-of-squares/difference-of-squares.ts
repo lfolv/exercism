@@ -8,15 +8,23 @@ function range(start: number, end: number, step = 1) {
   return result;
 }
 
+function sum(array: number[]) {
+  return array.reduce((acc, value) => acc + value, 0);
+}
+
 class Squares {
   constructor(private n: number) {}
 
   get squareOfSum() {
-    return range(0, this.n).reduce((acc, value) => acc + value, 0) ** 2;
+    const values = range(0, this.n);
+
+    return sum(values) ** 2;
   }
 
   get sumOfSquares() {
-    return range(0, this.n).reduce((acc, value) => acc + value ** 2, 0);
+    const values = range(0, this.n).map((value) => value ** 2);
+
+    return sum(values);
   }
 
   get difference() {
