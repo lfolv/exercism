@@ -26,24 +26,26 @@ class ResistorColorTrio
     attr_reader :colors
 
     def total_value
-      return "#{total_resistors_value / 1000} kiloohms" if total_resistors_value > 1000
-
-      "#{total_resistors_value} ohms"
+      if resistence > 100
+        "#{resistence / 1000} kiloohms"
+      else
+        "#{resistence} ohms"
+      end
     end
 
-    def total_resistors_value
-      (first_resistor_value + second_resistor_value) * third_resistor_value
+    def resistence
+      (resistence_tens + resistence_unit) * base
     end
 
-    def first_resistor_value
+    def resistence_tens
       COLOR_TO_VALUE[colors[0]] * 10
     end
 
-    def second_resistor_value
+    def resistence_unit
       COLOR_TO_VALUE[colors[1]]
     end
 
-    def third_resistor_value
+    def base
       10 ** COLOR_TO_VALUE[colors[2]]
     end
 end
