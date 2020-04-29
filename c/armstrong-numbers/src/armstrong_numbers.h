@@ -2,7 +2,7 @@
 #define ARMSTRONG_NUMBERS
 
 int is_armstrong_number(int candidate);
-int sum(int candidate);
-int len(int candidate);
+int armstrong_sum(int candidate);
+int count_number_of_digits(int candidate);
 
 #endif
