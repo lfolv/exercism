@@ -7,6 +7,10 @@ class Anagram {
     return word.split('').sort().join('')
   }
 
+  static sameWord(word: string, other: string) {
+    return word === other
+  }
+
   constructor(private word: string) { }
 
   matches(...possibleAnagrams: string[]) {
@@ -17,14 +21,14 @@ class Anagram {
     const normalizedWord = Anagram.normalize(this.word)
     const normalizedPossibleAnagram = Anagram.normalize(possibleAnagram)
 
-    if (normalizedWord === normalizedPossibleAnagram) {
+    if (Anagram.sameWord(normalizedWord, normalizedPossibleAnagram)) {
       return false
     }
 
     const sortedWord = Anagram.sortLettersOf(normalizedWord)
     const sortedPossibleAnagram = Anagram.sortLettersOf(normalizedPossibleAnagram)
 
-    return sortedWord === sortedPossibleAnagram
+    return Anagram.sameWord(sortedWord, sortedPossibleAnagram)
   }
 }
 
