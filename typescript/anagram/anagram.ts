@@ -1,14 +1,20 @@
 class Anagram {
+  static sameWord(word: string, other: string) {
+    const normalizedWord = Anagram.normalize(word)
+    const normalizedOther = Anagram.normalize(other)
+
+    const sortedWord = Anagram.sortLettersOf(normalizedWord)
+    const sortedOther = Anagram.sortLettersOf(normalizedOther)
+
+    return sortedWord === sortedOther
+  }
+
   static normalize(word: string) {
     return word.toLowerCase()
   }
 
   static sortLettersOf(word: string) {
     return word.split('').sort().join('')
-  }
-
-  static sameWord(word: string, other: string) {
-    return word === other
   }
 
   constructor(private word: string) { }
@@ -18,17 +24,11 @@ class Anagram {
   }
 
   isAnagram(possibleAnagram: string) {
-    const normalizedWord = Anagram.normalize(this.word)
-    const normalizedPossibleAnagram = Anagram.normalize(possibleAnagram)
-
-    if (Anagram.sameWord(normalizedWord, normalizedPossibleAnagram)) {
+    if (this.word.toLowerCase() === possibleAnagram.toLowerCase()) {
       return false
     }
 
-    const sortedWord = Anagram.sortLettersOf(normalizedWord)
-    const sortedPossibleAnagram = Anagram.sortLettersOf(normalizedPossibleAnagram)
-
-    return Anagram.sameWord(sortedWord, sortedPossibleAnagram)
+    return Anagram.sameWord(this.word, possibleAnagram)
   }
 }
 
