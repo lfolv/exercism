@@ -1,34 +1,35 @@
 class Anagram {
-  static sameWord(word: string, other: string) {
+  private lettersOfWord: string
+
+  constructor(private word: string) {
     const normalizedWord = Anagram.normalize(word)
-    const normalizedOther = Anagram.normalize(other)
-
-    const sortedWord = Anagram.sortLettersOf(normalizedWord)
-    const sortedOther = Anagram.sortLettersOf(normalizedOther)
-
-    return sortedWord === sortedOther
+    this.lettersOfWord = Anagram.sortLetters(normalizedWord)
   }
 
   static normalize(word: string) {
     return word.toLowerCase()
   }
 
-  static sortLettersOf(word: string) {
+  static sortLetters(word: string) {
     return word.split('').sort().join('')
   }
 
-  constructor(private word: string) { }
-
-  matches(...possibleAnagrams: string[]) {
-    return possibleAnagrams.filter(this.isAnagram.bind(this))
+  matches(...words: string[]) {
+    return words.filter(this.isAnagram.bind(this))
   }
 
-  isAnagram(possibleAnagram: string) {
-    if (this.word.toLowerCase() === possibleAnagram.toLowerCase()) {
+  isAnagram(word: string) {
+    const normalizedWord = Anagram.normalize(word)
+
+    if (this.exactSameWord(normalizedWord)) {
       return false
     }
 
-    return Anagram.sameWord(this.word, possibleAnagram)
+    return Anagram.sortLetters(normalizedWord) === this.lettersOfWord
+  }
+
+  exactSameWord(word: string) {
+    return this.word === word
   }
 }
 
