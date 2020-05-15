@@ -1,17 +1,12 @@
 class Anagram {
-  private lettersOfWord: string
+  private word: string
 
-  constructor(private word: string) {
-    const normalizedWord = Anagram.normalize(word)
-    this.lettersOfWord = Anagram.sortLetters(normalizedWord)
-  }
-
-  static normalize(word: string) {
-    return word.toLowerCase()
+  constructor(word: string) {
+    this.word = word.toLowerCase()
   }
 
   static sortLetters(word: string) {
-    return word.split('').sort().join('')
+    return word.toLowerCase().split('').sort().join('')
   }
 
   matches(...words: string[]) {
@@ -19,17 +14,15 @@ class Anagram {
   }
 
   isAnagram(word: string) {
-    const normalizedWord = Anagram.normalize(word)
-
-    if (this.exactSameWord(normalizedWord)) {
+    if (this.exactSameWord(word)) {
       return false
     }
 
-    return Anagram.sortLetters(normalizedWord) === this.lettersOfWord
+    return Anagram.sortLetters(word) === Anagram.sortLetters(this.word)
   }
 
   exactSameWord(word: string) {
-    return this.word === word
+    return this.word === word.toLowerCase()
   }
 }
 
