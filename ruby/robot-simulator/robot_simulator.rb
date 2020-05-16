@@ -1,5 +1,13 @@
+require "matrix"
+
 class Robot
   DIRECTIONS = [:north, :east, :south, :west]
+  DIRECTION_TO_VECTOR = {
+    north: Vector[0, 1],
+    east: Vector[1, 0],
+    south: Vector[0, -1],
+    west: Vector[-1, 0]
+  }
 
   attr_reader :bearing
   attr_accessor :coordinates
@@ -25,18 +33,8 @@ class Robot
   end
 
   def advance
-    x, y = @coordinates
-
-    case bearing
-    when :north
-      @coordinates = [x, y + 1]
-    when :east
-      @coordinates = [x + 1, y]
-    when :south
-      @coordinates = [x, y - 1]
-    when :west
-      @coordinates = [x - 1, y]
-    end
+    current = Vector[*@coordinates]
+    @coordinates = (current + DIRECTION_TO_VECTOR[bearing]).to_a
   end
 end
 
