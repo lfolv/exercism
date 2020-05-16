@@ -1,9 +1,9 @@
 class Robot
-  DIRECTIONS = [:east, :west, :north, :south]
+  DIRECTIONS = [:north, :east, :south, :west]
 
-  attr_reader :bearing 
+  attr_reader :bearing
   attr_accessor :coordinates
-  
+
   def turn_right
     case bearing
     when :north
