@@ -10,16 +10,8 @@ class Robot
   end
 
   def turn_left
-    case bearing
-    when :north
-      orient :west
-    when :east
-      orient :north
-    when :south
-      orient :east
-    when :west
-      orient :south
-    end
+    index = DIRECTIONS.index(bearing) - 1
+    orient DIRECTIONS[index % DIRECTIONS.length]
   end
 
   def orient(direction)
