@@ -5,16 +5,8 @@ class Robot
   attr_accessor :coordinates
 
   def turn_right
-    case bearing
-    when :north
-      orient :east
-    when :east
-      orient :south
-    when :south
-      orient :west
-    when :west
-      orient :north
-    end
+    index = DIRECTIONS.index(bearing) + 1
+    orient DIRECTIONS[index % DIRECTIONS.length]
   end
 
   def turn_left
