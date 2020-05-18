@@ -1,24 +1,21 @@
-const FOREFUL_QUESTION_PATTEN = /^[A-Z\s!]+\?$/;
-const YELL_PATTERN = /^(?:\d+\,?\s*)*(?:[A-Z]+[\s!]*[^a-z]*)+$/;
-const QUESTION_PATTERN = /^.+\?\s*$/;
-const SILENCE_PATTERN = /^\s*$/;
-
 class Bob {
   hey(message: string) {
-    if (message.match(FOREFUL_QUESTION_PATTEN)) {
-      return "Calm down, I know what I'm doing!";
-    }
+    message = message.trim()
 
-    if (message.match(YELL_PATTERN)) {
-      return "Whoa, chill out!";
-    }
-
-    if (message.match(QUESTION_PATTERN)) {
-      return "Sure.";
-    }
-
-    if (message.match(SILENCE_PATTERN)) {
+    if (message.length === 0) {
       return "Fine. Be that way!";
+    }
+
+    if (message.match(/[a-zA-Z]/) && message === message.toUpperCase()) {
+      if (message.endsWith('?')) {
+        return "Calm down, I know what I'm doing!";
+      } else {
+        return "Whoa, chill out!";
+      }
+    }
+
+    if (message.endsWith('?')) {
+      return "Sure.";
     }
 
     return "Whatever.";
