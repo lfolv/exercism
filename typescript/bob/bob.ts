@@ -2,6 +2,10 @@ function isSayingAnything(message: string) {
   return message.length === 0
 }
 
+function isAQuestion(message: string) {
+  return message.endsWith('?')
+}
+
 class Bob {
   hey(message: string) {
     message = message.trim()
@@ -11,14 +15,14 @@ class Bob {
     }
 
     if (message.match(/[a-zA-Z]/) && message === message.toUpperCase()) {
-      if (message.endsWith('?')) {
+      if (isAQuestion(message)) {
         return "Calm down, I know what I'm doing!";
       } else {
         return "Whoa, chill out!";
       }
     }
 
-    if (message.endsWith('?')) {
+    if (isAQuestion(message)) {
       return "Sure.";
     }
 
