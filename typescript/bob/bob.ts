@@ -1,8 +1,12 @@
+function isSayingAnything(message: string) {
+  return message.length === 0
+}
+
 class Bob {
   hey(message: string) {
     message = message.trim()
 
-    if (message.length === 0) {
+    if (isSayingAnything(message)) {
       return "Fine. Be that way!";
     }
 
