@@ -2,6 +2,10 @@ function isSayingAnything(message: string) {
   return message.length === 0
 }
 
+function isYelling(message: string) {
+  return message.match(/[a-zA-Z]/) && message === message.toUpperCase()
+}
+
 function isAQuestion(message: string) {
   return message.endsWith('?')
 }
@@ -14,7 +18,7 @@ class Bob {
       return "Fine. Be that way!";
     }
 
-    if (message.match(/[a-zA-Z]/) && message === message.toUpperCase()) {
+    if (isYelling(message)) {
       if (isAQuestion(message)) {
         return "Calm down, I know what I'm doing!";
       } else {
