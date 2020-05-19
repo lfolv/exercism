@@ -1,14 +1,9 @@
-function isSayingAnything(message: string) {
-  return message.length === 0
-}
+const isSayingAnything = (message: string) => message.length === 0
 
-function isYelling(message: string) {
-  return message.match(/[a-zA-Z]/) && message === message.toUpperCase()
-}
+const isYelling = (message: string) =>
+  message.match(/[a-zA-Z]/) && message === message.toUpperCase()
 
-function isAQuestion(message: string) {
-  return message.endsWith('?')
-}
+const isAQuestion = (message: string) => message.endsWith('?')
 
 class Bob {
   hey(message: string) {
