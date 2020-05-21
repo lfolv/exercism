@@ -18,8 +18,24 @@ class Matrix {
     }
 
     get columns() {
-        return [[Number.parseInt(this.str)]]
+        return transpose(this.rows)
     }
+}
+
+function transpose<T>(matrix: T[][]) {
+    const transposed: T[][] = []
+
+    for (let i = 0; i < matrix.length; i++) {
+        transposed.push([])
+    }
+
+    for (let line of matrix) {
+        for (let i = 0; i < line.length; i++) {
+            transposed[i].push(line[i])
+        }
+    }
+
+    return transposed
 }
 
 export default Matrix
