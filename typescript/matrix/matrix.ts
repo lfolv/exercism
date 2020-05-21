@@ -1,12 +1,15 @@
+const LINE_DELIMITER = '\n'
+const COLUMN_DELIMITER = ' '
+
 class Matrix {
     constructor(private str: string) { }
 
     static parse(str: string) {
-        return str.split('\n').map(Matrix.parseLine)
+        return str.split(LINE_DELIMITER).map(Matrix.parseLine)
     }
 
     static parseLine(line: string) {
-        return line.split(' ').map(Matrix.parseValue)
+        return line.split(COLUMN_DELIMITER).map(Matrix.parseValue)
     }
 
     static parseValue(value: string) {
