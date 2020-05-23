@@ -2,10 +2,10 @@ const LINE_DELIMITER = '\n'
 const COLUMN_DELIMITER = ' '
 
 class Matrix {
-    constructor(private str: string) { }
+    constructor(private matrix_representation: string) { }
 
-    static parse(str: string) {
-        return str.split(LINE_DELIMITER).map(Matrix.parseLine)
+    static parse(matrix_representation: string) {
+        return matrix_representation.split(LINE_DELIMITER).map(Matrix.parseLine)
     }
 
     static parseLine(line: string) {
@@ -13,11 +13,11 @@ class Matrix {
     }
 
     static parseValue(value: string) {
-        return Number.parseInt(value, 10)
+        return Number(value)
     }
 
     get rows() {
-        return Matrix.parse(this.str)
+        return Matrix.parse(this.matrix_representation)
     }
 
     get columns() {
@@ -28,12 +28,9 @@ class Matrix {
 function transpose<T>(matrix: T[][]) {
     const transposed: T[][] = []
 
-    for (let i = 0; i < matrix.length; i++) {
-        transposed.push([])
-    }
-
     for (let line of matrix) {
         for (let i = 0; i < line.length; i++) {
+            transposed.push([])
             transposed[i].push(line[i])
         }
     }
