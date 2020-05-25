@@ -30,8 +30,7 @@ function transpose<T>(matrix: T[][]) {
 
     for (let line of matrix) {
         for (let i = 0; i < line.length; i++) {
-            transposed.push([])
-            transposed[i].push(line[i])
+            transposed[i] = [...(transposed[i] || []), line[i]]
         }
     }
 
