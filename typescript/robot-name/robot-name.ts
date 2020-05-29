@@ -1,18 +1,31 @@
-const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-const usedNames: string[] = []
-
 class RobotName {
-  private _name: string
+  static characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  static usedNames: string[] = []
 
-  constructor() {
-    this._name = RobotName.generateName()
+  constructor(private robot: Robot = new Robot('')) {
+    this.resetName()
   }
 
-  static generateName() {
+  resetName() {
+    let name = this.generateName()
+
+    while (this.usedName(name)) {
+      name = this.generateName()
+    }
+
+    this.addNameToUsed(name)
+    this.robot.name = name
+  }
+
+  usedName(name: string) {
+    return RobotName.usedNames.includes(name)
+  }
+
+  generateName() {
     let name = ''
 
     for (let i = 0; i < 2; i++) {
-      name += CHARACTERS.charAt(Math.floor(Math.random() * CHARACTERS.length))
+      name += RobotName.characters.charAt(Math.floor(Math.random() * RobotName.characters.length))
     }
 
     for (let i = 0; i < 3; i++) {
@@ -22,20 +35,17 @@ class RobotName {
     return name
   }
 
+  addNameToUsed(name: string) {
+    RobotName.usedNames.push(name)
+  }
+
   get name() {
-    return this._name
+    return this.robot.name
   }
+}
 
-  resetName() {
-    let name = RobotName.generateName()
-
-    while (usedNames.includes(name)) {
-      name = RobotName.generateName()
-    }
-
-    usedNames.push(name)
-    this._name = name
-  }
+class Robot {
+  constructor(public name: string) {}
 }
 
 export default RobotName
