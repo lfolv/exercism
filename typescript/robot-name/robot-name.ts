@@ -1,21 +1,17 @@
 const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 class RobotNameDatabase {
-  private usedNames: string[] = []
+  private usedNames: Map<string, boolean> = new Map<string, boolean>()
 
   newName() {
     let name = this.generateName()
 
-    while (this.usedName(name)) {
+    while (this.usedNames.has(name)) {
       name = this.generateName()
     }
 
     this.addNameToUsed(name)
     return name
-  }
-
-  usedName(name: string) {
-    return this.usedNames.includes(name)
   }
 
   generateName() {
@@ -33,7 +29,7 @@ class RobotNameDatabase {
   }
 
   addNameToUsed(name: string) {
-    this.usedNames.push(name)
+    this.usedNames.set(name, true)
   }
 }
 
