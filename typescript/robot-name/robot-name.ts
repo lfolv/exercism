@@ -1,12 +1,9 @@
-class RobotName {
-  static characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  static usedNames: string[] = []
+const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-  constructor(private robot: Robot = new Robot('')) {
-    this.resetName()
-  }
+class RobotNameDatabase {
+  private usedNames: string[] = []
 
-  resetName() {
+  newName() {
     let name = this.generateName()
 
     while (this.usedName(name)) {
@@ -14,18 +11,18 @@ class RobotName {
     }
 
     this.addNameToUsed(name)
-    this.robot.name = name
+    return name
   }
 
   usedName(name: string) {
-    return RobotName.usedNames.includes(name)
+    return this.usedNames.includes(name)
   }
 
   generateName() {
     let name = ''
 
     for (let i = 0; i < 2; i++) {
-      name += RobotName.characters.charAt(Math.floor(Math.random() * RobotName.characters.length))
+      name += CHARACTERS.charAt(Math.floor(Math.random() * CHARACTERS.length))
     }
 
     for (let i = 0; i < 3; i++) {
@@ -36,16 +33,24 @@ class RobotName {
   }
 
   addNameToUsed(name: string) {
-    RobotName.usedNames.push(name)
-  }
-
-  get name() {
-    return this.robot.name
+    this.usedNames.push(name)
   }
 }
 
-class Robot {
-  constructor(public name: string) {}
+const defaultNamesDatabase = new RobotNameDatabase()
+
+class RobotName {
+  public name: string
+  static namesDatabase: RobotNameDatabase
+
+  constructor(private namesDatabase: RobotNameDatabase = defaultNamesDatabase) {
+    this.name = ""
+    this.resetName()
+  }
+
+  resetName() {
+    this.name = this.namesDatabase.newName()
+  }
 }
 
 export default RobotName
