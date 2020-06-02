@@ -23,9 +23,7 @@ class GradeSchool {
   }
 
   studentsInGrade(grade: number): string[] {
-    console.log(grade)
-
-    return []
+    return (this.studentRoster().get(grade.toString()) || []).sort()
   }
 }
 

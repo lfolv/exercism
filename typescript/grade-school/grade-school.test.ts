@@ -35,7 +35,7 @@ describe('School', () => {
     expect(gradeSchool.studentRoster()).toEqual(expectedDb)
   })
 
-  xit('grade returns the students in that grade in alphabetical order', () => {
+  it('grade returns the students in that grade in alphabetical order', () => {
     gradeSchool.addStudent('Franklin', 5)
     gradeSchool.addStudent('Bradley', 5)
     gradeSchool.addStudent('Jeff', 1)
@@ -44,7 +44,7 @@ describe('School', () => {
     expect(gradeSchool.studentsInGrade(5)).toEqual(expectedStudents)
   })
 
-  xit('grade returns an empty array if there are no students in that grade', () => {
+  it('grade returns an empty array if there are no students in that grade', () => {
     expect(gradeSchool.studentsInGrade(1)).toEqual([])
   })
 
