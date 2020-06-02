@@ -11,14 +11,14 @@ describe('School', () => {
     expect(gradeSchool.studentRoster().size === 0).toEqual(true)
   })
 
-  xit('adding a student adds them to the roster for the given grade', () => {
+  it('adding a student adds them to the roster for the given grade', () => {
     gradeSchool.addStudent('Aimee', 2)
 
     const expectedDb = new Map(Object.entries({ 2: ['Aimee'] }))
     expect(gradeSchool.studentRoster()).toEqual(expectedDb)
   })
 
-  xit('adding more students to the same grade adds them to the roster', () => {
+  it('adding more students to the same grade adds them to the roster', () => {
     gradeSchool.addStudent('Blair', 2)
     gradeSchool.addStudent('James', 2)
     gradeSchool.addStudent('Paul', 2)
@@ -27,7 +27,7 @@ describe('School', () => {
     expect(gradeSchool.studentRoster()).toEqual(expectedDb)
   })
 
-  xit('adding students to different grades adds them to the roster', () => {
+  it('adding students to different grades adds them to the roster', () => {
     gradeSchool.addStudent('Chelsea', 3)
     gradeSchool.addStudent('Logan', 7)
 
