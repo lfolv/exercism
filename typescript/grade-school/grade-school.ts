@@ -1,29 +1,30 @@
 class GradeSchool {
-  private studends: Map<string, number>
+  private students: Map<string, number>
 
   constructor() {
-    this.studends = new Map()
+    this.students = new Map()
   }
 
   studentRoster() {
     const result = new Map<string, string[]>()
 
-    for (const [name, grade] of this.studends) {
+    for (const [name, grade] of this.students) {
       const key = grade.toString()
       const current = result.get(key) || []
+      const names = [...current, name].sort()
 
-      result.set(key, [...current, name])
+      result.set(key, names)
     }
 
     return result
   }
 
   addStudent(name: string, grade: number) {
-    this.studends.set(name, grade)
+    this.students.set(name, grade)
   }
 
-  studentsInGrade(grade: number): string[] {
-    return (this.studentRoster().get(grade.toString()) || []).sort()
+  studentsInGrade(grade: number) {
+    return this.studentRoster().get(grade.toString()) || []
   }
 }
 
