@@ -62,7 +62,7 @@ describe('School', () => {
     expect(gradeSchool.studentRoster()).toEqual(expectedSortedStudents)
   })
 
- it('roster cannot be modified outside of module', () => {
+  it('roster cannot be modified outside of module', () => {
     gradeSchool.addStudent('Aimee', 2)
     const roster = gradeSchool.studentRoster()
     const result = roster.get('2') || []
