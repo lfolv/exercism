@@ -1,9 +1,5 @@
 class GradeSchool {
-  private students: Map<string, number>
-
-  constructor() {
-    this.students = new Map()
-  }
+  private students: Map<string, number> = new Map()
 
   studentRoster() {
     const result = new Map<string, string[]>()
