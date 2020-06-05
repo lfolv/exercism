@@ -2,7 +2,13 @@ class Clock {
   private time: number;
 
   constructor(hour: number = 0, minutes: number = 0) {
-    this.time = hour * 60 + minutes;
+    let time = hour * 60 + minutes;
+
+    while (time < 0) {
+      time += 1440;
+    }
+
+    this.time = time;
   }
 
   static format(time: number) {
