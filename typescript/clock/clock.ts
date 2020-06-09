@@ -8,7 +8,7 @@ class Clock {
       time += 1440;
     }
 
-    this.time = time;
+    this.time = time % 1440;
   }
 
   static format(time: number) {
