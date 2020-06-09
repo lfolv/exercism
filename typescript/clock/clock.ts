@@ -4,11 +4,7 @@ class Clock {
   constructor(hour: number = 0, minutes: number = 0) {
     let time = hour * 60 + minutes;
 
-    while (time < 0) {
-      time += 1440;
-    }
-
-    this.time = time % 1440;
+    this.time = ((time % 1440) + 1440) % 1440;
   }
 
   static format(time: number) {
@@ -35,18 +31,11 @@ class Clock {
   }
 
   plus(minutes: number) {
-    this.time += minutes;
-    return this;
+    return new Clock(0, this.time + minutes);
   }
 
   minus(minutes: number) {
-    this.time -= minutes;
-
-    while (this.time < 0) {
-      this.time += 1440;
-    }
-
-    return this;
+    return new Clock(0, this.time - minutes);
   }
 
   equals(other: Clock) {
