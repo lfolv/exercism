@@ -1,10 +1,14 @@
+const MINUTES_IN_A_HOUR = 60;
+const MINUTES_IN_A_DAY = 1440;
+
 class Clock {
   private time: number;
 
   constructor(hour: number = 0, minutes: number = 0) {
-    let time = hour * 60 + minutes;
+    let time = hour * MINUTES_IN_A_HOUR + minutes;
 
-    this.time = ((time % 1440) + 1440) % 1440;
+    this.time =
+      ((time % MINUTES_IN_A_DAY) + MINUTES_IN_A_DAY) % MINUTES_IN_A_DAY;
   }
 
   static format(time: number) {
