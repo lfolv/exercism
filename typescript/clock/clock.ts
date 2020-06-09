@@ -40,13 +40,17 @@ class Clock {
   }
 
   minus(minutes: number) {
-    console.log(minutes);
+    this.time -= minutes;
+
+    while (this.time < 0) {
+      this.time += 1440;
+    }
+
     return this;
   }
 
   equals(other: Clock) {
-    console.log(other);
-    return true;
+    return this.time === other.time;
   }
 }
 
