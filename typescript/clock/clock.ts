@@ -35,7 +35,7 @@ class Clock {
   }
 
   plus(minutes: number) {
-    console.log(minutes);
+    this.time += minutes;
     return this;
   }
 
