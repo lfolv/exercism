@@ -2,7 +2,7 @@ module Atbash
   def self.encode(message)
     result = ""
 
-    message.downcase.each_char do |chr|
+    message.gsub(/\s/, '').downcase.each_char do |chr|
       result << ('a'.ord + 'z'.ord - chr.ord).chr
     end
 
