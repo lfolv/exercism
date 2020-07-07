@@ -1,25 +1,14 @@
-class String
-  def remove_no_word_characters
-    self.gsub(/[\s,.]/, '')
-  end
+module Atbash
+  ALPHABET = [*'a'..'z']
+  MAP = ALPHABET.zip(ALPHABET.reverse).to_h
 
-  def split_in_groups_of(length)
-    self
-      .each_char
+  def self.encode(plaintext)
+    plaintext
+      .downcase
+      .scan(/[a-z0-9]/)
+      .map { |chr| MAP.has_key?(chr) ? MAP[chr] : chr }
       .each_slice(5)
       .map { |chrs| chrs.join('') }
-  end
-end
-
-module Atbash
-  LENGTH = 5
-
-  def self.encode(message)
-    message
-      .downcase
-      .remove_no_word_characters
-      .gsub(/[a-z]/) { |chr| ('a'.ord + 'z'.ord - chr.ord).chr }
-      .split_in_groups_of(LENGTH)
       .join(' ')
   end
 end
