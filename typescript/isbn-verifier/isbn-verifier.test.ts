@@ -9,7 +9,7 @@ describe("ISBN Verifier", () => {
     expect(new ISBN("3-598-21508-9").isValid()).toBeFalsy()
   })
 
-  xit("valid isbn number with a check digit of 10", () => {
+  it("valid isbn number with a check digit of 10", () => {
     expect(new ISBN("3-598-21507-X").isValid()).toBeTruthy()
   })
 
