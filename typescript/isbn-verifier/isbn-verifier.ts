@@ -10,6 +10,10 @@ export default class ISBN {
       return false
     }
 
+    return this.sum() % 11 === 0
+  }
+
+  sum() {
     let sum = 0
 
     for (let i = 0; i < 9; i++) {
@@ -22,6 +26,6 @@ export default class ISBN {
       sum += Number(this.identification[9])
     }
 
-    return sum % 11 === 0
+    return sum
   }
 }
