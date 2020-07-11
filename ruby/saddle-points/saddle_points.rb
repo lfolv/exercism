@@ -3,10 +3,14 @@ class Matrix
     @matrix = matrix
   end
 
+  def self.parse(line)
+    line.split(' ').map(&:to_i)
+  end
+
   def rows
     matrix
       .split("\n")
-      .map { |line| line.split(' ').map(&:to_i) }
+      .map { |line| Matrix.parse(line) }
   end
 
   def columns
