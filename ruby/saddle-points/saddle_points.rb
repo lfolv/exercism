@@ -22,5 +22,6 @@ class Matrix
   end
 
   private
+
   attr_reader :matrix
 end
