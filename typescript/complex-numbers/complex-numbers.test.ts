@@ -85,33 +85,33 @@ describe("Complex numbers", () => {
     expect(actual).toEqual(expected)
   })
 
-  // xit("Multiply purely real numbers", () => {
-  //   const expected = new ComplexNumber(2, 0)
-  //   const actual = new ComplexNumber(1, 0).mul(new ComplexNumber(2, 0))
+  it("Multiply purely real numbers", () => {
+    const expected = new ComplexNumber(2, 0)
+    const actual = new ComplexNumber(1, 0).mul(new ComplexNumber(2, 0))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Multiply imaginary unit", () => {
-  //   const expected = new ComplexNumber(-1, 0)
-  //   const actual = new ComplexNumber(0, 1).mul(new ComplexNumber(0, 1))
+  it("Multiply imaginary unit", () => {
+    const expected = new ComplexNumber(-1, 0)
+    const actual = new ComplexNumber(0, 1).mul(new ComplexNumber(0, 1))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Multiply purely imaginary numbers", () => {
-  //   const expected = new ComplexNumber(-2, 0)
-  //   const actual = new ComplexNumber(0, 1).mul(new ComplexNumber(0, 2))
+  it("Multiply purely imaginary numbers", () => {
+    const expected = new ComplexNumber(-2, 0)
+    const actual = new ComplexNumber(0, 1).mul(new ComplexNumber(0, 2))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Multiply numbers with real and imaginary part", () => {
-  //   const expected = new ComplexNumber(-5, 10)
-  //   const actual = new ComplexNumber(1, 2).mul(new ComplexNumber(3, 4))
+  it("Multiply numbers with real and imaginary part", () => {
+    const expected = new ComplexNumber(-5, 10)
+    const actual = new ComplexNumber(1, 2).mul(new ComplexNumber(3, 4))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
   // xit("Divide purely real numbers", () => {
   //   const expected = new ComplexNumber(0.5, 0)

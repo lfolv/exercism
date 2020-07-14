@@ -14,6 +14,13 @@ class ComplexNumber {
 
     return new ComplexNumber(real, imag)
   }
+
+  mul(other: ComplexNumber) {
+    const real = this.real * other.real - this.imag * other.imag
+    const imag = this.imag * other.real + this.real * other.imag
+
+    return new ComplexNumber(real, imag)
+  }
 }
 
 export default ComplexNumber
