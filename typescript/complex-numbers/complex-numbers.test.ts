@@ -50,19 +50,19 @@ describe("Complex numbers", () => {
     expect(actual).toEqual(expected)
   })
 
-  // xit("Add purely imaginary numbers", () => {
-  //   const expected = new ComplexNumber(0, 3)
-  //   const actual = new ComplexNumber(0, 1).add(new ComplexNumber(0, 2))
+  it("Add purely imaginary numbers", () => {
+    const expected = new ComplexNumber(0, 3)
+    const actual = new ComplexNumber(0, 1).add(new ComplexNumber(0, 2))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Add numbers with real and imaginary part", () => {
-  //   const expected = new ComplexNumber(4, 6)
-  //   const actual = new ComplexNumber(1, 2).add(new ComplexNumber(3, 4))
+  it("Add numbers with real and imaginary part", () => {
+    const expected = new ComplexNumber(4, 6)
+    const actual = new ComplexNumber(1, 2).add(new ComplexNumber(3, 4))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
   // xit("Subtract purely real numbers", () => {
   //   const expected = new ComplexNumber(-1, 0)
