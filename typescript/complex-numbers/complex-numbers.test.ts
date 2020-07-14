@@ -64,12 +64,12 @@ describe("Complex numbers", () => {
     expect(actual).toEqual(expected)
   })
 
-  // xit("Subtract purely real numbers", () => {
-  //   const expected = new ComplexNumber(-1, 0)
-  //   const actual = new ComplexNumber(1, 0).sub(new ComplexNumber(2, 0))
+  it("Subtract purely real numbers", () => {
+    const expected = new ComplexNumber(-1, 0)
+    const actual = new ComplexNumber(1, 0).sub(new ComplexNumber(2, 0))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
   // xit("Subtract purely imaginary numbers", () => {
   //   const expected = new ComplexNumber(0, -1)
