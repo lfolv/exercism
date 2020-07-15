@@ -113,26 +113,26 @@ describe("Complex numbers", () => {
     expect(actual).toEqual(expected)
   })
 
-  // xit("Divide purely real numbers", () => {
-  //   const expected = new ComplexNumber(0.5, 0)
-  //   const actual = new ComplexNumber(1, 0).div(new ComplexNumber(2, 0))
+  it("Divide purely real numbers", () => {
+    const expected = new ComplexNumber(0.5, 0)
+    const actual = new ComplexNumber(1, 0).div(new ComplexNumber(2, 0))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Divide purely imaginary numbers", () => {
-  //   const expected = new ComplexNumber(0.5, 0)
-  //   const actual = new ComplexNumber(0, 1).div(new ComplexNumber(0, 2))
+  it("Divide purely imaginary numbers", () => {
+    const expected = new ComplexNumber(0.5, 0)
+    const actual = new ComplexNumber(0, 1).div(new ComplexNumber(0, 2))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Divide numbers with real and imaginary part", () => {
-  //   const expected = new ComplexNumber(0.44, 0.08)
-  //   const actual = new ComplexNumber(1, 2).div(new ComplexNumber(3, 4))
+  it("Divide numbers with real and imaginary part", () => {
+    const expected = new ComplexNumber(0.44, 0.08)
+    const actual = new ComplexNumber(1, 2).div(new ComplexNumber(3, 4))
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
   // xit("Absolute value of a positive purely real number", () => {
   //   const expected = 5
