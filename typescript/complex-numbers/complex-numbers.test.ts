@@ -134,26 +134,26 @@ describe("Complex numbers", () => {
     expect(actual).toEqual(expected)
   })
 
-  // xit("Absolute value of a positive purely real number", () => {
-  //   const expected = 5
-  //   const actual = new ComplexNumber(5, 0).abs
+  it("Absolute value of a positive purely real number", () => {
+    const expected = 5
+    const actual = new ComplexNumber(5, 0).abs
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Absolute value of a negative purely real number", () => {
-  //   const expected = 5
-  //   const actual = new ComplexNumber(-5, 0).abs
+  it("Absolute value of a negative purely real number", () => {
+    const expected = 5
+    const actual = new ComplexNumber(-5, 0).abs
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Absolute value of a purely imaginary number with positive imaginary part", () => {
-  //   const expected = 5
-  //   const actual = new ComplexNumber(0, 5).abs
+  it("Absolute value of a purely imaginary number with positive imaginary part", () => {
+    const expected = 5
+    const actual = new ComplexNumber(0, 5).abs
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
   // xit("Absolute value of a purely imaginary number with negative imaginary part", () => {
   //   const expected = 5
