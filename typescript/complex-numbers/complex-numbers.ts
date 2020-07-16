@@ -39,6 +39,13 @@ class ComplexNumber {
 
     return new ComplexNumber(this.real, imag)
   }
+
+  get exp() {
+    const real = Math.exp(this.real) * Math.cos(this.imag)
+    const imag = Math.exp(this.real) * Math.sin(this.imag)
+
+    return new ComplexNumber(real, imag)
+  }
 }
 
 export default ComplexNumber

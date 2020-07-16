@@ -190,27 +190,27 @@ describe("Complex numbers", () => {
     expect(actual).toEqual(expected)
   })
 
-  // xit("Euler's identity/formula", () => {
-  //   const expected = new ComplexNumber(-1, 0)
-  //   const actual = new ComplexNumber(0, Math.PI).exp
+  it("Euler's identity/formula", () => {
+    const expected = new ComplexNumber(-1, 0)
+    const actual = new ComplexNumber(0, Math.PI).exp
 
-  //   expect(actual.real).toBeCloseTo(expected.real)
-  //   expect(actual.imag).toBeCloseTo(expected.imag)
-  // })
+    expect(actual.real).toBeCloseTo(expected.real)
+    expect(actual.imag).toBeCloseTo(expected.imag)
+  })
 
-  // xit("Exponential of 0", () => {
-  //   const expected = new ComplexNumber(1, 0)
-  //   const actual = new ComplexNumber(0, 0).exp
+  it("Exponential of 0", () => {
+    const expected = new ComplexNumber(1, 0)
+    const actual = new ComplexNumber(0, 0).exp
 
-  //   expect(actual.real).toBeCloseTo(expected.real)
-  //   expect(actual.imag).toBeCloseTo(expected.imag)
-  // })
+    expect(actual.real).toBeCloseTo(expected.real)
+    expect(actual.imag).toBeCloseTo(expected.imag)
+  })
 
-  // xit("Exponential of a purely real number", () => {
-  //   const expected = new ComplexNumber(Math.E, 0)
-  //   const actual = new ComplexNumber(1, 0).exp
+  it("Exponential of a purely real number", () => {
+    const expected = new ComplexNumber(Math.E, 0)
+    const actual = new ComplexNumber(1, 0).exp
 
-  //   expect(actual.real).toBeCloseTo(expected.real)
-  //   expect(actual.imag).toBeCloseTo(expected.imag)
-  // })
+    expect(actual.real).toBeCloseTo(expected.real)
+    expect(actual.imag).toBeCloseTo(expected.imag)
+  })
 })
