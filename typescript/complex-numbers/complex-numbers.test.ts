@@ -169,26 +169,26 @@ describe("Complex numbers", () => {
     expect(actual).toEqual(expected)
   })
 
-  // xit("Conjugate a purely real number", () => {
-  //   const expected = new ComplexNumber(5, 0)
-  //   const actual = new ComplexNumber(5, 0).conj
+  it("Conjugate a purely real number", () => {
+    const expected = new ComplexNumber(5, 0)
+    const actual = new ComplexNumber(5, 0).conj
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Conjugate a purely imaginary number", () => {
-  //   const expected = new ComplexNumber(0, -5)
-  //   const actual = new ComplexNumber(0, 5).conj
+  it("Conjugate a purely imaginary number", () => {
+    const expected = new ComplexNumber(0, -5)
+    const actual = new ComplexNumber(0, 5).conj
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
-  // xit("Conjugate a number with real and imaginary part", () => {
-  //   const expected = new ComplexNumber(1, -1)
-  //   const actual = new ComplexNumber(1, 1).conj
+  it("Conjugate a number with real and imaginary part", () => {
+    const expected = new ComplexNumber(1, -1)
+    const actual = new ComplexNumber(1, 1).conj
 
-  //   expect(actual).toEqual(expected)
-  // })
+    expect(actual).toEqual(expected)
+  })
 
   // xit("Euler's identity/formula", () => {
   //   const expected = new ComplexNumber(-1, 0)

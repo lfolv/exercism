@@ -33,6 +33,12 @@ class ComplexNumber {
   get abs() {
     return Math.sqrt(this.real ** 2 + this.imag ** 2)
   }
+
+  get conj() {
+    const imag = this.imag === 0 ? 0 : this.imag * -1
+
+    return new ComplexNumber(this.real, imag)
+  }
 }
 
 export default ComplexNumber
