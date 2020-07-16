@@ -29,6 +29,10 @@ class ComplexNumber {
 
     return new ComplexNumber(real, imag)
   }
+
+  get abs() {
+    return Math.sqrt(this.real ** 2 + this.imag ** 2)
+  }
 }
 
 export default ComplexNumber
